@@ -1,0 +1,56 @@
+// Cash Shop Database
+// Contains the items sold in the ingame cash shop.
+//
+// Structure of Database:
+// Type,ItemID,Price
+//
+// Type:
+//    0: New
+//    1: Hot
+//    2: Limited
+//    3: Rental
+//    4: Gear
+//    5: Buff
+//    6: Heal
+//    7: Other
+//    8: Sale
+//
+// Price:
+//    Item cost, in cash points (#CASHPOINTS).
+// tickets vip
+//0,35000,15000
+//0,35001,25000
+//0,35002,50000
+//0,35003,75000
+//0,35004,100000
+
+//1,12259,10000//Medicina Milagrosa
+//4,2573,5000//Archangel_Wing
+//4,2589,7000//Fallen Angel Wing
+4,2576,7000//Adventurer's Backpack
+
+1,12900,3000//Battle Manual Box[10]
+1,12902,3000//Bubble Gum Box[10]
+1,12901,3000//seguro de vida[10]
+1,12902,3000//Bubble Gum Box 10
+1,12903,3000//Str_Dish_Box 10
+1,12904,3000//Agi_Dish_Box 10
+1,12905,3000//Int_Dish_Box 10
+1,12906,3000//Dex_Dish_Box 10
+1,12907,3000//Luk_Dish_Box 10
+1,12908,3000//Vit_Dish_Box 10
+//1,12909,5000//Kafra_Card_Box 10
+1,12919,5000//Megaphone Box 10
+1,12922,2000//Token of Siegfried Box 10
+
+5,13718,3000//Abrasive 10 Box
+5,12375,500//Acaraje
+
+4,2829,5000//Presilha da Ganância
+
+//visuais abril 2019
+0,20761,5500//Asas de Alfheim
+0,20507,6300//mochila de poring
+0,19649,5900//Orelhas Brancas de Gatinho
+0,19507,2400//sol risonho
+0,19661,3100//cartola adocicada

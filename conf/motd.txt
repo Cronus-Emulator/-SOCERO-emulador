@@ -1,0 +1,5 @@
+// Internal default is limited to 128 lines.  If you need more, you will need to modify the MOTD_LINE_SIZE definition in pc.cpp
+Welcome to rAthena! Enjoy! Please report any bugs you find.
+Servidor oficial Cronus-Emulator, rAthena based
+3rd 100x/100x/50x
+Fórum oficial:  https://forum.cronus-emulator.com/
