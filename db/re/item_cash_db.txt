@@ -27,7 +27,7 @@
 //1,12259,10000//Medicina Milagrosa
 //4,2573,5000//Archangel_Wing
 //4,2589,7000//Fallen Angel Wing
-4,2576,7000//Adventurer's Backpack
+//4,2576,7000//Adventurer's Backpack
 
 1,12900,3000//Battle Manual Box[10]
 1,12902,3000//Bubble Gum Box[10]

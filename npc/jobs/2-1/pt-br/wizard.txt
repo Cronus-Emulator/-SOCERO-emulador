@@ -29,128 +29,129 @@
 //= 3.3 Fixed waitingroom bug. [Euphy]
 //============================================================ 
 // traduzido pt-br por Weed0 para SOCERO
+// Revisado e consertado bug do waitingroom [HD Scripts] 08/04/2019
 
-gef_tower,111,37,4	script	Assistente de mago	70,{
+gef_tower,111,37,4	script	Assistente de Mago	70,{
 	if (Upper == 1) {
 		mes "[Catherine]";
-		mes "? Com licença, acho que nós nos encontramos antes, não...?";
-		mes "Ei~ você mudou muito! Então, o que aconteceu?";
+		mes "? Com licen?a, acho que n?s nos encontramos antes, n?o...?";
+		mes "Ei~ voc? mudou muito! Ent?o, o que aconteceu?";
 		next;
 		mes "[Catherine]";
-		mes "Eu sinto que você está mais poderoso, hein?";
-		mes "Parabéns e boa sorte com sua vida!";
+		mes "Eu sinto que voc? est? mais poderoso, hein?";
+		mes "Parab?ns e boa sorte com sua vida!";
 		close;
 	}
 	if (BaseJob != Job_Mage) {
 		if (BaseJob == Job_Wizard) {
 			mes "[Catherine]";
-			mes "Desde que você se tornou um Bruxo, você não tem mais negócios comigo, tem...?";
-			mes "Agora, com licença.";
+			mes "Desde que voc? se tornou um Bruxo, voc? n?o tem mais neg?cios comigo, tem...?";
+			mes "Agora, com licen?a.";
 			next;
 			mes "[Catherine]";
-			mes ""+((Sex)?"Bem, se você pretende me convidar para sair... eu iria gostar... hohoho...":"Bem, se você me apresentar-se um cara bonito... eu iria gostar... hohoho!")+"";
+			mes ""+((Sex)?"Bem, se voc? pretende me convidar para sair... eu iria gostar... hohoho...":"Bem, se voc? me apresentar-se um cara bonito... eu iria gostar... hohoho!")+"";
 			close;
 		} else if (BaseClass == Job_Novice) {
 			mes "[Bruxa]";
-			mes "Oh meu Deus, é um aprendiz~, você não é coisa mais bonita desse mundo?";
-			mes "A propósito querido, esse lugar é para Bruxos.";
+			mes "Oh meu Deus, ? um aprendiz~, voc? n?o ? coisa mais bonita desse mundo?";
+			mes "A prop?sito querido, esse lugar ? para Bruxos.";
 			next;
 			mes "[Bruxa]";
-			mes "Se você estiver interessado em magia,";
-			mes "vá visitar a Guilda dos ^0000FFMagos^000000.";
+			mes "Se voc? estiver interessado em magia,";
+			mes "v? visitar a Guilda dos ^0000FFMagos^000000.";
 		} else {
 			mes "[Bruxa]";
-			mes "Hã? O que traz você a um lugar como esse...?";
-			mes "Se não tiver nenhum assunto específico, saia imediatamente.";
-			mes "Esse lugar é para Bruxos, sabe?";
+			mes "H?? O que traz voc? a um lugar como esse...?";
+			mes "Se n?o tiver nenhum assunto espec?fico, saia imediatamente.";
+			mes "Esse lugar ? para Bruxos, sabe?";
 		}
 		next;
 		mes "[Bruxa]";
-		mes "Ok, então. Passar bem.";
+		mes "Ok, ent?o. Passar bem.";
 		close;
 	}
 	if (WIZ_Q == 0) {
 		mes "[Bruxa]";
-		mes "Hã? O que você faz aqui em cima...?";
-		mes "O que trouxe você aqui?";
+		mes "H?? O que voc? faz aqui em cima...?";
+		mes "O que trouxe voc? aqui?";
 		next;
 		if (select("Eu quero me tornar um Bruxo.:...nada.") == 1) {
 			mes "[Bruxa]";
-			mes "Humm... Bem, é claro que você quer se tornar um Bruxo, senão você não subiria todas aquelas escadas certo?";
-			mes "Em todo caso, eu devo lhe dar as boas-vindas. Eu vou ajudar você a se tornar um Bruxo.";
+			mes "Humm... Bem, ? claro que voc? quer se tornar um Bruxo, sen?o voc? n?o subiria todas aquelas escadas certo?";
+			mes "Em todo caso, eu devo lhe dar as boas-vindas. Eu vou ajudar voc? a se tornar um Bruxo.";
 			next;
 			mes "[Bruxa]";
-			mes "Meu nome é Catherine Medici. Apenas entre eu e você, eu acabei de me tornar uma Bruxa também!";
-			mes "Você pode me chamar de Cathy se quiser. Hehehehehe~";
+			mes "Meu nome ? Catherine Medici. Apenas entre eu e voc?, eu acabei de me tornar uma Bruxa tamb?m!";
+			mes "Voc? pode me chamar de Cathy se quiser. Hehehehehe~";
 			next;
 			mes "[Catherine]";
-			mes "Muitas pessoas querem se tornar Bruxos, mas apenas as fortes e as pacientes vão alcançar seus objetivos.";
-			mes "Para se tornar um Bruxo, deve-se passar por tarefas difíceis.";
+			mes "Muitas pessoas querem se tornar Bruxos, mas apenas as fortes e as pacientes v?o alcan?ar seus objetivos.";
+			mes "Para se tornar um Bruxo, deve-se passar por tarefas dif?ceis.";
 			next;
 			mes "[Catherine]";
-			mes "Também, apenas Magos que alcançaram o nível de classe 40 ou mais estão classificados para essas tarefas.";
-			mes "Magos de nível mais baixo que esse não têm experiência suficiente com magia para se tornarem Bruxos...";
+			mes "Tamb?m, apenas Magos que alcan?aram o n?vel de classe 40 ou mais est?o classificados para essas tarefas.";
+			mes "Magos de n?vel mais baixo que esse n?o t?m experi?ncia suficiente com magia para se tornarem Bruxos...";
 			next;
 			mes "[Catherine]";
-			mes "Bom, eu vou dar mais informações quando você se inscrever no teste.";
-			mes "Então... você quer se inscrever agora?";
+			mes "Bom, eu vou dar mais informa??es quando voc? se inscrever no teste.";
+			mes "Ent?o... voc? quer se inscrever agora?";
 			next;
 			if (select("Sim, claro.:Deixe-me pensar mais sobre isso.") == 1) {
 				mes "[Catherine]";
 				if (JobLevel < 40) {
-					mes "Ei ei, você não estava me ouvindo?";
-					mes "Eu falei que você precisa ser ao menos nível 40 de classe para se inscrever...";
+					mes "Ei ei, voc? n?o estava me ouvindo?";
+					mes "Eu falei que voc? precisa ser ao menos n?vel 40 de classe para se inscrever...";
 					next;
 					mes "[Catherine]";
-					mes "Não precisa se apressar, vá refletir e conhecer mais sobre o Mundo da Magia.";
-					mes "Quando você estiver qualificado, eu vou aceitar sua inscrição.";
+					mes "N?o precisa se apressar, v? refletir e conhecer mais sobre o Mundo da Magia.";
+					mes "Quando voc? estiver qualificado, eu vou aceitar sua inscri??o.";
 					close;
 				}
 				if (SkillPoint) {
-					mes "Umm... você está bem qualificado, mas você tem alguns pontos de habilidade sobrando.";
-					mes "Você deve aprender mais habilidades antes de se inscrever de novo.";
+					mes "Umm... voc? est? bem qualificado, mas voc? tem alguns pontos de habilidade sobrando.";
+					mes "Voc? deve aprender mais habilidades antes de se inscrever de novo.";
 					close;
 				}
-				mes "Muito bem então, eu aceito sua inscrição.";
-				mes "Seu nome é..."+strcharinfo(0)+", certo? Não estou certa, pronunciei corretamente?";
+				mes "Muito bem ent?o, eu aceito sua inscri??o.";
+				mes "Seu nome ?..."+strcharinfo(0)+", certo? N?o estou certa, pronunciei corretamente?";
 				next;
 				mes "[Catherine]";
-				mes "Para se tornar um Bruxo você deve cumprir 3 testes.";
-				mes "1º teste, coletar itens mágicos.";
-				mes "2º teste, teste escrito..";
-				mes "O último é um teste prático de magia.";
+				mes "Para se tornar um Bruxo voc? deve cumprir 3 testes.";
+				mes "1? teste, coletar itens m?gicos.";
+				mes "2? teste, teste escrito..";
+				mes "O ?ltimo ? um teste pr?tico de magia.";
 				next;
 				mes "[Catherine]";
-				mes "Nós dispensamos aqueles que são Nível de classe 50, em um dos três testes.";
-				mes "Se o Mago aprendeu isso tudo, isso é o bastante para nos provar o esforço que vai fazer para se tornar um Bruxo.";
+				mes "N?s dispensamos aqueles que s?o N?vel de classe 50, em um dos tr?s testes.";
+				mes "Se o Mago aprendeu isso tudo, isso ? o bastante para nos provar o esfor?o que vai fazer para se tornar um Bruxo.";
 				next;
 				if (JobLevel == 50) {
 					mes "[Catherine]";
-					mes "Hmm, deixe-me ver, você está no nível de classe 50!?";
-					mes "Você deve ter se esforçado muito. Você vai se tornar um Bruxo muito poderoso, eu posso sentir isso em você.";
+					mes "Hmm, deixe-me ver, voc? est? no n?vel de classe 50!?";
+					mes "Voc? deve ter se esfor?ado muito. Voc? vai se tornar um Bruxo muito poderoso, eu posso sentir isso em voc?.";
 					next;
 					mes "[Catherine]";
-					mes "Ok. Você já passou o 1º teste então.";
-					mes "Não fique muito relaxado, ainda restam 2 testes.";
+					mes "Ok. Voc? j? passou o 1? teste ent?o.";
+					mes "N?o fique muito relaxado, ainda restam 2 testes.";
 					next;
 					mes "[Catherine]";
-					mes "Vá falar com o homem no canto dessa sala e ele lhe dará os testes restantes.";
-					mes "Tenha cuidado. Nós perdemos muitos Magos devido a dificuldade dos exames.";
+					mes "V? falar com o homem no canto dessa sala e ele lhe dar? os testes restantes.";
+					mes "Tenha cuidado. N?s perdemos muitos Magos devido a dificuldade dos exames.";
 					WIZ_Q = 3;
 					setquest 9015;
 					close;
 				}
 				mes "[Catherine]";
-				mes "Então, desde que eu tenha tudo que eu preciso, eu vou lhe dar mais informações sobre o primeiro teste.";
-				mes "Você pode memorizar ou escrever se quiser, não importa. Mas você deve se lembrar, com certeza.";
+				mes "Ent?o, desde que eu tenha tudo que eu preciso, eu vou lhe dar mais informa??es sobre o primeiro teste.";
+				mes "Voc? pode memorizar ou escrever se quiser, n?o importa. Mas voc? deve se lembrar, com certeza.";
 				next;
 				mes "[Catherine]";
-				mes "O primeiro teste é coletar itens mágicos.";
-				mes "A parte mais importante é que você deve consegui-los sozinho.";
+				mes "O primeiro teste ? coletar itens m?gicos.";
+				mes "A parte mais importante ? que voc? deve consegui-los sozinho.";
 				next;
 				set wizard_m1,rand(1,2);
 				mes "[Catherine]";
-				mes "Os itens que você deve coletar são..";
+				mes "Os itens que voc? deve coletar s?o..";
 				if (rand(2)) {
 					WIZ_Q = 1;
 					setquest 9013;
@@ -165,7 +166,7 @@ gef_tower,111,37,4	script	Assistente de mago	70,{
 					mes "5 exemplares de ^3355FFSangue Escarlate^000000,";
 					mes "5 exemplares de ^3355FFFrescor do Vento^000000,";
 				}
-				mes "...é difícil? Não, qualquer um que queira se tornar um Bruxo deve ser capaz de coletar esses itens.";
+				mes "...? dif?cil? N?o, qualquer um que queira se tornar um Bruxo deve ser capaz de coletar esses itens.";
 				next;
 				mes "[Catherine]";
 				mes "Bom, boa sorte.";
@@ -173,23 +174,23 @@ gef_tower,111,37,4	script	Assistente de mago	70,{
 				close;
 			}
 			mes "[Catherine]";
-			mes "Oh, ok então, não tenha pressa.";
-			mes "Já que eu sempre estou aqui, aceitando inscrições...*suspiro*! ~Hehehehe.";
+			mes "Oh, ok ent?o, n?o tenha pressa.";
+			mes "J? que eu sempre estou aqui, aceitando inscri??es...*suspiro*! ~Hehehehe.";
 			close;
 		}
 		mes "[Bruxa]";
 		mes "Nossa, que pessoa fracassada";
-		mes "Você não tem nenhum assunto para tratar aqui, agora saia daqui!";
+		mes "Voc? n?o tem nenhum assunto para tratar aqui, agora saia daqui!";
 		close;
 	} else if (WIZ_Q == 1) {
 		mes "[Catherine]";
-		mes "Deixe-me ver, você pegou todos os itens?";
+		mes "Deixe-me ver, voc? pegou todos os itens?";
 		mes "Vamos checar...";
 		next;
 		mes "[Catherine]";
 		if (countitem(716) > 9 && countitem(717) > 9 && countitem(715) > 9) {
-			mes "Perfeito! Você pegou todos os itens!~";
-			mes "Esses itens serão bem úteis para nossa guilda. ~Hehehee.";
+			mes "Perfeito! Voc? pegou todos os itens!~";
+			mes "Esses itens ser?o bem ?teis para nossa guilda. ~Hehehee.";
 			next;
 			delitem 716,10; //Gema Vermelha
 			delitem 717,10; //Gema Azul
@@ -197,35 +198,35 @@ gef_tower,111,37,4	script	Assistente de mago	70,{
 			WIZ_Q = 3;
 			changequest 9013,9015;
 			mes "[Catherine]";
-			mes "Muito bem! Você passou o primeiro teste.";
-			mes "Mas ainda restam 2 testes, então não fique tão relaxado.";
+			mes "Muito bem! Voc? passou o primeiro teste.";
+			mes "Mas ainda restam 2 testes, ent?o n?o fique t?o relaxado.";
 			next;
 			mes "[Catherine]";
-			mes "Vá falar com o homem no canto para saber sobre os outros testes..";
-			mes "Eles podem ser um pouco difíceis, então tome cuidado, eu não gostaria que você terminasse como a maioria dos Magos que vêm para esses exames... pobres almas na verdade, que descansem em paz. ~Hehehe.";
+			mes "V? falar com o homem no canto para saber sobre os outros testes..";
+			mes "Eles podem ser um pouco dif?ceis, ent?o tome cuidado, eu n?o gostaria que voc? terminasse como a maioria dos Magos que v?m para esses exames... pobres almas na verdade, que descansem em paz. ~Hehehe.";
 			close;
 		}
-		mes "Ei, eu acho que você não tem tudo ainda!";
+		mes "Ei, eu acho que voc? n?o tem tudo ainda!";
 		next;
 		mes "[Catherine]";
-		mes "Deve ter sido difícil vir até aqui em cima, mas volte e pegue todos os itens.";
-		mes "A vida é curta o suficiente, então para de perder tempo e consiga os itens que eu te pedi.";
+		mes "Deve ter sido dif?cil vir at? aqui em cima, mas volte e pegue todos os itens.";
+		mes "A vida ? curta o suficiente, ent?o para de perder tempo e consiga os itens que eu te pedi.";
 		next;
 		mes "[Catherine]";
 		mes "10 exemplares de ^3355FFGema Vermelha^000000,";
 		mes "10 exemplares de ^3355FFGema Azul^000000,";
 		mes "10 exemplares de ^3355FFGema Amarela^000000,";
-		mes "Não esqueça dessa vez, e traga todos os itens, ok?...";
+		mes "N?o esque?a dessa vez, e traga todos os itens, ok?...";
 		close;
 	} else if (WIZ_Q == 2) {
 		mes "[Catherine]";
-		mes "Você pegou todos os itens?";
-		mes "Vamos ver... você tem os itens corretos?...";
+		mes "Voc? pegou todos os itens?";
+		mes "Vamos ver... voc? tem os itens corretos?...";
 		next;
 		mes "[Catherine]";
 		if (countitem(991) > 4 && countitem(993) > 4 && countitem(990) > 4 && countitem(992) > 4) {
 			mes "Perfeito! Bom trabalho... Eu estou satisfeita! ~Hehe";
-			mes "Nossa Guilda aprecia com grandeza esses itens. Tenho certeza que eles serão usados sabiamente.";
+			mes "Nossa Guilda aprecia com grandeza esses itens. Tenho certeza que eles ser?o usados sabiamente.";
 			next;
 			delitem 991,5; //Cristal Azul
 			delitem 993,5; //Vida Verdejante
@@ -234,58 +235,58 @@ gef_tower,111,37,4	script	Assistente de mago	70,{
 			WIZ_Q = 3;
 			changequest 9014,9015;
 			mes "[Catherine]";
-			mes "Bom. Você passou o primeiro teste agora.";
-			mes "Mas você ainda tem mais dois testes restantes, então não relaxe, porque só fica mais difícil daqui para frente. ~Hehehe";
+			mes "Bom. Voc? passou o primeiro teste agora.";
+			mes "Mas voc? ainda tem mais dois testes restantes, ent?o n?o relaxe, porque s? fica mais dif?cil daqui para frente. ~Hehehe";
 			next;
 			mes "[Catherine]";
-			mes "Vá falar com o homem no canto para saber sobre os outros testes..";
-			mes "Eles podem ser um pouco difíceis, então tome cuidado, eu não gostaria que você terminasse como a maioria dos Magos que vêm para esses exames...pobres almas na verdade, que descansem em paz. ~Hehehe.";
+			mes "V? falar com o homem no canto para saber sobre os outros testes..";
+			mes "Eles podem ser um pouco dif?ceis, ent?o tome cuidado, eu n?o gostaria que voc? terminasse como a maioria dos Magos que v?m para esses exames...pobres almas na verdade, que descansem em paz. ~Hehehe.";
 			close;
 		}
-		mes "Er, o que é isso? Eu acho que você ainda não tem todos os itens?";
+		mes "Er, o que ? isso? Eu acho que voc? ainda n?o tem todos os itens?";
 		next;
 		mes "[Catherine]";
-		mes "Eu lamento que você tenha tido todo o trabalho de subir até aqui, mas vá pegar os itens corretos de novo.";
-		mes "Pare de perder tempo e vá pegar os itens que eu pedi. Pelo amor de Deus... essa é a parte mais fácil do exame.";
+		mes "Eu lamento que voc? tenha tido todo o trabalho de subir at? aqui, mas v? pegar os itens corretos de novo.";
+		mes "Pare de perder tempo e v? pegar os itens que eu pedi. Pelo amor de Deus... essa ? a parte mais f?cil do exame.";
 		next;
 		mes "[Catherine]";
 		mes "5 exemplares de ^3355FFCristal Azul^000000,";
 		mes "5 exemplares de ^3355FFVida Verdejante^000000,";
 		mes "5 exemplares de ^3355FFSangue Escarlate^000000,";
 		mes "5 exemplares de ^3355FFFrescor do Vento^000000,";
-		mes "Não esqueça dessa vez e pegue os certos, certo?...";
+		mes "N?o esque?a dessa vez e pegue os certos, certo?...";
 		close;
 	} else if (WIZ_Q == 3) {
 		mes "[Catherine]";
-		mes "O que foi? Você ainda não foi falar com o homem ali no canto?";
-		mes "Você não vai se tornar um Bruxo só trazendo os itens que eu pedi...";
+		mes "O que foi? Voc? ainda n?o foi falar com o homem ali no canto?";
+		mes "Voc? n?o vai se tornar um Bruxo s? trazendo os itens que eu pedi...";
 		next;
 		mes "[Catherine]";
-		mes "Você apenas pode se tornar um Bruxo depois que passar nos outros 2 testes.";
-		mes "Estou esperando, então vá.";
+		mes "Voc? apenas pode se tornar um Bruxo depois que passar nos outros 2 testes.";
+		mes "Estou esperando, ent?o v?.";
 		close;
 	} else if (WIZ_Q == 4) {
 		mes "[Catherine]";
 		mes "*Suspiro*...coitado, que pena.";
-		mes "Como você pensa em se tornar um Bruxo quando você nem mesmo consegue responder aquelas perguntas?";
+		mes "Como voc? pensa em se tornar um Bruxo quando voc? nem mesmo consegue responder aquelas perguntas?";
 		next;
 		mes "[Catherine]";
-		mes "Deixe-me ver... será que eu devo te dar algumas dicas?";
-		mes "Mas eu estou com sede, então me dê 1 Suco de Maçã, e nós temos um acordo. ~Hehehe";
+		mes "Deixe-me ver... ser? que eu devo te dar algumas dicas?";
+		mes "Mas eu estou com sede, ent?o me d? 1 Suco de Ma??, e n?s temos um acordo. ~Hehehe";
 		next;
-		if(select("Me dê algumas dicas, por favor.:Eu quero tentar sozinho!") ==2) {
+		if(select("Me d? algumas dicas, por favor.:Eu quero tentar sozinho!") ==2) {
 			mes "[Catherine]";
-			mes "Claro, você ganha mais satisfação quando você resolve as coisas por si mesmo.";
-			mes "Vá terminar o resto dos testes com esse espirito!";
+			mes "Claro, voc? ganha mais satisfa??o quando voc? resolve as coisas por si mesmo.";
+			mes "V? terminar o resto dos testes com esse espirito!";
 		}
 		if (countitem(531) > 0) {
-			delitem 531,1; //Suco de Maçã
+			delitem 531,1; //Suco de Ma??
 			mes "[Catherine]";
-			mes "Delicia! Suco de Maçã é o melhor...";
+			mes "Delicia! Suco de Ma?? ? o melhor...";
 			mes "Gulp gulp gulp... Haaaaaah... ~Hehe";
 			next;
 			mes "[Catherine]";
-			mes "Bem então, Eu vou te dar uma dica para o segundo teste.";
+			mes "Bem ent?o, Eu vou te dar uma dica para o segundo teste.";
 			next;
 			mes "[Catherine]";
 			mes "Ele faz 3 tipos de pergunta";
@@ -293,49 +294,49 @@ gef_tower,111,37,4	script	Assistente de mago	70,{
 			mes "e Magos.";
 			next;
 			mes "[Catherine]";
-			mes "A decisão é dele sobre quais perguntas fazer.";
+			mes "A decis?o ? dele sobre quais perguntas fazer.";
 			mes "*Suspiro*... Ele seria muito mais bonito se cortasse o cabelo e se barbeasse...";
-			mes "Ele sempre parece tão velho porque ele não cuida de si mesmo... *suspiro*... pena, ele poderia ser um galã. ~Hehehehe";
+			mes "Ele sempre parece t?o velho porque ele n?o cuida de si mesmo... *suspiro*... pena, ele poderia ser um gal?. ~Hehehehe";
 			next;
 			mes "[Catherine]";
 			mes "Hum, para as perguntas sobre magia...";
-			mes "Ele normalmente pergunta sobre magias que você aprendeu.";
+			mes "Ele normalmente pergunta sobre magias que voc? aprendeu.";
 			next;
 			mes "[Catherine]";
-			mes "Se existe algo que você não aprendeu ou experimentou, ou algo do tipo...";
-			mes "Eu ouvi falar que existe um lugar onde você pode encontrar.";
+			mes "Se existe algo que voc? n?o aprendeu ou experimentou, ou algo do tipo...";
+			mes "Eu ouvi falar que existe um lugar onde voc? pode encontrar.";
 			next;
 			mes "[Catherine]";
-			mes "Você apenas deve conjurar a magia, você sabe... aquela que parece um *e* grande e em negrito.";
-			mes "As palavras mágicas são...ragnarokonline.com.br ~Como eles falam!";
-			mes "Magia estranha, não? Eu não consigo fazer sozinha.";
+			mes "Voc? apenas deve conjurar a magia, voc? sabe... aquela que parece um *e* grande e em negrito.";
+			mes "As palavras m?gicas s?o...ragnarokonline.com.br ~Como eles falam!";
+			mes "Magia estranha, n?o? Eu n?o consigo fazer sozinha.";
 			next;
 			mes "[Catherine]";
 			mes "E sobre as perguntas de monstro.";
-			mes "Lutar com eles é o melhor caminho para aprender.";
+			mes "Lutar com eles ? o melhor caminho para aprender.";
 			next;
 			mes "[Catherine]";
-			mes "Mas você sabe que em Prontera, existe uma biblioteca enorme.";
-			mes "Você pode conseguir informações sobre a maioria dos monstros nessa biblioteca.";
-			mes "Estudar lá um pouco iria funcionar também.";
+			mes "Mas voc? sabe que em Prontera, existe uma biblioteca enorme.";
+			mes "Voc? pode conseguir informa??es sobre a maioria dos monstros nessa biblioteca.";
+			mes "Estudar l? um pouco iria funcionar tamb?m.";
 			next;
 			mes "[Catherine]";
-			mes "Por último, mas não menos importante, perguntas sobre Magos.";
-			mes "Isso é algo que a maioria dos outros não pode ensinar a você...";
-			mes "Porque você é um Mago.";
+			mes "Por ?ltimo, mas n?o menos importante, perguntas sobre Magos.";
+			mes "Isso ? algo que a maioria dos outros n?o pode ensinar a voc?...";
+			mes "Porque voc? ? um Mago.";
 			next;
 			mes "[Catherine]";
-			mes "É dificil saber dos outros quando você nem sequer conhece você mesmo, certo?";
-			mes "Então se ele lhe perguntar algumas dessas questões, pense cuidadosamente e então responda.";
+			mes "? dificil saber dos outros quando voc? nem sequer conhece voc? mesmo, certo?";
+			mes "Ent?o se ele lhe perguntar algumas dessas quest?es, pense cuidadosamente e ent?o responda.";
 		} else {
 			mes "[Catherine]";
-			mes "Como eu disse, eu vou te dar umas dicas se você me der 1 Suco de Maçã.";
-			mes "Se não... Bem, você pode pensar nisso sozinho. Ei eu não falo as regras aqui eu apenas sigo elas! ~tehehehe";
+			mes "Como eu disse, eu vou te dar umas dicas se voc? me der 1 Suco de Ma??.";
+			mes "Se n?o... Bem, voc? pode pensar nisso sozinho. Ei eu n?o falo as regras aqui eu apenas sigo elas! ~tehehehe";
 		}
 		next;
 		mes "[Catherine]";
-		mes "Bem então, vejo você! *cruza os dedos* não termine como os outros antes de você! Que Deus cuide das suas almas...hã? Ah nada! ~Hehehehe";
-		mes "Se apresse, ele está esperando por você.";
+		mes "Bem ent?o, vejo voc?! *cruza os dedos* n?o termine como os outros antes de voc?! Que Deus cuide das suas almas...h?? Ah nada! ~Hehehehe";
+		mes "Se apresse, ele est? esperando por voc?.";
 		close;
 	} else if (WIZ_Q == 5) {
 		mes "[Catherine]";
@@ -343,73 +344,73 @@ gef_tower,111,37,4	script	Assistente de mago	70,{
 		mes "Muito bem em responder todas aquelas perguntas. Eu quero te dar algo, como um presente...";
 		next;
 		mes "[Catherine]";
-		mes "Você ainda tem mais um teste, certo?";
-		mes "Apenas mais um pouco e você será qualificado para se tornar um Bruxo, aí então eu vou te dar um presente. ~Hehe";
+		mes "Voc? ainda tem mais um teste, certo?";
+		mes "Apenas mais um pouco e voc? ser? qualificado para se tornar um Bruxo, a? ent?o eu vou te dar um presente. ~Hehe";
 		next;
 		mes "[Catherine]";
-		mes "Vejo você, Bem...espero!";
-		mes "Ele está esperando vocês!";
+		mes "Vejo voc?, Bem...espero!";
+		mes "Ele est? esperando voc?s!";
 		close;
 	} else if (WIZ_Q == 6) {
 		mes "[Catherine]";
-		mes "Err, Você saiu no meio do teste?";
-		mes "Você...*suspiro*...Eu não acho que você faria uma coisa tão desonrosa";
+		mes "Err, Voc? saiu no meio do teste?";
+		mes "Voc?...*suspiro*...Eu n?o acho que voc? faria uma coisa t?o desonrosa";
 		next;
 		mes "[Catherine]";
 		if (Sex) {
-			mes "Com certeza você é um Mago, mas como um cara pode ser tão fraco?!";
-			mes "Bom, ao menos você ainda está vivo. Vá e consiga dessa vez. ~tehehehe";
+			mes "Com certeza voc? ? um Mago, mas como um cara pode ser t?o fraco?!";
+			mes "Bom, ao menos voc? ainda est? vivo. V? e consiga dessa vez. ~tehehehe";
 		} else {
-			mes "Não tente parecer fraca só porque é uma garota. Olhe para mim! Eu consegui, e você também pode. Você não pode pedir compaixão.";
-			mes "Você passou por tudo isso para se tornar uma Bruxa! Vá, você consegue!!";
+			mes "N?o tente parecer fraca s? porque ? uma garota. Olhe para mim! Eu consegui, e voc? tamb?m pode. Voc? n?o pode pedir compaix?o.";
+			mes "Voc? passou por tudo isso para se tornar uma Bruxa! V?, voc? consegue!!";
 			next;
 			mes "[Catherine]";
-			mes "Eu concordo que é difícil, mas não ao ponto de desistir.";
-			mes "Você deve encontrar a força e a paciência para passar nesse teste!";
+			mes "Eu concordo que ? dif?cil, mas n?o ao ponto de desistir.";
+			mes "Voc? deve encontrar a for?a e a paci?ncia para passar nesse teste!";
 		}
 		next;
 		mes "[Catherine]";
-		mes "Então, se esforce...";
-		mes "Ele está esperando!";
+		mes "Ent?o, se esforce...";
+		mes "Ele est? esperando!";
 		close;
 	} else if (WIZ_Q == 7) {
 		mes "[Catherine]";
 		if (JobLevel < 40) {
 			WIZ_Q = 0;
-			mes "Oi, você não entendeu?";
-			mes "Eu disse que você deve ser ao menos nível 40 de classe para trocar sua profissão, entendeu?";
+			mes "Oi, voc? n?o entendeu?";
+			mes "Eu disse que voc? deve ser ao menos n?vel 40 de classe para trocar sua profiss?o, entendeu?";
 			next;
 			mes "[Catherine]";
-			mes "Não precisa se apressar, então porque você não vai estudar?";
-			mes "Quando for a hora, eu vou te receber de braços abertos.";
+			mes "N?o precisa se apressar, ent?o porque voc? n?o vai estudar?";
+			mes "Quando for a hora, eu vou te receber de bra?os abertos.";
 			close;
 		}
 		if (SkillPoint) {
-			mes "Você acabou com todos os testes? Oh , me parece que você têm algums pontos de habilidades sobrando.";
-			mes "Aprenda algumas outras habilidades com seus pontos restantes, e então venha falar comigo de novo.";
+			mes "Voc? acabou com todos os testes? Oh , me parece que voc? t?m algums pontos de habilidades sobrando.";
+			mes "Aprenda algumas outras habilidades com seus pontos restantes, e ent?o venha falar comigo de novo.";
 			close;
 		}
 		mes "[Catherine]";
-		mes "Wooooooooooooow...você acabou todos os testes?!";
-		mes "Parabéns, Parabéns, Parabéns! Wooopiiieeeee! ~Hehehehehehe";
+		mes "Wooooooooooooow...voc? acabou todos os testes?!";
+		mes "Parab?ns, Parab?ns, Parab?ns! Wooopiiieeeee! ~Hehehehehehe";
 		next;
 		mes "[Catherine]";
-		mes "Bom, não precisamos esperar, parabenizo você. Eu considero você um Bruxo.";
+		mes "Bom, n?o precisamos esperar, parabenizo voc?. Eu considero voc? um Bruxo.";
 		next;
 		completequest 9018;
 		callfunc "Job_Change",Job_Wizard;
 		callfunc "F_ClearJobVar";		// clears all job variables for the current player
 		mes "[Catherine]";
-		mes "Já que você é um Bruxo agora, aja como um, entendeu?";
-		mes "Nós Bruxos temos que tormar cuidado já que nós possuimos o último poder de magia.";
+		mes "J? que voc? ? um Bruxo agora, aja como um, entendeu?";
+		mes "N?s Bruxos temos que tormar cuidado j? que n?s possuimos o ?ltimo poder de magia.";
 		next;
 		mes "[Catherine]";
-		mes "Não vá conjurar magias na cidade por nenhuma razão, ou incomodar os outros nas suas batalhas.";
-		mes "A magia de um Bruxo é para auxiliar nas suas próprias batalhas.";
+		mes "N?o v? conjurar magias na cidade por nenhuma raz?o, ou incomodar os outros nas suas batalhas.";
+		mes "A magia de um Bruxo ? para auxiliar nas suas pr?prias batalhas.";
 		next;
 		mes "[Catherine]";
-		mes "Vá se juntar a grupos com outros e continue treinando.";
-		mes "E...ah, espere, tenho um presente para você, um segundo...";
+		mes "V? se juntar a grupos com outros e continue treinando.";
+		mes "E...ah, espere, tenho um presente para voc?, um segundo...";
 		next;
 		mes "[Catherine]";
 		mes "remexe remexe...";
@@ -417,11 +418,11 @@ gef_tower,111,37,4	script	Assistente de mago	70,{
 		next;
 		getitem 505,6; //Blue_Potion
 		mes "[Catherine]";
-		mes "Aqui vai. Eu espero que você faça um bom uso quando precisar. ~tehehe";
-		mes "Eu dei a você como um presente, então vá e não venda. Use para você mesmo, ok?";
+		mes "Aqui vai. Eu espero que voc? fa?a um bom uso quando precisar. ~tehehe";
+		mes "Eu dei a voc? como um presente, ent?o v? e n?o venda. Use para voc? mesmo, ok?";
 		next;
 		mes "[Catherine]";
-		mes "Bem, então...*suspiro*...viva uma vida maravilhosa como um Bruxo, se torne o mais forte de todos!";
+		mes "Bem, ent?o...*suspiro*...viva uma vida maravilhosa como um Bruxo, se torne o mais forte de todos!";
 		close;
 	}
 }
@@ -430,425 +431,425 @@ gef_tower,102,24,2	script	Bruxo Sombrio	4_M_JOB_WIZARD,{
 	if (BaseJob != Job_Mage) {
 		if (BaseJob == Job_Wizard) {
 			mes "[Raulel]";
-			mes "*Tosse* *tosse* O que você quer?";
-			mes "Se você é uma pessoa que usa magia, então você precisa ter certeza que está bem informado sobre isso.";
+			mes "*Tosse* *tosse* O que voc? quer?";
+			mes "Se voc? ? uma pessoa que usa magia, ent?o voc? precisa ter certeza que est? bem informado sobre isso.";
 			next;
 			mes "[Raulel]";
-			mes "Não viva desonestamente, ou seja mal-educado, ou então um dia você vai ser pego numa magia que você não pode controlar, e BOOM, você morre!";
+			mes "N?o viva desonestamente, ou seja mal-educado, ou ent?o um dia voc? vai ser pego numa magia que voc? n?o pode controlar, e BOOM, voc? morre!";
 			if (Sex) {
-				mes "Se você não quer que isso aconteca, então lembre como usar as magias corretamente!";
+				mes "Se voc? n?o quer que isso aconteca, ent?o lembre como usar as magias corretamente!";
 				next;
 				mes "[Raulel]";
-				mes "Você pode viver aleijado se ficar muito obcecado com a Magia. ~haha";
+				mes "Voc? pode viver aleijado se ficar muito obcecado com a Magia. ~haha";
 			} else {
-				mes "Então aprende como usar a magia corretamente, ou então é melhor você desistir dela.";
+				mes "Ent?o aprende como usar a magia corretamente, ou ent?o ? melhor voc? desistir dela.";
 				next;
 				mes "[Raulel]";
-				mes "Se você não quiser fazer isso, vá bater em alguém ou alguma coisa! ~Hahahaha";
-				mes "Se você não prestar atenção em si mesmo, você será engolido pela magia um dia...";
+				mes "Se voc? n?o quiser fazer isso, v? bater em algu?m ou alguma coisa! ~Hahahaha";
+				mes "Se voc? n?o prestar aten??o em si mesmo, voc? ser? engolido pela magia um dia...";
 			}
 			close;
 		}
 		else if (BaseJob == Job_Priest) {
 			mes "[Raulel]";
-			mes "Vá embora, pessoa que trabalha para Igreja!";
-			mes "Magia repele poder Sagrado, você está bagunçando minha aura.";
+			mes "V? embora, pessoa que trabalha para Igreja!";
+			mes "Magia repele poder Sagrado, voc? est? bagun?ando minha aura.";
 			next;
 			mes "[Raulel]";
-			mes "E mais, *tosse* *tosse* minha saúde não está tão boa no momento...";
-			mes "Não venha mais perto, apenas saia!";
+			mes "E mais, *tosse* *tosse* minha sa?de n?o est? t?o boa no momento...";
+			mes "N?o venha mais perto, apenas saia!";
 			close;
 		} else if (BaseClass == Job_Novice) {
 			mes "[Raulel]";
-			mes "Por que uma criança como você veio aqui?!";
+			mes "Por que uma crian?a como voc? veio aqui?!";
 			mes "Saia! ~Hahahahaha";
 			close2;
 			warp "geffen",120,110;
 			end;
 		}
 		mes "[Raulel]";
-		mes "*espirra* *tosse* Oooowww...meu corpo todo está dolorido. Eu sinto como se estivesse preso num tubo de gelo!";
+		mes "*espirra* *tosse* Oooowww...meu corpo todo est? dolorido. Eu sinto como se estivesse preso num tubo de gelo!";
 		next;
 		mes "[Raulel]";
-		mes "O que você quer? Nossa...apenas saia, ok?";
+		mes "O que voc? quer? Nossa...apenas saia, ok?";
 		close;
 	}
 	mes "[Raulel]";
 	if (WIZ_Q == 0) {
-		mes "tosse* *tosse* *espirra* Eu não sei quem é você ou o que você faz, mas eu não tenho nada a tratar com você.";
+		mes "tosse* *tosse* *espirra* Eu n?o sei quem ? voc? ou o que voc? faz, mas eu n?o tenho nada a tratar com voc?.";
 		next;
 		mes "[Raulel]";
-		mes "Vá embora! Saia!";
+		mes "V? embora! Saia!";
 		close;
 	} else if (WIZ_Q == 1 || WIZ_Q  == 2) {
-		mes "Hahahaha~ Você quer se tornar um Bruxo?!";
+		mes "Hahahaha~ Voc? quer se tornar um Bruxo?!";
 		next;
 		mes "[Raulel]";
-		mes "*espirra* Se você vivesse como está, tudo o quê tinha que fazer era caçar um pouco e viver a vida fácil...";
+		mes "*espirra* Se voc? vivesse como est?, tudo o qu? tinha que fazer era ca?ar um pouco e viver a vida f?cil...";
 		next;
 		mes "[Raulel]";
-		mes "*Tosse* *tosse* Vamos ver de que maneira você vive como um Bruxo. ~Hahahahhaha";
+		mes "*Tosse* *tosse* Vamos ver de que maneira voc? vive como um Bruxo. ~Hahahahhaha";
 		close;
 	} else if ((WIZ_Q == 3) || (WIZ_Q == 4)) {
 		if (WIZ_Q == 3) {
 			mes "[Raulel]";
-			mes "*Tosse* *tosse*...Você deve ter passado o primeiro teste.";
-			mes "Ok, eu sou o Bruxo responsável pelos seus testes de agora em diante. Meu nome é 'Raulel Asparagus'.";
+			mes "*Tosse* *tosse*...Voc? deve ter passado o primeiro teste.";
+			mes "Ok, eu sou o Bruxo respons?vel pelos seus testes de agora em diante. Meu nome ? 'Raulel Asparagus'.";
 			next;
 			mes "[Raulel]";
-			mes "*espirra* Ainda não é tão tarde, não seria melhor voltar para cidade e aproveitar a vida pacata?";
+			mes "*espirra* Ainda n?o ? t?o tarde, n?o seria melhor voltar para cidade e aproveitar a vida pacata?";
 			next;
 			mes "[Raulel]";
-			mes "Hahahaha~ Você não sabe o quão perigoso é...lidar com Magia.";
+			mes "Hahahaha~ Voc? n?o sabe o qu?o perigoso ?...lidar com Magia.";
 			next;
 			if (select("Eu quero viver como um simples Mago.:Eu gostaria de continuar com os testes.") == 1) {
 				mes "[Raulel]";
 				mes "Hahaha~ *espirra* Boa escolha...*tosse* *tosse*~";
-				mes "Melhor nem sonhar em como ser um Bruxo. Maa...Maa...*espirra* Magia não foi feita para Humanos usarem!";
+				mes "Melhor nem sonhar em como ser um Bruxo. Maa...Maa...*espirra* Magia n?o foi feita para Humanos usarem!";
 				next;
 				mes "[Raulel]";
-				mes "Deixe o topo dessa torre calmamente e nem olhe para trás.";
-				mes "Apenas viva pacificamente com os poderes que você tem agora.";
+				mes "Deixe o topo dessa torre calmamente e nem olhe para tr?s.";
+				mes "Apenas viva pacificamente com os poderes que voc? tem agora.";
 				close;
 			}
 			mes "[Raulel]";
 			mes "espirro* Hahahaha~ Agora tem um louco aqui!";
-			mes "Bem então, deixe-me ver o quão bom você é. *tosse* Eu quero ver isso com meus próprios olhos!";
+			mes "Bem ent?o, deixe-me ver o qu?o bom voc? ?. *tosse* Eu quero ver isso com meus pr?prios olhos!";
 			next;
 			mes "[Raulel]";
-			mes "*espirra* Então vamos começar o teste!";
-			mes "Se você não responder todas elas corretamente, você não passa. Hahahahahahahahaha~";
+			mes "*espirra* Ent?o vamos come?ar o teste!";
+			mes "Se voc? n?o responder todas elas corretamente, voc? n?o passa. Hahahahahahahahaha~";
 			next;
 			mes "[Raulel]";
-			mes "Eu vou fazer 10 perguntas então me responda corretamente.";
-			mes "Se você responder alguma errada, eu não vou te dizer qual é!";
+			mes "Eu vou fazer 10 perguntas ent?o me responda corretamente.";
+			mes "Se voc? responder alguma errada, eu n?o vou te dizer qual ?!";
 			if(checkquest(9016) == -1) {
 				changequest 9015,9016;
 			}
 			next;
 			mes "[Raulel]";
-			mes "*Tosse* *Tosse* então vamos às perguntas!";
+			mes "*Tosse* *Tosse* ent?o vamos ?s perguntas!";
 		} else if (WIZ_Q == 4) {
 			mes "[Raulel]";
-			mes "Hahahaha ~ Você está tão desesperado? *sneeze* What a pain in the arse...";
+			mes "Hahahaha ~ Voc? est? t?o desesperado? *sneeze* What a pain in the arse...";
 			next;
 			mes "[Raulel]";
-			mes "Desde que você não quer se contentar com uma vida estável e pacífica, eu vou lhe dar outra chance ...";
+			mes "Desde que voc? n?o quer se contentar com uma vida est?vel e pac?fica, eu vou lhe dar outra chance ...";
 			next;
 			mes "[Raulel]";
-			mes "Se você errar uma única pergunta, ou então simplesmente desistir. Você não teria nenhum talento em ser um bruxo! ~ Hahahahaha";
+			mes "Se voc? errar uma ?nica pergunta, ou ent?o simplesmente desistir. Voc? n?o teria nenhum talento em ser um bruxo! ~ Hahahahaha";
 			next;
 			if (select("Eu quero viver como um simples Mago.:Eu gostaria de continuar com os testes.") == 1) {
 				mes "[Raulel]";
 				mes "Hahaha~ *espirra* Boa escolha...*tosse* *tosse*~";
-				mes "Melhor nem sonhar em como ser um Bruxo. Maa...Maa...*espirra* Magia não foi feita para Humanos usarem!.";
+				mes "Melhor nem sonhar em como ser um Bruxo. Maa...Maa...*espirra* Magia n?o foi feita para Humanos usarem!.";
 				next;
 				mes "[Raulel]";
-				mes "Deixe o topo dessa torre calmamente e nem olhe para trás.";
-				mes "Apenas viva pacificamente com os poderes que você tem agora.";
+				mes "Deixe o topo dessa torre calmamente e nem olhe para tr?s.";
+				mes "Apenas viva pacificamente com os poderes que voc? tem agora.";
 				close;
 			}
 			mes "[Raulel]";
-			mes "Hahahahahahaha ~ Agora há um tolo aqui!";
-			mes "Bem, então vamos ver o quão bom você pode ser! * espirra * Eu quero ver isso com meus próprios olhos.";
+			mes "Hahahahahahaha ~ Agora h? um tolo aqui!";
+			mes "Bem, ent?o vamos ver o qu?o bom voc? pode ser! * espirra * Eu quero ver isso com meus pr?prios olhos.";
 			next;
 			mes "[Raulel]";
-			mes "Então vamos começar o teste!";
+			mes "Ent?o vamos come?ar o teste!";
 		}
 		next;
 		switch(rand(1,3)) {
 		case 1:
 			mes "[Raulel]";
-			mes "1. Qual destes não é necessário para aprender barreira de fogo?";
+			mes "1. Qual destes n?o ? necess?rio para aprender barreira de fogo?";
 			next;
-			if (select("Lanças de Fogo Lv 4:Bola de Fogo Lv 5:Sight Lv 1:Ataque Espiritual Lv 4") == 4) set .@wizard_t,.@wizard_t+10;
+			if (select("Lan?as de Fogo Lv 4:Bola de Fogo Lv 5:Sight Lv 1:Ataque Espiritual Lv 4") == 4) set .@wizard_t,.@wizard_t+10;
 			mes "[Raulel]";
-			mes "2. Sem importar o atributo anterior, qual o atributo final do monstro quando você conjura Rajada Congelante nele?";
+			mes "2. Sem importar o atributo anterior, qual o atributo final do monstro quando voc? conjura Rajada Congelante nele?";
 			next;
-			if (select("Água:Terra:Fogo:Vento") == 1) set .@wizard_t,.@wizard_t+10;
+			if (select("?gua:Terra:Fogo:Vento") == 1) set .@wizard_t,.@wizard_t+10;
 			mes "[Raulel]";
-			mes "3. Quando você domina completamente Ataque Espiritual, qual é a taxa de aumento no MATK usando essa magia?";
+			mes "3. Quando voc? domina completamente Ataque Espiritual, qual ? a taxa de aumento no MATK usando essa magia?";
 			next;
 			if (select("1,6 vezes:1,7 vezes:2 vezes:20 vezes") == 2) set .@wizard_t,.@wizard_t+10;
 			mes "[Raulel]";
-			mes "4. Que item você precisa para conjurar Petrificar?";
+			mes "4. Que item voc? precisa para conjurar Petrificar?";
 			next;
 			if (select("Sangue Escarlate:Gema Azul:Gema Amarela:Gema Vermelha") == 4) set .@wizard_t,.@wizard_t+10;
 			mes "[Raulel]";
-			mes "5. Qual destes não é requerido para dominar Escudo Mágico?";
+			mes "5. Qual destes n?o ? requerido para dominar Escudo M?gico?";
 			next;
-			if (select("Ataque Espiritual Lv 4:Espiritos Anciões Lv 5:Aumentar Recuperação de SP Lv 6:Escudo Mágico Lv 7") == 3) set .@wizard_t,.@wizard_t+10;
+			if (select("Ataque Espiritual Lv 4:Espiritos Anci?es Lv 5:Aumentar Recupera??o de SP Lv 6:Escudo M?gico Lv 7") == 3) set .@wizard_t,.@wizard_t+10;
 			mes "[Raulel]";
-			mes "6. Sem o bônus de INT, qual a quantidade de SP recperada a cada 10 segundos quando você aprendeu Aumentar Recuperação de SP Lv 7?";
+			mes "6. Sem o b?nus de INT, qual a quantidade de SP recperada a cada 10 segundos quando voc? aprendeu Aumentar Recupera??o de SP Lv 7?";
 			next;
 			if (select("14:21:28:35") == 2) set .@wizard_t,.@wizard_t+10;
 			mes "[Raulel]";
-			mes "7. Usando Proteção Arcana, quando você tem 50% do seu SP restante, quanto de SP é usado ao receber dano, e qual é a porcentagem de dano reduzido?";
+			mes "7. Usando Prote??o Arcana, quando voc? tem 50% do seu SP restante, quanto de SP ? usado ao receber dano, e qual ? a porcentagem de dano reduzido?";
 			next;
 			if (select("Dano 18% SP1.5%:Dano 18% SP2%:Dano 24% SP1.5%:Dano 24% SP2%") == 2) set .@wizard_t,.@wizard_t+10;
 			mes "[Raulel]";
-			mes "8. Qual é o SP consumido e quantas vezes você pode evitar ataques usando Escudo Mágico Lv 6?";
+			mes "8. Qual ? o SP consumido e quantas vezes voc? pode evitar ataques usando Escudo M?gico Lv 6?";
 			next;
 			if (select("SP 40, 6 vezes:SP 35, 6 vezes:SP 40, 7 vezes:SP 35, 7 vezes") == 3) set .@wizard_t,.@wizard_t+10;
 			mes "[Raulel]";
-			mes "9. Qual o SP necessário para usar Tempestade de Raios Lv 10?";
+			mes "9. Qual o SP necess?rio para usar Tempestade de Raios Lv 10?";
 			next;
 			if (select("84:74:64:54") == 2) set .@wizard_t,.@wizard_t+10;
 			mes "[Raulel]";
-			mes "10. Qual habilidade é mais útil para caçar na Caverna Byalan?";
+			mes "10. Qual habilidade ? mais ?til para ca?ar na Caverna Byalan?";
 			next;
-			if (select("Relâmpago:Lanças de Fogo:Lanças de Gelo:Chama Reveladora") == 1) set .@wizard_t,.@wizard_t+10;
+			if (select("Rel?mpago:Lan?as de Fogo:Lan?as de Gelo:Chama Reveladora") == 1) set .@wizard_t,.@wizard_t+10;
 			break;
 		case 2:
 			mes "[Raulel]";
-			mes "1. De que monstro você pode obter Vembrassa com Slot?";
+			mes "1. De que monstro voc? pode obter Vembrassa com Slot?";
 			next;
-			if (select("Besouro Ladrão:PecoPeco:Pupa:Kobold (Marreta)") == 3) set .@wizard_t,.@wizard_t+10;
+			if (select("Besouro Ladr?o:PecoPeco:Pupa:Kobold (Marreta)") == 3) set .@wizard_t,.@wizard_t+10;
 			mes "[Raulel]";
-			mes "2. Qual destes é o monstro mais fácil para um Mago de baixo nível matar?";
+			mes "2. Qual destes ? o monstro mais f?cil para um Mago de baixo n?vel matar?";
 			next;
-			if (select("Flora:Giearth:Golem:Névoa") == 1) set .@wizard_t,.@wizard_t+10;
+			if (select("Flora:Giearth:Golem:N?voa") == 1) set .@wizard_t,.@wizard_t+10;
 			mes "[Raulel]";
-			mes "3. Qual destes monstros não são imunes a Petrificar?";
+			mes "3. Qual destes monstros n?o s?o imunes a Petrificar?";
 			next;
-			if (select("Salgueiro Ancião:Druida Maligno:Magnólia:Cavalo-Marinho") == 2) set .@wizard_t,.@wizard_t+10;
+			if (select("Salgueiro Anci?o:Druida Maligno:Magn?lia:Cavalo-Marinho") == 2) set .@wizard_t,.@wizard_t+10;
 			mes "[Raulel]";
-			mes "4. Quando atacar um monstro de atributo água Lv 3 com uma arma de atributo vento, qual será a porcentagem do dano?";
+			mes "4. Quando atacar um monstro de atributo ?gua Lv 3 com uma arma de atributo vento, qual ser? a porcentagem do dano?";
 			next;
 			if (select("125%:150%:175%:200%") == 4) .@wizard_t += 10;
 			mes "[Raulel]";
 			mes "5. Se um Filhote de Lobo do Deserto e um Familia lutassem, qual dos dois ganharia?";
 			next;
-			if (select("Filhote de Lobo do Deserto:Familiar:Nenhum dos dois:Eu não sei") == 1) set .@wizard_t,.@wizard_t+10;
+			if (select("Filhote de Lobo do Deserto:Familiar:Nenhum dos dois:Eu n?o sei") == 1) set .@wizard_t,.@wizard_t+10;
 			mes "[Raulel]";
-			mes "6. Qual destes não podem ser domesticados?";
+			mes "6. Qual destes n?o podem ser domesticados?";
 			next;
 			if (select("Poporing:Sapo de Rodda:Fumacento:Esporo Venenoso") == 2) set .@wizard_t,.@wizard_t+10;
 			mes "[Raulel]";
-			mes "7. Escolha o monstro que é fraco contra o atributo Fogo.";
+			mes "7. Escolha o monstro que ? fraco contra o atributo Fogo.";
 			next;
-			if (select("Golbin da Faca:Goblin da Maça:Morningstar Goblin:Goblin da Marreta") == 4) set .@wizard_t,.@wizard_t+10;
+			if (select("Golbin da Faca:Goblin da Ma?a:Morningstar Goblin:Goblin da Marreta") == 4) set .@wizard_t,.@wizard_t+10;
 			mes "[Raulel]";
 			mes "8. Qual destes tem maior defesa?";
 			next;
 			if (select("Besouro-Chifre:Chonchon:Andre:Caramelo") == 4) set .@wizard_t,.@wizard_t+10;
 			mes "[Raulel]";
-			mes "9. Escolha o monstro que é de uma espécie diferente.";
+			mes "9. Escolha o monstro que ? de uma esp?cie diferente.";
 			next;
 			if (select("Poring:Mastering:Ghostring:Esporo") == 3) set .@wizard_t,.@wizard_t+10;
 			mes "[Raulel]";
-			mes "10. Qual destes não é um Morto-Vivo?";
+			mes "10. Qual destes n?o ? um Morto-Vivo?";
 			next;
 			if (select("Drake:Megalodon:Deviace:Khalitzburg") == 3) set .@wizard_t,.@wizard_t+10;
 			break;
 		case 3:
 			mes "[Raulel]";
-			mes "1. Qual destes é mais importante para um Mago?";
+			mes "1. Qual destes ? mais importante para um Mago?";
 			next;
 			if (select("INT:AGI:DES:VIT") == 1) .@wizard_t += 10;
 			mes "[Raulel]";
-			mes "2. Qual destes atributos não tem um ataque tipo 'Lanças'?";
+			mes "2. Qual destes atributos n?o tem um ataque tipo 'Lan?as'?";
 			next;
-			if (select("Água:Terra:Fogo:Vento") == 2) .@wizard_t += 10;
+			if (select("?gua:Terra:Fogo:Vento") == 2) .@wizard_t += 10;
 			mes "[Raulel]";
-			mes "3. Escolha qual não é relacionado a um Mago.";
+			mes "3. Escolha qual n?o ? relacionado a um Mago.";
 			next;
-			if (select("Força física fraca.:Ataque à distância.:Bom em vender coisas.:Defesa mágica alta.") == 3) set .@wizard_t,.@wizard_t+10;
+			if (select("For?a f?sica fraca.:Ataque ? dist?ncia.:Bom em vender coisas.:Defesa m?gica alta.") == 3) set .@wizard_t,.@wizard_t+10;
 			mes "[Raulel]";
-			mes "4. Qual é a cidade natal dos Magos?";
+			mes "4. Qual ? a cidade natal dos Magos?";
 			next;
 			if (select("Prontera:Morroc:Alberta:Geffen") == 4) .@wizard_t += 10;
 			mes "[Raulel]";
-			mes "5. Qual destas cartas não tem nada a ver com INT?";
+			mes "5. Qual destas cartas n?o tem nada a ver com INT?";
 			next;
-			if (select("Carta Ovo de Andre:Carta Andre Soldado:Carta Filhote Lobo do Deserto:Carta Salgueiro Ancião") == 2) set .@wizard_t,.@wizard_t+10;
+			if (select("Carta Ovo de Andre:Carta Andre Soldado:Carta Filhote Lobo do Deserto:Carta Salgueiro Anci?o") == 2) set .@wizard_t,.@wizard_t+10;
 			mes "[Raulel]";
-			mes "6. Em que um Mago é bom comparado as outras classes?";
+			mes "6. Em que um Mago ? bom comparado as outras classes?";
 			next;
-			if (select("Habilidade Vocal Excepcional:Habilidade Excepcional em Atuação:Habilidades de Dança Excepcionais:Habilidades Mágicas Excepcionais") == 4) set .@wizard_t,.@wizard_t+10;
+			if (select("Habilidade Vocal Excepcional:Habilidade Excepcional em Atua??o:Habilidades de Dan?a Excepcionais:Habilidades M?gicas Excepcionais") == 4) set .@wizard_t,.@wizard_t+10;
 			mes "[Raulel]";
-			mes "7. Qual é o bônus de INT do nível de classe 40 para Magos?";
+			mes "7. Qual ? o b?nus de INT do n?vel de classe 40 para Magos?";
 			next;
 			if (select("8:7:6:5") == 4) .@wizard_t += 10;
 			mes "[Raulel]";
-			mes "8. Qual item um Mago não pode equipar?";
+			mes "8. Qual item um Mago n?o pode equipar?";
 			next;
-			if (select("Faca:Quepe:Sandálias:Olho de Dullahan") == 2) set .@wizard_t,.@wizard_t+10;
+			if (select("Faca:Quepe:Sand?lias:Olho de Dullahan") == 2) set .@wizard_t,.@wizard_t+10;
 			mes "[Raulel]";
-			mes "9. Qual destes é o catalisador para fazer a Solução Mágica número 3?";
+			mes "9. Qual destes ? o catalisador para fazer a Solu??o M?gica n?mero 3?";
 			next;
 			if (select("Gema Azul:Gema Vermelha:Gema Amarela:Sangue Escarlate") == 1) set .@wizard_t,.@wizard_t+10;
 			mes "[Raulel]";
-			mes "10. Qual destas cartas é irrelavante à Magica?";
+			mes "10. Qual destas cartas ? irrelavante ? Magica?";
 			next;
-			if (select("Carta Marduk:Carta Magnólia:Carta Salgueiro:Carta Maya") == 2) set .@wizard_t,.@wizard_t+10;
+			if (select("Carta Marduk:Carta Magn?lia:Carta Salgueiro:Carta Maya") == 2) set .@wizard_t,.@wizard_t+10;
 		}
 		mes "[Raulel]";
 		if (WIZ_Q == 4) {
-			mes "Bom trabalho, você respondeu todas as perguntas... Vá comprar algumas poções ou algo se você tiver Zeny. Haha...";
+			mes "Bom trabalho, voc? respondeu todas as perguntas... V? comprar algumas po??es ou algo se voc? tiver Zeny. Haha...";
 			next;
 			mes "[Raulel]";
-			mes "Sua pontuação foi de... " +.@wizard_t+ "pontos.....";
+			mes "Sua pontua??o foi de... " +.@wizard_t+ "pontos.....";
 			if (.@wizard_t == 100) {
 				WIZ_Q = 5;
 				changequest 9016,9017;
-				mes "Hahahahahahah~ Muito bem, você passou o segundo teste.";
-				mes "Não foi feito em uma tentativa como a minha foi, mas eu vou deixar você passar...";
+				mes "Hahahahahahah~ Muito bem, voc? passou o segundo teste.";
+				mes "N?o foi feito em uma tentativa como a minha foi, mas eu vou deixar voc? passar...";
 				next;
 				mes "[Raulel]";
-				mes "*espirra* Não relaxe ainda, ainda há o problema do Terceiro teste final.";
-				mes "Eu aconselho você a descansar um pouco enquanto o Teste final é preparado. Você vai precisar. Hahahahaha~";
+				mes "*espirra* N?o relaxe ainda, ainda h? o problema do Terceiro teste final.";
+				mes "Eu aconselho voc? a descansar um pouco enquanto o Teste final ? preparado. Voc? vai precisar. Hahahahaha~";
 				close;
 			} else if (.@wizard_t == 90) {
 				WIZ_Q = 5;
 				changequest 9016,9017;
-				mes "Hahaha~ Já que você só errou uma questão, você passou o segundo teste";
-				mes "Não foi feito em uma tentativa como a minha foi, mas eu vou deixar você passar...";
+				mes "Hahaha~ J? que voc? s? errou uma quest?o, voc? passou o segundo teste";
+				mes "N?o foi feito em uma tentativa como a minha foi, mas eu vou deixar voc? passar...";
 				next;
 				mes "[Raulel]";
-				mes "*espirra* Não relaxe ainda, ainda há o problema do Terceiro teste final.";
-				mes "Eu aconselho você a descansar um pouco enquanto o Teste final é preparado. Você vai precisar. Hahahahaha~";
+				mes "*espirra* N?o relaxe ainda, ainda h? o problema do Terceiro teste final.";
+				mes "Eu aconselho voc? a descansar um pouco enquanto o Teste final ? preparado. Voc? vai precisar. Hahahahaha~";
 				close;
 			} else if (.@wizard_t == 80) {
 				WIZ_Q = 5;
 				changequest 9016,9017;
-				mes "Nossa... Você não foi muito bem, mas você passou o segundo teste.";
-				mes "Não foi feito em uma tentativa como a minha foi, mas eu vou deixar você passar...";
+				mes "Nossa... Voc? n?o foi muito bem, mas voc? passou o segundo teste.";
+				mes "N?o foi feito em uma tentativa como a minha foi, mas eu vou deixar voc? passar...";
 				next;
 				mes "[Raulel]";
-				mes "*espirra* Não relaxe ainda, ainda há o problema do Terceiro teste final.";
-				mes "Eu aconselho você a descansar um pouco enquanto o Teste final é preparado. Você vai precisar. Hahahahaha~";
+				mes "*espirra* N?o relaxe ainda, ainda h? o problema do Terceiro teste final.";
+				mes "Eu aconselho voc? a descansar um pouco enquanto o Teste final ? preparado. Voc? vai precisar. Hahahahaha~";
 				close;
 			} else {
-				mes "Você foi reprovado. Estude mais!";
+				mes "Voc? foi reprovado. Estude mais!";
 				next;
 				mes "[Raulel]";
-				mes "*tosse* *tosse* Você realmente achou que poderia se tornar um Bruxo em um nível mediocre como o seu?";
-				mes "Dê o fora! Se você fosse um Bruxo agora, os monstros que eu Lutei, comeriam você agora mesmo!";
+				mes "*tosse* *tosse* Voc? realmente achou que poderia se tornar um Bruxo em um n?vel mediocre como o seu?";
+				mes "D? o fora! Se voc? fosse um Bruxo agora, os monstros que eu Lutei, comeriam voc? agora mesmo!";
 				close;
 			}
 		}
-		mes "Hmmm...Bom trabalho, você respondeu todas as perguntas, vá comprar algumas poções ou outra coisa, isso se você tiver Zeny. Hahahahahahahah~";
+		mes "Hmmm...Bom trabalho, voc? respondeu todas as perguntas, v? comprar algumas po??es ou outra coisa, isso se voc? tiver Zeny. Hahahahahahahah~";
 		next;
 		mes "[Raulel]";
-		mes "Sua pontuação foi... " + .@wizard_t + " pontos!";
+		mes "Sua pontua??o foi... " + .@wizard_t + " pontos!";
 		if (.@wizard_t == 100) {
 			WIZ_Q = 5;
 			changequest 9016,9017;
-			mes "*tosse* *tosse* Muito bem, você passou o segundo teste.";
+			mes "*tosse* *tosse* Muito bem, voc? passou o segundo teste.";
 			next;
 			mes "[Raulel]";
-			mes "Hahahaha~ Não relaxe ainda, ainda há o terceiro teste.";
-			mes "*espirra* Eu aconselho você a descansar um pouco enquanto o teste final é preparado...Hahahahah~";
+			mes "Hahahaha~ N?o relaxe ainda, ainda h? o terceiro teste.";
+			mes "*espirra* Eu aconselho voc? a descansar um pouco enquanto o teste final ? preparado...Hahahahah~";
 			close;
 		} else if (.@wizard_t == 90) {
 			WIZ_Q = 5;
 			changequest 9016,9017;
-			mes "Hahahaha~ Eu vou deixar você passar já que você só errou um problema. Você passou o segundo teste.";
+			mes "Hahahaha~ Eu vou deixar voc? passar j? que voc? s? errou um problema. Voc? passou o segundo teste.";
 			next;
 			mes "[Raulel]";
-			mes "Hahahaha~ Não relaxe ainda, ainda há o terceiro teste.";
-			mes "*espirra* Eu aconselho você a descansar um pouco enquanto o teste final é preparado...Hahahahah~";
+			mes "Hahahaha~ N?o relaxe ainda, ainda h? o terceiro teste.";
+			mes "*espirra* Eu aconselho voc? a descansar um pouco enquanto o teste final ? preparado...Hahahahah~";
 			close;
 		} else {
 			WIZ_Q = 4;
-			mes "Você foi reprovado. Eu vou deixar você voltar de novo.. depois que tiver aprendido mais sobre as perguntas que eu fiz a você.";
+			mes "Voc? foi reprovado. Eu vou deixar voc? voltar de novo.. depois que tiver aprendido mais sobre as perguntas que eu fiz a voc?.";
 			next;
 			mes "[Raulel]";
-			mes "Tsc...não é o suficiente! Você realmente achou que poderia se tornar um Bruxo com esse pouco conhecimento que tem?";
-			mes "Saia! Se você fosse um Bruxo agora, os monstros que eu trabalho iriam comer você em pouco tempo!";
+			mes "Tsc...n?o ? o suficiente! Voc? realmente achou que poderia se tornar um Bruxo com esse pouco conhecimento que tem?";
+			mes "Saia! Se voc? fosse um Bruxo agora, os monstros que eu trabalho iriam comer voc? em pouco tempo!";
 			close;
 		}
 	} else if (WIZ_Q == 5) {
 		mes "[Raulel]";
 		mes "Ok, espero que tenha descansado o bastente. Hahahahahah~";
-		mes "Então vamos começar o último teste.";
+		mes "Ent?o vamos come?ar o ?ltimo teste.";
 		next;
 		mes "[Raulel]";
-		mes "Devo explicar um pouco sobre o último teste? É difícil, eu não vou mentir...";
+		mes "Devo explicar um pouco sobre o ?ltimo teste? ? dif?cil, eu n?o vou mentir...";
 		next;
-		if (select("Não, sem problemas, estou pronto.:Quero escutar.") == 1) {
+		if (select("N?o, sem problemas, estou pronto.:Quero escutar.") == 1) {
 			mes "[Raulel]";
-			mes "Que pessoa preciptada. Você é daqueles que entra na batalha sem pensar, o que você está fazendo aqui ao invés de estar na Cavalaria de Prontera? Você apenas vai! *tosse* Não é minha culpa se terminar morrendo.";
-			mes "Apenas se considere um Canhão de vidro... porque os monstros vão quebrar você em pedaços. Hahahahahahahahaha~";
+			mes "Que pessoa preciptada. Voc? ? daqueles que entra na batalha sem pensar, o que voc? est? fazendo aqui ao inv?s de estar na Cavalaria de Prontera? Voc? apenas vai! *tosse* N?o ? minha culpa se terminar morrendo.";
+			mes "Apenas se considere um Canh?o de vidro... porque os monstros v?o quebrar voc? em peda?os. Hahahahahahahahaha~";
 			next;
 			WIZ_Q = 6;
 			savepoint "geffen",120,107;
 			mes "[Raulel]";
-			mes "Então, como você deseja. Eu vou mandar você pra lá agora.";
-			mes "Oh, Se você ver uma luz branca no fim do túnel, significa que você é patético porque falhou! Hahahahahah~";
+			mes "Ent?o, como voc? deseja. Eu vou mandar voc? pra l? agora.";
+			mes "Oh, Se voc? ver uma luz branca no fim do t?nel, significa que voc? ? pat?tico porque falhou! Hahahahahah~";
 			close2;
 			warp "job_wiz",57,154;
 			end;
 		}
 		mes "[Raulel]";
 		mes "Que pessoa dedicada. Muito bem, Eu vou explicar.";
-		mes "Não importa quanto difícil esse teste possa parecer, se você fizer como eu digo, você vai poder acabar rápido e fácil.";
+		mes "N?o importa quanto dif?cil esse teste possa parecer, se voc? fizer como eu digo, voc? vai poder acabar r?pido e f?cil.";
 		next;
 		mes "[Raulel]";
 		mes "O teste final tem um total de 3 partes.";
-		mes "A ordem é Sala da Água, Sala da Terra, Sala do Fogo. Em cada sala, existem monstros do mesmo atributo.";
+		mes "A ordem ? Sala da ?gua, Sala da Terra, Sala do Fogo. Em cada sala, existem monstros do mesmo atributo.";
 		next;
 		mes "[Raulel]";
-		mes "Você vai descobrir que os monstros vão estar lá quando você entrar. Se você usar os ataques com os atributos *espirra*";
-		mes "certos, não será muito difícil. Hahaha~";
+		mes "Voc? vai descobrir que os monstros v?o estar l? quando voc? entrar. Se voc? usar os ataques com os atributos *espirra*";
+		mes "certos, n?o ser? muito dif?cil. Hahaha~";
 		next;
 		mes "[Raulel]";
-		mes "Uma vez que você tenha derrotado todos os monstros dentro do tempo dado na sala...";
-		mes "você irá para a próxima sala.";
+		mes "Uma vez que voc? tenha derrotado todos os monstros dentro do tempo dado na sala...";
+		mes "voc? ir? para a pr?xima sala.";
 		next;
 		mes "[Raulel]";
-		mes "Depois que essas 3 salas estiverem limpas, o teste está acabado.";
-		mes "Você se tornará um Bruxo que é controlado pelos poderes da Grande Magia! Depois disso...Não há retorno para a vida calma.";
+		mes "Depois que essas 3 salas estiverem limpas, o teste est? acabado.";
+		mes "Voc? se tornar? um Bruxo que ? controlado pelos poderes da Grande Magia! Depois disso...N?o h? retorno para a vida calma.";
 		next;
 		mes "[Raulel]";
-		mes "Hahaha~ Você parece assustado. Você sabe, ainda não é tão tarde para voltar a sua vida calma.";
-		mes "Se você quiser, Eu posso te mandar para a cidade agora mesmo... O que você quer fazer?";
+		mes "Hahaha~ Voc? parece assustado. Voc? sabe, ainda n?o ? t?o tarde para voltar a sua vida calma.";
+		mes "Se voc? quiser, Eu posso te mandar para a cidade agora mesmo... O que voc? quer fazer?";
 		next;
 		if (select("Continuar.:Eu quero voltar por que estou com medo.") == 1) {
 			WIZ_Q = 6;
 			savepoint "geffen",120,107;
 			mes "[Raulel]";
-			mes "Você é realmente, muito determinado. Ok! Hahahahahaha~";
-			mes "*tosse* *tosse* Como você quer, nós devemos começar o teste final!";
+			mes "Voc? ? realmente, muito determinado. Ok! Hahahahahaha~";
+			mes "*tosse* *tosse* Como voc? quer, n?s devemos come?ar o teste final!";
 			close2;
 			warp "job_wiz",57,154;
 			end;
 		}
 		WIZ_Q = 6;
 		mes "[Raulel]";
-		mes "Boa idéia. Essa é a melhor escolha para você. Hahahahah~";
-		mes "Volte e viva uma vida tranqüila, Magia superior é uma força que não pode ser manipulada por pessoas como você.";
+		mes "Boa id?ia. Essa ? a melhor escolha para voc?. Hahahahah~";
+		mes "Volte e viva uma vida tranq?ila, Magia superior ? uma for?a que n?o pode ser manipulada por pessoas como voc?.";
 		close2;
 		warp "geffen",120,110;
 		end;
 	} else if (WIZ_Q == 6) {
 		if (WIZ_Q2 == 6) {
 			mes "[Raulel]";
-			mes "Hahahahahaha~ Eu nunca vi ninguém tão persistente como você.";
-			mes "Então você quer tentar de novo é? Embora eu tenha ridicularizado você por suas falhas??";
+			mes "Hahahahahaha~ Eu nunca vi ningu?m t?o persistente como voc?.";
+			mes "Ent?o voc? quer tentar de novo ?? Embora eu tenha ridicularizado voc? por suas falhas??";
 			next;
 			mes "[Raulel]";
-			mes "Ok então, aqui vai uma proposta. Ja que provavelmente você está cansado, eu eu posso ver claramente o desejo da Grande Magia queimando em seus olhos...";
+			mes "Ok ent?o, aqui vai uma proposta. Ja que provavelmente voc? est? cansado, eu eu posso ver claramente o desejo da Grande Magia queimando em seus olhos...";
 			mes "Hahahahaha~ yeah! Me traga um ^3355FFPergaminho Desgastado^000000.";
 			next;
 			WIZ_Q2 = 7;
 			mes "[Raulel]";
-			mes "Ou então, você pode fazer o teste de novo...";
+			mes "Ou ent?o, voc? pode fazer o teste de novo...";
 			mes "Bem, Eu vou te mandar para o teste agora. Hahahaha~";
 			close2;
 			warp "job_wiz",57,154;
 			end;
 		} else if (WIZ_Q2 > 6) {
 			mes "[Raulel]";
-			mes "Oh! Então você voltou? Hahahahaha~";
-			mes "*Tosse*Tosse* Você quer fazer o teste de novo? Ou você trouxe o ^3355FFPergaminho Desgastado^000000?";
+			mes "Oh! Ent?o voc? voltou? Hahahahaha~";
+			mes "*Tosse*Tosse* Voc? quer fazer o teste de novo? Ou voc? trouxe o ^3355FFPergaminho Desgastado^000000?";
 			next;
 			if (select("Fazer o Teste.:Pergaminho desgastado...") == 1) {
 				savepoint "geffen",120,107;
 				mes "[Raulel]";
-				mes "Hahaha~ Ok, pelo menos você tem espírito.";
-				mes "Eu vou te mandar para lá, tente morrer mais uma vez, ok? Hahahahahahahahaha~";
+				mes "Hahaha~ Ok, pelo menos voc? tem esp?rito.";
+				mes "Eu vou te mandar para l?, tente morrer mais uma vez, ok? Hahahahahahahahaha~";
 				close2;
 				warp "job_wiz",57,154;
 				end;
@@ -856,139 +857,139 @@ gef_tower,102,24,2	script	Bruxo Sombrio	4_M_JOB_WIZARD,{
 			if (countitem(618) > 0) {
 				delitem 618,1; //Worn_Out_Scroll
 				mes "[Raulel]";
-				mes "Hahahahahahahaha~ *Tosse* *Tosse* Então você terminou me trazendo um desses é? Bom trabalho...";
+				mes "Hahahahahahahaha~ *Tosse* *Tosse* Ent?o voc? terminou me trazendo um desses ?? Bom trabalho...";
 				mes "Eu acho que Eu posso continuar minha pesquisa com isso...";
 				next;
 				WIZ_Q2 = 0;
 				WIZ_Q = 7;
 				mes "[Raulel]";
-				mes "Apesar de você não ser um Bruxo nível A, posso ver você sériamente querendo a Grande Magia. Eu vou dizer a Catherine que você passou. Hahahahahahahahah~";
-				mes "Você passou por muitas dificuldades aqui, e este é o verdadeiro propósito de nós selecionarmos Bruxos. Apenas aqueles que se dedicam à arte se tornarão Bruxos. Boa sorte para você. Se torne mais forte. Hahahahahaha~";
+				mes "Apesar de voc? n?o ser um Bruxo n?vel A, posso ver voc? s?riamente querendo a Grande Magia. Eu vou dizer a Catherine que voc? passou. Hahahahahahahahah~";
+				mes "Voc? passou por muitas dificuldades aqui, e este ? o verdadeiro prop?sito de n?s selecionarmos Bruxos. Apenas aqueles que se dedicam ? arte se tornar?o Bruxos. Boa sorte para voc?. Se torne mais forte. Hahahahahaha~";
 				close;
 			}
 		}
 		mes "[Raulel]";
-		mes "*espirra* O quê? Você quer fazer o teste de novo?";
-		mes "Nossa...você já falhou o teste prático! Hahahahahahahaha~ Então você gosta de mágica tanto assim, é?";
+		mes "*espirra* O qu?? Voc? quer fazer o teste de novo?";
+		mes "Nossa...voc? j? falhou o teste pr?tico! Hahahahahahahaha~ Ent?o voc? gosta de m?gica tanto assim, ??";
 		next;
 		mes "[Raulel]";
-		mes "Já que você é tão fraco que nem consegue completar o teste final sozinho...você precisa de um teste a parte para ajudar.";
-		mes "*Tosse* Se você não consegue passar o Teste prático, então se saia bem neste. Hahahahahahah~";
+		mes "J? que voc? ? t?o fraco que nem consegue completar o teste final sozinho...voc? precisa de um teste a parte para ajudar.";
+		mes "*Tosse* Se voc? n?o consegue passar o Teste pr?tico, ent?o se saia bem neste. Hahahahahahah~";
 		next;
 		mes "[Raulel]";
-		mes "Bem, é melhor responder esses problemas se você planeja se tornar um Bruxo. Hahahahahahaha~";
+		mes "Bem, ? melhor responder esses problemas se voc? planeja se tornar um Bruxo. Hahahahahahaha~";
 		next;
 		mes "[Raulel]";
 		mes "1. Escolha o Monstros com o atributo diferente dos outros.";
 		next;
 		if (select("Louva-a-Deus:Cornutus:Giearth:Caramelo") == 2) set .@wizard_t,.@wizard_t+20;
 		mes "[Raulel]";
-		mes "2. Escolha o monstro que não é do tipo de pilhagem.";
+		mes "2. Escolha o monstro que n?o ? do tipo de pilhagem.";
 		next;
-		if (select("Yoyo:Magnólia:Metaller:Zerom") == 4) set .@wizard_t,.@wizard_t+20;
+		if (select("Yoyo:Magn?lia:Metaller:Zerom") == 4) set .@wizard_t,.@wizard_t+20;
 		mes "[Raulel]";
-		mes "3. Qual desses monstros não reconhece Conjurações?";
+		mes "3. Qual desses monstros n?o reconhece Conjura??es?";
 		next;
-		if (select("Marina:Vitata:Escorpião:Giearth") == 1) set .@wizard_t,.@wizard_t+20;
+		if (select("Marina:Vitata:Escorpi?o:Giearth") == 1) set .@wizard_t,.@wizard_t+20;
 		mes "[Raulel]";
-		mes "4. Escolha a magia que é a mais eficiente contra Esfera Marinha.";
+		mes "4. Escolha a magia que ? a mais eficiente contra Esfera Marinha.";
 		next;
-		if (select("Lanças de Gelo:Lanças de Fogo:Relâmpago:Petrificar") == 3) set .@wizard_t,.@wizard_t+20;
+		if (select("Lan?as de Gelo:Lan?as de Fogo:Rel?mpago:Petrificar") == 3) set .@wizard_t,.@wizard_t+20;
 		mes "[Raulel]";
 		mes "5. Escolha o monstro que pode se mover.";
 		next;
-		if (select("Hidra:Mandrágora:Guardião da Floresta:Frilldora") == 4) set .@wizard_t,.@wizard_t+20;
+		if (select("Hidra:Mandr?gora:Guardi?o da Floresta:Frilldora") == 4) set .@wizard_t,.@wizard_t+20;
 		mes "[Raulel]";
-		mes "*pfft* Faça direito, para que eu não precise perguntar de novo.";
+		mes "*pfft* Fa?a direito, para que eu n?o precise perguntar de novo.";
 		next;
 		mes "[Raulel]";
-		mes "Você fez "+.@wizard_t+" pontos.";
+		mes "Voc? fez "+.@wizard_t+" pontos.";
 		if (.@wizard_t == 100) {
-			mes "HHahahahahaha~ *Tosse* *Tosse* Se você pode responder todas essas perguntas corretamente, por que você não se sai bem em batalhas??";
+			mes "HHahahahahaha~ *Tosse* *Tosse* Se voc? pode responder todas essas perguntas corretamente, por que voc? n?o se sai bem em batalhas??";
 			next;
 		} else if (.@wizard_t == 80) {
 			mes "Ehh, ok...";
-			mes "Vou deixar você refazer o teste.";
+			mes "Vou deixar voc? refazer o teste.";
 			next;
 		} else {
-			mes "Você falhou! Vá estudar mais!";
+			mes "Voc? falhou! V? estudar mais!";
 			next;
 			mes "[Raulel]";
-			mes "Você tem uma deficiência em algo...*espirra*...algo como Inteligência. É por isso que você continua falhando. Hahahahahahahaha~";
+			mes "Voc? tem uma defici?ncia em algo...*espirra*...algo como Intelig?ncia. ? por isso que voc? continua falhando. Hahahahahahahaha~";
 			close;
 		}
-		if (select("Começar o teste.:Posso ter outra explicação?") == 1) {
+		if (select("Come?ar o teste.:Posso ter outra explica??o?") == 1) {
 			mes "[Raulel]";
 			mes "Ninguem vai te ajudar em se tornar um Bruxo. Hahahahahahahaha~";
 			mes "*Tosse* *Tosse* Sem sentido chorar depois que morrer...";
 			next;
 			percentheal 100,100;
 			mes "[Raulel]";
-			mes "Então, como você quiser. Eu vou te mandar para a batalha.";
-			mes "Oh! Se você ver um Portão grande com pérolas e escutar vozes de lá, isso significa que você falhou. Hahahahahahahahaha~";
+			mes "Ent?o, como voc? quiser. Eu vou te mandar para a batalha.";
+			mes "Oh! Se voc? ver um Port?o grande com p?rolas e escutar vozes de l?, isso significa que voc? falhou. Hahahahahahahahaha~";
 			close2;
 			warp "job_wiz",57,154;
 			end;
 		}
 		mes "[Raulel]";
-		mes "*Tosse* *Tosse* Então deixe-me explicar.";
-		mes "O teste pode ser difícil, mas faça como eu digo e você não terá problemas.";
+		mes "*Tosse* *Tosse* Ent?o deixe-me explicar.";
+		mes "O teste pode ser dif?cil, mas fa?a como eu digo e voc? n?o ter? problemas.";
 		next;
 		mes "[Raulel]";
 		mes "Existem 3 partes para o Teste Final.";
-		mes "A ordem é...*espirra*...A Sala da Água, Sala da Tera, e a Sala do Fogo. Cada sala contém monstros do mesmo atributo.";
+		mes "A ordem ?...*espirra*...A Sala da ?gua, Sala da Tera, e a Sala do Fogo. Cada sala cont?m monstros do mesmo atributo.";
 		next;
 		mes "[Raulel]";
-		mes "Você vai ver que os monstros já estarão lá quando você entrar.";
-		mes "Se você usar as magias apropriadas contra eles, não será tão difícil. Hahahahahahaha~";
+		mes "Voc? vai ver que os monstros j? estar?o l? quando voc? entrar.";
+		mes "Se voc? usar as magias apropriadas contra eles, n?o ser? t?o dif?cil. Hahahahahahaha~";
 		next;
 		mes "[Raulel]";
-		mes "Se dentro do tempo dado, você derrotar todos os monstros...";
-		mes "você será mandado para a próxima sala.";
+		mes "Se dentro do tempo dado, voc? derrotar todos os monstros...";
+		mes "voc? ser? mandado para a pr?xima sala.";
 		next;
 		mes "[Raulel]";
 		mes "Depois disso, o teste acaba.";
-		mes "Você então se tornará um Bruxo controlado pelos poderes da Grande Magia! Não há volta para a vida que você conheceu até agora.";
+		mes "Voc? ent?o se tornar? um Bruxo controlado pelos poderes da Grande Magia! N?o h? volta para a vida que voc? conheceu at? agora.";
 		next;
 		mes "[Raulel]";
-		mes "Hahahahaha~ Você parece assustado. Ainda não é tarde, sabe?.";
-		mes "*Tosse* *Tosse* você pode desistir e voltar para a cidade! Apenas esqueça sobre a Grande Magia e viva uma vida normal. O que você diz?";
+		mes "Hahahahaha~ Voc? parece assustado. Ainda n?o ? tarde, sabe?.";
+		mes "*Tosse* *Tosse* voc? pode desistir e voltar para a cidade! Apenas esque?a sobre a Grande Magia e viva uma vida normal. O que voc? diz?";
 		next;
 		if (select("Continuar com o Teste.:Estou assustado, Quero sair.") == 1) {
 			percentheal 100,100;
 			mes "[Raulel]";
-			mes "Essa é a parte que você morre, não volte chorando. Hahahahahahahahah~ *Tosse *Tosse*";
-			mes "Como você quer, vamos começar o teste final!";
+			mes "Essa ? a parte que voc? morre, n?o volte chorando. Hahahahahahahahah~ *Tosse *Tosse*";
+			mes "Como voc? quer, vamos come?ar o teste final!";
 			close2;
 			warp "job_wiz",57,154;
 			end;
 		}
 		mes "[Raulel]";
-		mes "Vindo de você, isso é um pensamento condenado. Isso combina mais com você. Hahahahahahahahaha~";
-		mes "Volte e viva uma vida quieta e pacífica!";
+		mes "Vindo de voc?, isso ? um pensamento condenado. Isso combina mais com voc?. Hahahahahahahahaha~";
+		mes "Volte e viva uma vida quieta e pac?fica!";
 		close2;
 		warp "geffen",120,110;
 		end;
 	} else if (WIZ_Q == 7) {
 		mes "[Raulel]";
-		mes "Você não deveria ter nada a tratar comigo que eu saiba.";
-		mes "Mas, já que você é tão persistente, Eu vou deixar você fazer o teste de novo. Hahahahaha~";
+		mes "Voc? n?o deveria ter nada a tratar comigo que eu saiba.";
+		mes "Mas, j? que voc? ? t?o persistente, Eu vou deixar voc? fazer o teste de novo. Hahahahaha~";
 		next;
 		mes "[Raulel]";
-		mes "Vá! Vá e se torne o Bruxo que você realmente quer ser.";
-		mes "e seja Cuidadoso! Grande Magia sempre estará com você...";
+		mes "V?! V? e se torne o Bruxo que voc? realmente quer ser.";
+		mes "e seja Cuidadoso! Grande Magia sempre estar? com voc?...";
 		close;
 	}
 }
 
 job_wiz,50,165,4	script	Assistente da Arena	8_F_GIRL,{
 	mes "[Assistente da Arena]";
-	mes "Bem-vindo à Arena de troca de teste para ser tornar um Bruxo.";
-	mes "Se você quiser fazer o teste final, por favor entre na sala de espera.";
+	mes "Bem-vindo ? Arena de troca de teste para ser tornar um Bruxo.";
+	mes "Se voc? quiser fazer o teste final, por favor entre na sala de espera.";
 	next;
 	mes "[Assistente da Arena]";
 	mes "Se alguem estiver fazendo o teste, por favor espere.";
-	mes "Todas as informações do teste serão publicadas, e vai começar assim que o jogador anterior sair.";
+	mes "Todas as informa??es do teste ser?o publicadas, e vai come?ar assim que o jogador anterior sair.";
 	next;
 	mes "[Assistente da Arena]";
 	mes "Cada teste leva aproximadamente 5 a 10 minutos.";
@@ -996,14 +997,14 @@ job_wiz,50,165,4	script	Assistente da Arena	8_F_GIRL,{
 	close;
 
 OnInit:
-	waitingroom "Sala de Espera",20,"Sala de Espera#wiz::OnStartArena",1;
+	waitingroom "Sala de Espera",20,"Assistente da Arena::OnStartArena",1;
 	enablewaitingroomevent;
 	end;
 
 OnStartArena:
 	killmonsterall "job_wiz";
 	warpwaitingpc "job_wiz",114,169;
-	donpcevent "Sala de Água::OnEnable";
+	donpcevent "Sala de ?gua::OnEnable";
 	disablewaitingroomevent;
 	end;
 
@@ -1014,50 +1015,51 @@ OnStart:
 
 // Water Room (Test 2 part 1)
 //==========================================================
-job_wiz,1,1,1	script	Sala de Água	1_F_01,{
+job_wiz,1,1,1	script	Sala de ?gua	1_F_01,{
 OnInit:
-	disablenpc "Sala de Água";
+	disablenpc "Sala de ?gua";
 	end;
 
 OnEnable:
-	enablenpc "Sala de Água";
-	if (!RENEWAL) {
+	enablenpc "Sala de ?gua";
+	//if (!RENEWAL) {
+	if (!checkre(0)) {
 		.MyMobs = 8;
-		monster "job_wiz",129,170,"Obeaune",1044,1,"Sala de Água::OnMyMobDead";
+		monster "job_wiz",129,170,"Obeaune",1044,1,"Sala de ?gua::OnMyMobDead";
 	}
 	else
 		.MyMobs = 7;
-	monster "job_wiz",109,174,"Phen",1158,1,"Sala de Água::OnMyMobDead";
-	monster "job_wiz",118,174,"Shellfish",1074,1,"Sala de Água::OnMyMobDead";
-	monster "job_wiz",109,165,"Vadon",1066,1,"Sala de Água::OnMyMobDead";
-	monster "job_wiz",118,165,"Cornutus",1067,1,"Sala de Água::OnMyMobDead";
-	monster "job_wiz",101,157,"Marina",1141,1,"Sala de Água::OnMyMobDead";
-	monster "job_wiz",126,157,"Marin",1242,1,"Sala de Água::OnMyMobDead";
-	monster "job_wiz",98,170,"Magnolia",1138,1,"Sala de Água::OnMyMobDead";
+	monster "job_wiz",109,174,"Phen",1158,1,"Sala de ?gua::OnMyMobDead";
+	monster "job_wiz",118,174,"Shellfish",1074,1,"Sala de ?gua::OnMyMobDead";
+	monster "job_wiz",109,165,"Vadon",1066,1,"Sala de ?gua::OnMyMobDead";
+	monster "job_wiz",118,165,"Cornutus",1067,1,"Sala de ?gua::OnMyMobDead";
+	monster "job_wiz",101,157,"Marina",1141,1,"Sala de ?gua::OnMyMobDead";
+	monster "job_wiz",126,157,"Marin",1242,1,"Sala de ?gua::OnMyMobDead";
+	monster "job_wiz",98,170,"Magnolia",1138,1,"Sala de ?gua::OnMyMobDead";
 	initnpctimer;
 	end;
 
 OnDisable:
 	killmonsterall "job_wiz";
-	disablenpc "Sala de Água";
+	disablenpc "Sala de ?gua";
 	end;
 
 OnMyMobDead:
-	--.MyMobs;
+	set .MyMobs,.MyMobs-1;
 	if (.MyMobs < 1) {
-		++WIZ_Q2;
+		set WIZ_Q2,WIZ_Q2+1;
 		mapannounce "job_wiz",strcharinfo(0)+" eliminou todos os Monstros.",bc_map;
-		donpcevent "Sala de Água#Door::OnEnable";
+		donpcevent "Sala de ?gua#Door::OnEnable";
 		stopnpctimer;
 	}
 	end;
 
 OnTimer1000:
-	mapannounce "job_wiz","Sala da Água - O teste agora vai continuar..",bc_map;
+	mapannounce "job_wiz","Sala da ?gua - O teste agora vai continuar..",bc_map;
 	end;
 
 OnTimer2000:
-	mapannounce "job_wiz","O tempo limite é de 3 minutos. Nós vamos iniciar o teste agora.",bc_map;
+	mapannounce "job_wiz","O tempo limite ? de 3 minutos. N?s vamos iniciar o teste agora.",bc_map;
 	end;
 
 OnTimer3000:
@@ -1090,60 +1092,60 @@ OnTimer173000:
 
 OnTimer183000:
 	mapannounce "job_wiz","O tempo acabou.",bc_map;
-	donpcevent "Sala de Água::OnDisable";
+	donpcevent "Sala de ?gua::OnDisable";
 	end;
 
 OnTimer184000:
-	enablenpc "Sala de Água#Failed";
+	enablenpc "Sala de ?gua#Failed";
 	end;
 
 OnTimer185000:
-	mapannounce "job_wiz","Próximo candidato, entre por favor.",bc_map;
+	mapannounce "job_wiz","Pr?ximo candidato, entre por favor.",bc_map;
 	end;
 
 OnTimer186000:
-	disablenpc "Sala de Água#Failed";
-	donpcevent "Sala de Água::OnDisable";
+	disablenpc "Sala de ?gua#Failed";
+	donpcevent "Sala de ?gua::OnDisable";
 	donpcevent "Sala de Espera#wiz::OnStart";
 	end;
 }
 
-job_wiz,1,2,1	script	Sala de Água#Door	1_F_01,{
+job_wiz,1,2,1	script	Sala de ?gua#Door	1_F_01,{
 OnInit:
-	disablenpc "Sala de Água#Door";
+	disablenpc "Sala de ?gua#Door";
 	end;
 
 OnEnable:
-	enablenpc "Sala de Água#Door";
-	donpcevent "Sala de Água::OnDisable";
+	enablenpc "Sala de ?gua#Door";
+	donpcevent "Sala de ?gua::OnDisable";
 	.MyMobs = 5;
-	monster "job_wiz",114,169,"Esfera Marinha",1142,1,"Sala de Água#Door::OnMyMobDead";
-	monster "job_wiz",112,169,"Hidra",1068,1,"Sala de Água#Door::OnMyMobDead";
-	monster "job_wiz",116,169,"Hidra",1068,1,"Sala de Água#Door::OnMyMobDead";
-	monster "job_wiz",114,171,"Hidra",1068,1,"Sala de Água#Door::OnMyMobDead";
-	monster "job_wiz",114,167,"Hidra",1068,1,"Sala de Água#Door::OnMyMobDead";
+	monster "job_wiz",114,169,"Esfera Marinha",1142,1,"Sala de ?gua#Door::OnMyMobDead";
+	monster "job_wiz",112,169,"Hidra",1068,1,"Sala de ?gua#Door::OnMyMobDead";
+	monster "job_wiz",116,169,"Hidra",1068,1,"Sala de ?gua#Door::OnMyMobDead";
+	monster "job_wiz",114,171,"Hidra",1068,1,"Sala de ?gua#Door::OnMyMobDead";
+	monster "job_wiz",114,167,"Hidra",1068,1,"Sala de ?gua#Door::OnMyMobDead";
 	initnpctimer;
 	end;
 
 OnDisable:
 	killmonsterall "job_wiz";
-	disablenpc "Sala de Água#Door";
+	disablenpc "Sala de ?gua#Door";
 	end;
 
 OnMyMobDead:
-	--.MyMobs;
+	set .MyMobs,.MyMobs-1;
 	if (.MyMobs < 1) {
 		mapannounce "job_wiz",strcharinfo(0)+" eliminou todos os monstros.",bc_map;
 		percentheal 100,100;
 		warp "job_wiz",116,97;
-		donpcevent "Sala de Água#Door::OnDisable";
+		donpcevent "Sala de ?gua#Door::OnDisable";
 		donpcevent "Sala da Terra::OnEnable";
 		stopnpctimer;
 	}
 	end;
 
 OnTimer1000:
-	mapannounce "job_wiz","O monstro Guardião apareceu. Você tem 1 minuto.",bc_map;
+	mapannounce "job_wiz","O monstro Guardi?o apareceu. Voc? tem 1 minuto.",bc_map;
 	end;
 
 OnTimer30000:
@@ -1156,31 +1158,31 @@ OnTimer50000:
 
 OnTimer60000:
 	mapannounce "job_wiz","O tempo acabou.",bc_map;
-	donpcevent "Sala de Água#Door::OnDisable";
+	donpcevent "Sala de ?gua#Door::OnDisable";
 	end;
 
 OnTimer61000:
-	enablenpc "Sala de Água#Failed";
+	enablenpc "Sala de ?gua#Failed";
 	end;
 
 OnTimer62000:
-	mapannounce "job_wiz","Próximo candidato, entre por favor.",bc_map;
+	mapannounce "job_wiz","Pr?ximo candidato, entre por favor.",bc_map;
 	end;
 
 OnTimer63000:
-	disablenpc "Sala de Água#Failed";
-	donpcevent "Sala de Água#Door::OnDisable";
+	disablenpc "Sala de ?gua#Failed";
+	donpcevent "Sala de ?gua#Door::OnDisable";
 	donpcevent "Sala de Espera#wiz::OnStart";
 	end;
 }
 
-job_wiz,114,169,0	script	Sala de Água#Failed	-1,16,16,{
+job_wiz,114,169,0	script	Sala de ?gua#Failed	-1,16,16,{
 OnInit:
-	disablenpc "Sala de Água#Failed";
+	disablenpc "Sala de ?gua#Failed";
 	end;
 
 OnTouch:
-	mapannounce "job_wiz",strcharinfo(0)+" não conseguiu passar no exame.",bc_map;
+	mapannounce "job_wiz",strcharinfo(0)+" n?o conseguiu passar no exame.",bc_map;
 	warp "geffen",120,110;
 	end;
 }
@@ -1194,8 +1196,9 @@ OnInit:
 
 OnEnable:
 	enablenpc "Sala da Terra";
-	if (!RENEWAL) {
-		.MyMobs = 10;
+	//if (!RENEWAL) {
+	if (!checkre(0)) {
+		set .MyMobs,10;
 		monster "job_wiz",120,102,"Hode",1127,1,"Sala da Terra::OnMyMobDead";
 		monster "job_wiz",111,93,"Savage",1166,1,"Sala da Terra::OnMyMobDead";
 		monster "job_wiz",127,86,"Mantis",1139,1,"Sala da Terra::OnMyMobDead";
@@ -1218,7 +1221,7 @@ OnDisable:
 	end;
 
 OnMyMobDead:
-	--.MyMobs;
+	set .MyMobs,.MyMobs-1;
 	if (.MyMobs < 1) {
 		mapannounce "job_wiz",strcharinfo(0) + " eliminou todos os monstros.",bc_map;
 		donpcevent "Sala da Terra#Door::OnEnable";
@@ -1231,7 +1234,7 @@ OnTimer1000:
 	end;
 
 OnTimer2000:
-	mapannounce "job_wiz","O tempo limite é de 3 minutos.",bc_map;
+	mapannounce "job_wiz","O tempo limite ? de 3 minutos.",bc_map;
 	end;
 
 OnTimer3000:
@@ -1272,7 +1275,7 @@ OnTimer184000:
 	end;
 
 OnTimer185000:
-	mapannounce "job_wiz","Próximo candidato, entre por favor.",bc_map;
+	mapannounce "job_wiz","Pr?ximo candidato, entre por favor.",bc_map;
 	end;
 
 OnTimer186000:
@@ -1290,12 +1293,13 @@ OnInit:
 OnEnable:
 	enablenpc "Sala da Terra#Door";
 	donpcevent "Sala da Terra::OnDisable";
-	if (!RENEWAL) {
-		.MyMobs = 7;
+	//if (!RENEWAL) {
+	if (!checkre(0)) {
+		set .MyMobs,7;
 		monster "job_wiz",116,97,"Flora",1118,1,"Sala da Terra#Door::OnMyMobDead";
 	}
 	else
-		.MyMobs = 6;
+		set .MyMobs,6;
 	monster "job_wiz",114,95,"Mandragora",1020,1,"Sala da Terra#Door::OnMyMobDead";
 	monster "job_wiz",118,95,"Mandragora",1020,1,"Sala da Terra#Door::OnMyMobDead";
 	monster "job_wiz",114,99,"Mandragora",1020,1,"Sala da Terra#Door::OnMyMobDead";
@@ -1311,7 +1315,7 @@ OnDisable:
 	end;
 
 OnMyMobDead:
-	--.MyMobs;
+	set .MyMobs,.MyMobs-1;
 	if (.MyMobs < 1) {
 		mapannounce "job_wiz",strcharinfo(0) + " eliminou todos os monstros.",bc_map;
 		percentheal 100,100;
@@ -1323,7 +1327,7 @@ OnMyMobDead:
 	end;
 
 OnTimer1000:
-	mapannounce "job_wiz","O monstro Guardião apareceu. Você tem 1 minuto.",bc_map;
+	mapannounce "job_wiz","O monstro Guardi?o apareceu. Voc? tem 1 minuto.",bc_map;
 	end;
 
 OnTimer30000:
@@ -1344,7 +1348,7 @@ OnTimer61000:
 	end;
 
 OnTimer62000:
-	mapannounce "job_wiz","Próximo candidato, por favor entre.",bc_map;
+	mapannounce "job_wiz","Pr?ximo candidato, por favor entre.",bc_map;
 	end;
 
 OnTimer63000:
@@ -1360,7 +1364,7 @@ OnInit:
 	end;
 
 OnTouch:
-	mapannounce "job_wiz",strcharinfo(0) + " não conseguiu passar no exame.",bc_map;
+	mapannounce "job_wiz",strcharinfo(0) + " n?o conseguiu passar no exame.",bc_map;
 	warp "geffen",120,110;
 	end;
 }
@@ -1374,13 +1378,14 @@ OnInit:
 
 OnEnable:
 	enablenpc "Sala do Fogo";
-	if (!RENEWAL) {
-		.MyMobs = 8;
+	//if (!RENEWAL) {
+	if (!checkre(0)) {
+		set .MyMobs,8;
 		monster "job_wiz",58,110,"Zerom",1178,1,"Sala do Fogo::OnMyMobDead";
 		monster "job_wiz",54,89,"Desert Wolf",1106,1,"Sala do Fogo::OnMyMobDead";
 	}
 	else
-		.MyMobs = 6;
+		set .MyMobs,6;
 	monster "job_wiz",33,110,"Goblin",1123,1,"Sala do Fogo::OnMyMobDead";
 	monster "job_wiz",40,103,"Scorpion",1001,1,"Sala do Fogo::OnMyMobDead";
 	monster "job_wiz",51,103,"Frilldora",1119,1,"Sala do Fogo::OnMyMobDead";
@@ -1396,7 +1401,7 @@ OnDisable:
 	end;
 
 OnMyMobDead:
-	--.MyMobs;
+	set .MyMobs,.MyMobs-1;
 	if (.MyMobs < 1) {
 		mapannounce "job_wiz",strcharinfo(0) + " eliminou todos os monstros.",bc_map;
 		donpcevent "Sala do Fogo#Door::OnEnable";
@@ -1409,7 +1414,7 @@ OnTimer1000:
 	end;
 
 OnTimer2000:
-	mapannounce "job_wiz","O tempo limite é de 3 minutos. Nós vamos começar o teste agora.",bc_map;
+	mapannounce "job_wiz","O tempo limite ? de 3 minutos. N?s vamos come?ar o teste agora.",bc_map;
 	end;
 
 OnTimer3000:
@@ -1450,7 +1455,7 @@ OnTimer184000:
 	end;
 
 OnTimer185000:
-	mapannounce "job_wiz","Próximo candidato, entre por favor.",bc_map;
+	mapannounce "job_wiz","Pr?ximo candidato, entre por favor.",bc_map;
 	end;
 
 OnTimer186000:
@@ -1468,7 +1473,7 @@ OnInit:
 OnEnable:
 	enablenpc "Sala do Fogo#Door";
 	donpcevent "Sala do Fogo::OnDisable";
-	.MyMobs = 3;
+	set .MyMobs,3;
 	monster "job_wiz",44,99,"Greatest General",1277,1,"Sala do Fogo#Door::OnMyMobDead";
 	if (RENEWAL) {
 		monster "job_wiz",43,99,"Greatest General",1277,1,"Sala do Fogo#Door::OnMyMobDead";
@@ -1487,9 +1492,9 @@ OnDisable:
 	end;
 
 OnMyMobDead:
-	--.MyMobs;
+	set .MyMobs,.MyMobs-1;
 	if (.MyMobs < 1) {
-		mapannounce "job_wiz","Parabéns, "+strcharinfo(0)+". Você passou no teste.",bc_map;
+		mapannounce "job_wiz","Parab?ns, "+strcharinfo(0)+". Voc? passou no teste.",bc_map;
 		WIZ_Q = 7;
 		changequest 9017,9018;
 		donpcevent "Sala do Fogo#Door::OnDisable";
@@ -1499,7 +1504,7 @@ OnMyMobDead:
 	end;
 
 OnTimer1000:
-	mapannounce "job_wiz","O monstro Guardião apareceu. Você tem 2 minutos.",bc_map;
+	mapannounce "job_wiz","O monstro Guardi?o apareceu. Voc? tem 2 minutos.",bc_map;
 	end;
 
 OnTimer30000:
@@ -1528,7 +1533,7 @@ OnTimer121000:
 	end;
 
 OnTimer122000:
-	mapannounce "job_wiz","Próximo candidado, entre por favor.",bc_map;
+	mapannounce "job_wiz","Pr?ximo candidado, entre por favor.",bc_map;
 	end;
 
 OnTimer123000:
@@ -1567,7 +1572,7 @@ OnTimer2000:
 	end;
 
 OnTimer4000:
-	mapannounce "job_wiz","Esse é o final do teste. Próximo candidato, se apresente.",bc_map;
+	mapannounce "job_wiz","Esse ? o final do teste. Pr?ximo candidato, se apresente.",bc_map;
 	end;
 
 OnTimer5000:
@@ -1575,7 +1580,7 @@ OnTimer5000:
 	end;
 
 OnTimer7000:
-	mapannounce "job_wiz","Próximo candidato, entre por favor.",bc_map;
+	mapannounce "job_wiz","Pr?ximo candidato, entre por favor.",bc_map;
 	end;
 
 OnTimer9000:
@@ -1589,27 +1594,27 @@ gef_tower,107,36,4	script	Cachorro Branco#wiz	4_DOG01,{
 	if (BaseJob != Job_Mage) {
 		if (BaseJob == Job_Wizard) {
 			mes "[Maria]";
-			mes "Ao invés de ficar andando por aqui, não seria melhor testar o quão forte você ficou?";
+			mes "Ao inv?s de ficar andando por aqui, n?o seria melhor testar o qu?o forte voc? ficou?";
 			next;
 			mes "[Maria]";
-			mes "Não esqueça que Bruxos crescem e melhoram seus poderes todos os dias.";
+			mes "N?o esque?a que Bruxos crescem e melhoram seus poderes todos os dias.";
 			close2;
 			cutin "job_wizard_maria01",255;
 			end;
 		} else if (BaseClass == Job_Novice) {
 			mes "[Cachorro]";
-			mes "O quê? Criança!";
-			mes "Um cachorro falante é tão incrível para você?";
+			mes "O qu?? Crian?a!";
+			mes "Um cachorro falante ? t?o incr?vel para voc??";
 		} else {
 			cutin "job_wizard_maria02",2;
 			mes "[Cachorro]";
 			mes "Sheesh...Por que uma pessoa que nem mesmo consegue conjurar uma magia vem aqui em cima?";
-			mes "*Pfft* Se você estiver tão entediado, faça um favor ao mundo, suba até o topo dessa torre pelo lado de fora, e começe a fazer algunas acrobacias se você conseguir.";
+			mes "*Pfft* Se voc? estiver t?o entediado, fa?a um favor ao mundo, suba at? o topo dessa torre pelo lado de fora, e come?e a fazer algunas acrobacias se voc? conseguir.";
 		}
 		next;
 		mes "[Cachorro]";
 		mes "*Late* Se manda!";
-		mes "Eu não tenho tempo para pessoas como você!";
+		mes "Eu n?o tenho tempo para pessoas como voc?!";
 		close2;
 		cutin "job_wizard_maria02",255;
 		end;
@@ -1617,124 +1622,124 @@ gef_tower,107,36,4	script	Cachorro Branco#wiz	4_DOG01,{
 	if (WIZ_Q == 0) {
 		cutin "job_wizard_maria01",2;
 		mes "[Cachorro]";
-		mes "Ah...Eu sei o que você quer dizer. Você quer se tornar um Bruxo, certo?";
+		mes "Ah...Eu sei o que voc? quer dizer. Voc? quer se tornar um Bruxo, certo?";
 		next;
 		mes "[Cachorro]";
-		mes "Vá falar com Catherine. Ela vai te ajudar.";
+		mes "V? falar com Catherine. Ela vai te ajudar.";
 		next;
 		mes "[Cachorro]";
-		mes "Além disso, se você quiser saber algo sobre o teste, eu posso explicar.";
+		mes "Al?m disso, se voc? quiser saber algo sobre o teste, eu posso explicar.";
 		next;
-		switch(select(".......:Um Cachorro está falando comigo...")) {
+		switch(select(".......:Um Cachorro est? falando comigo...")) {
 		case 1:
 			mes "[Cachorro]";
-			mes "...*late*...? O que é?? Por que você está olhando pra mim assimt?!";
-			mes "É a primeira vez que você vê um Cachorro falar?";
+			mes "...*late*...? O que ??? Por que voc? est? olhando pra mim assimt?!";
+			mes "? a primeira vez que voc? v? um Cachorro falar?";
 			next;
 			mes "[Cachorro]";
-			mes "*Late* Não é normal você ver um cachorro falando eu suponho. late~";
-			mes "...Sim eu acho que é uma visão rara...*grrr*...Feche a boca por favor!";
+			mes "*Late* N?o ? normal voc? ver um cachorro falando eu suponho. late~";
+			mes "...Sim eu acho que ? uma vis?o rara...*grrr*...Feche a boca por favor!";
 			next;
 			mes "[Cachorro]";
-			mes "Meu nome é 'Maria Splodofska'. Apenas me chame 'Maria'.";
+			mes "Meu nome ? 'Maria Splodofska'. Apenas me chame 'Maria'.";
 			mes "Eu estou ajudando candidatos que querem se tornar Bruxos.";
 			next;
 			cutin "job_wizard_maria03",2;
 			mes "[Maria]";
-			mes "*Late* Bem, eu me tornei um cachorro porque...Eu estava ajudando meu namorado num experimento para o teste final dele em Graduação em Mágica. Bom, *Grrrr* ele acidentalmente me transformou num cachorro.";
-			mes "Teoricamente, em algums meses a química vai acabar e eu vou voltar ao normal. Quando exatamente, não tenho idéia?";
+			mes "*Late* Bem, eu me tornei um cachorro porque...Eu estava ajudando meu namorado num experimento para o teste final dele em Gradua??o em M?gica. Bom, *Grrrr* ele acidentalmente me transformou num cachorro.";
+			mes "Teoricamente, em algums meses a qu?mica vai acabar e eu vou voltar ao normal. Quando exatamente, n?o tenho id?ia?";
 			next;
 			cutin "job_wizard_maria01",2;
 			mes "[Maria]";
-			mes "Bem...isso não te diz respeito.";
-			mes "Agora, onde estávamos?.";
+			mes "Bem...isso n?o te diz respeito.";
+			mes "Agora, onde est?vamos?.";
 			next;
 			break;
 		case 2:
 			cutin "job_wizard_maria02",2;
 			mes "[Cachorro]";
-			mes "*Late* *Late* *Late* Não diga o óbvio! Certo, eu sei que so um cachorro!";
+			mes "*Late* *Late* *Late* N?o diga o ?bvio! Certo, eu sei que so um cachorro!";
 			next;
 			cutin "job_wizard_maria01",2;
 			mes "[Cachorro]";
-			mes "Meu nome é 'Maria Splodofska'. O pessoal me chama 'Maria'.";
-			mes "Eu ajudo pessoas como você que desejam se tornar um Bruxo.";
+			mes "Meu nome ? 'Maria Splodofska'. O pessoal me chama 'Maria'.";
+			mes "Eu ajudo pessoas como voc? que desejam se tornar um Bruxo.";
 			next;
 			cutin "job_wizard_maria03",2;
 			mes "[Cadela chamada 'Maria']";
-			mes "O motivo de eu ter me tornado um cachorro...Meu namorado estava fazendo experimentos para a Graduação em Magia dele, acidentalmente ele me transformou em cachorro.";
-			mes "Teoricamente, em alguns meses, a química vai acabar e eu vou voltar ao normal. Quando exatamente, não tenho idéia?";
+			mes "O motivo de eu ter me tornado um cachorro...Meu namorado estava fazendo experimentos para a Gradua??o em Magia dele, acidentalmente ele me transformou em cachorro.";
+			mes "Teoricamente, em alguns meses, a qu?mica vai acabar e eu vou voltar ao normal. Quando exatamente, n?o tenho id?ia?";
 			next;
 			cutin "job_wizard_maria02",2;
 			mes "[Cadela chamada 'Maria']";
-			mes "Eu não sou uma Cadela chamada 'Maria'!! Oi!! Me escute!!";
+			mes "Eu n?o sou uma Cadela chamada 'Maria'!! Oi!! Me escute!!";
 			next;
 			mes "[Cadela... 'Maria'...]";
 			mes "..........";
 			next;
 			mes "[Maria]";
-			mes "...*LATE* *LATE* *LATE*... Eu estou chateada, mas que seja!! Você parece ocupado, então eu vou deixar.";
+			mes "...*LATE* *LATE* *LATE*... Eu estou chateada, mas que seja!! Voc? parece ocupado, ent?o eu vou deixar.";
 			next;
 			break;
 		}
 		cutin "job_wizard_maria01",2;
 		mes "[Maria]";
 		mes "Como eu tinha dito, para trocar de classe, fale com Catherine.";
-		mes "Ela é uma Bruxa nova também.";
+		mes "Ela ? uma Bruxa nova tamb?m.";
 		next;
 		mes "[Maria]";
-		mes "Eu posso te contar mais sobre o processo de troca de classe, mas eu não posso atrapalhar uma pessoa ocupada agora, posso?";
-		mes "O que você acha? Devo explicar algo sobre Magos que querem se tornar Bruxos?";
+		mes "Eu posso te contar mais sobre o processo de troca de classe, mas eu n?o posso atrapalhar uma pessoa ocupada agora, posso?";
+		mes "O que voc? acha? Devo explicar algo sobre Magos que querem se tornar Bruxos?";
 		next;
-		switch(select("Sim, por favor! Eu gostaria disso.:Não, está tudo bem.:Um cachorro falante...")) {
+		switch(select("Sim, por favor! Eu gostaria disso.:N?o, est? tudo bem.:Um cachorro falante...")) {
 		case 1:
 			cutin "job_wizard_maria01",2;
 			mes "[Maria]";
-			mes "Certo, vou explicar o processo para você.";
+			mes "Certo, vou explicar o processo para voc?.";
 			next;
 			mes "[Maria]";
-			mes "Existem três testes no processo todo.";
-			mes "O primeiro teste é coletar itens mágicos.";
+			mes "Existem tr?s testes no processo todo.";
+			mes "O primeiro teste ? coletar itens m?gicos.";
 			next;
 			mes "[Maria]";
-			mes "Ele começa quando você se inscreve para o processo com a Catherine.";
-			mes "Ou ela vai te mandar coletar vários tipos de gemas, ou pegar pedras com atributos.";
+			mes "Ele come?a quando voc? se inscreve para o processo com a Catherine.";
+			mes "Ou ela vai te mandar coletar v?rios tipos de gemas, ou pegar pedras com atributos.";
 			next;
 			mes "[Maria]";
-			mes "O segundo teste é um quiz mágico,";
-			mes "O homem sombrio no canto alí é o responsável por essa parte.";
+			mes "O segundo teste ? um quiz m?gico,";
+			mes "O homem sombrio no canto al? ? o respons?vel por essa parte.";
 			next;
 			mes "[Maria]";
-			mes "Existem perguntas sobre mágica, monstros e magos..";
-			mes "De 10 perguntas, se você não acertar todas, ele não vai deixar você passar...";
+			mes "Existem perguntas sobre m?gica, monstros e magos..";
+			mes "De 10 perguntas, se voc? n?o acertar todas, ele n?o vai deixar voc? passar...";
 			next;
 			mes "[Maria]";
-			mes "Estranhamente, ele é o encarregado pelo 3º teste também.";
-			mes "O terceiro teste é eliminar monstros.";
+			mes "Estranhamente, ele ? o encarregado pelo 3? teste tamb?m.";
+			mes "O terceiro teste ? eliminar monstros.";
 			next;
 			mes "[Maria]";
 			mes "Em cada sala, existem monstros de certos atributos.";
-			mes "Você deve ataca-los com as magias de propriedades certas.";
+			mes "Voc? deve ataca-los com as magias de propriedades certas.";
 			next;
 			mes "[Maria]";
-			mes "Bem, isso é tudo que eu posso dizer. Vá se inscrever agora.";
+			mes "Bem, isso ? tudo que eu posso dizer. V? se inscrever agora.";
 			next;
 			mes "[Maria]";
-			mes "É melhor tentar por você mesmo do que escutar minhas descrições..";
+			mes "? melhor tentar por voc? mesmo do que escutar minhas descri??es..";
 			close2;
 			cutin "job_wizard_maria01",255;
 			warp "gef_dun00",116,102;
 			end;
 		case 2:
 			mes "[Maria]";
-			mes "Sério? Certo, então vá se inscrever e faça o seu melhor.";
+			mes "S?rio? Certo, ent?o v? se inscrever e fa?a o seu melhor.";
 			close2;
 			cutin "job_wizard_maria01",255;
 			end;
 		case 3:
 			cutin "job_wizard_maria02",2;
 			mes "[Maria]";
-			mes "Eu não sou um cachorro!! Auuuuuuuuuuu~";
+			mes "Eu n?o sou um cachorro!! Auuuuuuuuuuu~";
 			next;
 			mes "[Maria]";
 			mes "Grr! Espero que falhe!! Se manda!!";
@@ -1746,23 +1751,23 @@ gef_tower,107,36,4	script	Cachorro Branco#wiz	4_DOG01,{
 	} else if (WIZ_Q == 1) {
 		cutin "job_wizard_maria01",2;
 		mes "[Maria]";
-		mes "Você parece perdido...";
-		mes "Você se inscreve, e agora está procurando pelos itens certo?";
+		mes "Voc? parece perdido...";
+		mes "Voc? se inscreve, e agora est? procurando pelos itens certo?";
 		next;
 		mes "[Maria]";
-		mes "Mas já que esse é apenas o primeiro teste, não dependa dos outros.";
-		mes "Faça sozinho. Essa é a melhor maneira.";
+		mes "Mas j? que esse ? apenas o primeiro teste, n?o dependa dos outros.";
+		mes "Fa?a sozinho. Essa ? a melhor maneira.";
 		next;
 		mes "[Maria]";
-		mes "Pelo o que eu escutei, você tem que coletar gemas...";
-		mes "Eu não posso te ajudar diretamente, mas eu posso te dar umas dicas.";
+		mes "Pelo o que eu escutei, voc? tem que coletar gemas...";
+		mes "Eu n?o posso te ajudar diretamente, mas eu posso te dar umas dicas.";
 		next;
 		mes "[Maria]";
-		mes "Primeiro, para pegar Gemas vermelhas, vá aos esgotos de Prontera.";
-		mes "Você pode obtê-las dos Besouros-ladrões e dos Ovos de Besouro-ladrão encontrados lás.";
+		mes "Primeiro, para pegar Gemas vermelhas, v? aos esgotos de Prontera.";
+		mes "Voc? pode obt?-las dos Besouros-ladr?es e dos Ovos de Besouro-ladr?o encontrados l?s.";
 		next;
 		mes "[Maria]";
-		mes "Gemas Amarelas são fáceis de achar no deserto.";
+		mes "Gemas Amarelas s?o f?ceis de achar no deserto.";
 		mes "Condores, Pickys, e algums monstros como Golem soltam elas.";
 		next;
 		mes "[Maria]";
@@ -1770,56 +1775,56 @@ gef_tower,107,36,4	script	Cachorro Branco#wiz	4_DOG01,{
 		mes "Cornutus, Vadon, e monstros como Marte podem soltar essas gemas.";
 		next;
 		mes "[Maria]";
-		mes "Mas é claro que você pode pegar Gemas azuis na Loja Mágica aqui na cidade...";
-		mes "Mas, encontrar elas por si só seria muito mais gratificante e útil no teste.";
+		mes "Mas ? claro que voc? pode pegar Gemas azuis na Loja M?gica aqui na cidade...";
+		mes "Mas, encontrar elas por si s? seria muito mais gratificante e ?til no teste.";
 		next;
 		mes "[Maria]";
-		mes "De qualquer jeito, faça seu melhor.";
-		mes "Essa é a base de ser um Bruxo.";
+		mes "De qualquer jeito, fa?a seu melhor.";
+		mes "Essa ? a base de ser um Bruxo.";
 		close2;
 		cutin "job_wizard_maria01",255;
 		end;
 	} else if (WIZ_Q == 2) {
 		cutin "job_wizard_maria01",2;
 		mes "[Maria]";
-		mes "Você parece perdido...";
-		mes "Você se inscreveu, e agora você está procurando pelos itens certo?";
+		mes "Voc? parece perdido...";
+		mes "Voc? se inscreveu, e agora voc? est? procurando pelos itens certo?";
 		next;
 		mes "[Maria]";
-		mes "Mas já que esse é apenas o primeiro teste, não dependa dos outros..";
-		mes "Faça sozinho. Essa é a melhor maneira..";
+		mes "Mas j? que esse ? apenas o primeiro teste, n?o dependa dos outros..";
+		mes "Fa?a sozinho. Essa ? a melhor maneira..";
 		next;
 		mes "[Maria]";
-		mes "Pelo o que eu escutei, você tem que coletar pedras elementais...";
-		mes "Eu não posso te ajudar diretamente, mas eu posso te dar umas dicas.";
+		mes "Pelo o que eu escutei, voc? tem que coletar pedras elementais...";
+		mes "Eu n?o posso te ajudar diretamente, mas eu posso te dar umas dicas.";
 		next;
 		mes "[Maria]";
-		mes "Bem, você pode encontrar Cristal Azul na Ilha Byalan.";
-		mes "Cornutus, Kukre, Marina, Vadon...esses monstros soltam com frequência.";
+		mes "Bem, voc? pode encontrar Cristal Azul na Ilha Byalan.";
+		mes "Cornutus, Kukre, Marina, Vadon...esses monstros soltam com frequ?ncia.";
 		next;
 		mes "[Maria]";
-		mes "Você pode pegar Vida Verdejante dos monstros tipo inseto.";
-		mes "Tente caçar monstros como Besouro-Chifre,Louva-a-Deus ou Vitata.";
+		mes "Voc? pode pegar Vida Verdejante dos monstros tipo inseto.";
+		mes "Tente ca?ar monstros como Besouro-Chifre,Louva-a-Deus ou Vitata.";
 		next;
 		mes "[Maria]";
-		mes "Oh e *au*, Sangue Escarlate. Você pode pegar um monte desses de...";
-		mes "Salgueiro Anciões, Metallers ou Escorpiões encontrados no deserto.";
+		mes "Oh e *au*, Sangue Escarlate. Voc? pode pegar um monte desses de...";
+		mes "Salgueiro Anci?es, Metallers ou Escorpi?es encontrados no deserto.";
 		next;
 		mes "[Maria]";
-		mes "Para Frescor do Vento. Zangão, Percevejo,Chonchon de Aço.";
-		mes "Se você tentar um pouco, você pode conseguir facilmente.";
+		mes "Para Frescor do Vento. Zang?o, Percevejo,Chonchon de A?o.";
+		mes "Se voc? tentar um pouco, voc? pode conseguir facilmente.";
 		next;
 		mes "[Maria]";
-		mes "De qualquer jeito, faça seu melhor.";
-		mes "Essa é a base de ser um Bruxo.";
+		mes "De qualquer jeito, fa?a seu melhor.";
+		mes "Essa ? a base de ser um Bruxo.";
 		close2;
 		cutin "job_wizard_maria01",255;
 		end;
 	} else if (WIZ_Q == 3) {
 		cutin "job_wizard_maria01",2;
 		mes "[Maria]";
-		mes "Não fique relaxado apenas depois do primeiro teste.";
-		mes "Faça seu melhor, porque você ainda tem dois testes para passar.";
+		mes "N?o fique relaxado apenas depois do primeiro teste.";
+		mes "Fa?a seu melhor, porque voc? ainda tem dois testes para passar.";
 		close2;
 		cutin "job_wizard_maria01",255;
 		end;
@@ -1837,42 +1842,42 @@ gef_tower,107,36,4	script	Cachorro Branco#wiz	4_DOG01,{
 	} else if (WIZ_Q == 5) {
 		cutin "job_wizard_maria01",2;
 		mes "[Maria]";
-		mes "Oh, você está indo bem não é?";
+		mes "Oh, voc? est? indo bem n?o ??";
 		next;
 		mes "[Maria]";
-		mes "Bem, Faça seu melhor até o final.";
-		mes "Laurel está esperando.";
+		mes "Bem, Fa?a seu melhor at? o final.";
+		mes "Laurel est? esperando.";
 		close2;
 		cutin "job_wizard_maria01",255;
 		end;
 	} else if (WIZ_Q == 6) {
 		cutin "job_wizard_maria01",2;
 		mes "[Maria]";
-		mes "*LATE*...você desistiu?";
-		mes "*Suspiro*...Como você pode se tornar um bruxo com o coração fraco?";
+		mes "*LATE*...voc? desistiu?";
+		mes "*Suspiro*...Como voc? pode se tornar um bruxo com o cora??o fraco?";
 		next;
 		mes "[Maria]";
-		mes "Você sabe que cada sala tem monstros do mesmo atributo...";
-		mes "Se você é uma pessoa que lida com magia, você precisa saber sobre os diferentes tipos de magia.";
+		mes "Voc? sabe que cada sala tem monstros do mesmo atributo...";
+		mes "Se voc? ? uma pessoa que lida com magia, voc? precisa saber sobre os diferentes tipos de magia.";
 		next;
 		mes "[Maria]";
-		mes "Você também precisa aprender como contra-atacar monstros que usam habilidades.";
-		mes "Sua melhor tática é atacar os monstros que estão atacando você primeiro.";
+		mes "Voc? tamb?m precisa aprender como contra-atacar monstros que usam habilidades.";
+		mes "Sua melhor t?tica ? atacar os monstros que est?o atacando voc? primeiro.";
 		next;
 		mes "[Maria]";
 		mes "*Grrr* De qualquer maneira, Continue o teste.";
-		mes "Não tenha uma mente fraca, *au* e volte! *Late* *Late* agora mesmo! *BARK*";
+		mes "N?o tenha uma mente fraca, *au* e volte! *Late* *Late* agora mesmo! *BARK*";
 		close2;
 		cutin "job_wizard_maria01",255;
 		end;
 	} else if (WIZ_Q == 7) {
 		cutin "job_wizard_maria01",2;
 		mes "[Maria]";
-		mes "Como eu pensava, sabia que você era capaz de fazer isso, eu podia cheirar isso em você! *au*";
+		mes "Como eu pensava, sabia que voc? era capaz de fazer isso, eu podia cheirar isso em voc?! *au*";
 		mes "Agora eu posso te chamar de Bruxo.";
 		next;
 		mes "[Maria]";
-		mes "Parabéns. Sempre dê seu melhor em tudo, não importa o quê.";
+		mes "Parab?ns. Sempre d? seu melhor em tudo, n?o importa o qu?.";
 		close2;
 		cutin "job_wizard_maria01",255;
 		end;

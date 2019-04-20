@@ -1,0 +1,130 @@
+//===== rAthena Script ======================================= 
+//= Renewal Archer Job Quest
+//===== By: ================================================== 
+//= Kisuka
+//===== Current Version: ===================================== 
+//= 1.2
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= Troca de Classe para Classe Arqueiro
+//===== Additional Comments: ================================= 
+//= 1.0 First Version. [Kisuka]
+//= 1.1 Added support for Baby classes. [Euphy]
+//= 1.2 Translate PT-BR [ElinhoPP]
+//============================================================ 
+payon_in02,64,71,4	script	Arqueiro#archer	85,{
+	if (Upper == 1) {
+		if (Class == Job_Novice_High && (ADVJOB == Job_Sniper || ADVJOB == Job_Clown || ADVJOB == Job_Gypsy)) {
+			mes "Arqueiro]";
+			mes "Ei, eu conheço você.";
+			mes "Você fez este teste";
+			mes "antes, não foi?";
+			next;
+			mes "Arqueiro]";
+			mes "Ah, você deve ter sido";
+			mes "para Valhalla e renasceu.";
+			mes "Uau, isso é tão impressionante!";
+			next;
+			if (!callfunc("F_CanChangeJob")) {
+				mes "Arqueiro]";
+				mes "Err...";
+				mes "É melhor você aprender todas as habilidades básicas antes de se tornar um Arqueiro.";
+				next;
+				mes "Arqueiro]";
+				mes "Tudo bem, até mais.";
+				close;
+			}
+			mes "Arqueiro]";
+			mes "Bem, então eu não";
+			mes "preciso dizer qualquer outra coisa.";
+			mes "Eu sei que você fará um grande Arqueiro...";
+			next;
+			skill "NV_TRICKDEAD",0,SKILL_PERM;
+			jobchange Job_Archer_high;
+			skill "AC_MAKINGARROW",1,SKILL_PERM;
+			skill "AC_CHARGEARROW",1,SKILL_PERM;
+			mes "Arqueiro]";
+			mes "Embora não haja especial";
+			mes "recompensa por você desta vez, espero que você entenda. Cuide-se.";
+			close;
+		}else{
+			mes "Arqueiro]";
+			mes "Oh...?";
+			mes "Ei, o que são";
+			mes "você está fazendo aqui...?";
+			next;
+			mes "Arqueiro]";
+			mes "Eu posso dizer que você não está pronto para ser um Arqueiro. Parece que você deveria fazer";
+			mes "outra coisa...";
+			close;
+		}
+	}
+	mes "Arqueiro]";
+	mes "Prazer em conhecê-lo. Como posso ajudá-lo?";
+	next;
+	switch(select("Eu quero ser um Arqueiro.:Eu preciso dos requisitos, por favor.:Nada, obrigado.")) {
+	case 1:
+		mes "Arqueiro]";
+		if(BaseJob != Job_Novice) {
+			if(BaseJob == Job_Archer)
+				mes "Haha, você está brincando comigo...";
+			else {
+				mes "Sinto muito, mas apenas Aprendizes podem mudar de classe.";
+				mes "Você já tem sua própria classe decente, não tem?";
+			}
+			close;
+		}else{
+			mes "Você é... "+strcharinfo(0)+", certo?";
+			next;
+			if (!callfunc("F_CanChangeJob")) {
+				mes "Arqueiro]";
+				mes "Bem, você não está no nível de habilidade certo.";
+				mes "Seu nível de classe deve ser pelo menos ^4A4AFF10^000000 e seu nível de habilidade básica deve atingir ^4A4AFFlevel 9";
+				next;
+				mes "Arqueiro]";
+				mes "Porque um Arqueiro precisa de concentração extremamente alta, então nós não aceitamos aqueles que têm pouca paciência.";
+				close;
+			}
+			mes "Arqueiro]";
+			mes "Sua habilidade básica agora é o suficiente..";
+			mes ".... Hm ~ ~ então você está pronto para ser um Arqueiro. Eu vou dar o passo imediatamente.";
+			next;
+			mes "Arqueiro]";
+			mes "Parabéns! Você agora é um Arqueiro! Além disso, esperamos que você participe ativamente de muitos programas para o renascimento da Guilda dos Arqueiros.";
+			mes "Ah, itens chegaram do Departamento de Produção. Aqui, pegue estes! Estes são todos seus!";
+			callfunc "Job_Change",Job_Archer;
+			getitem 1742,1;	// N_Composite_Bow
+			getitem 12004,1;	// Arrow_Container
+			getitem 12009,1;	// Silver_Arrow_Container
+			getitem 12008,1;	// Fire_Arrow_Container
+			next;
+			mes "Arqueiro]";
+			mes "Tendo um arco e flechas, agora você se tornou um verdadeiro Arqueiro.";
+			mes "Se você abrir o container de flechas, existem setas nele e você poderá equipá-las.";
+			mes "Bem, espero ouvir notícias melhores de você. É hora de dizer adeus.";
+			mes "Tchau.";
+			close;
+		}
+	case 2:
+		mes "Arqueiro]";
+		mes "Um Arqueiro tem habilidades usando um arco e tem vários talentos.";
+		mes "A maior habilidade de um Arqueiro é atacar os inimigos a longa distância.";
+		next;
+		mes "Arqueiro]";
+		mes "Embora um Arqueiro tenha um HP mais fraco, ele pode atirar em inimigos a longa distância,";
+		mes "então um Arqueiro é mais seguro em uma batalha real.";
+		next;
+		mes "Arqueiro]";
+		mes "Embora um Arqueiro em Ragnarok tenha HP menor, ele ou ela tem alta precisão e taxa de ataque para que o arqueiro possa matar monstros antes que eles se aproximem de um Arqueiro.";
+		next;
+		mes "Arqueiro]";
+		mes "^8C2121Um arqueiro pode mudar de classe para um Caçador.^000000";
+		mes "^8C2121Outro que Caçador, se você é homem, você pode mudar sua classe para Bardo e se você for mulher, você pode mudar sua classe para Dançarina.^000000";
+		close;
+	case 3:
+		mes "Arqueiro]";
+		mes "Se você tiver alguma dúvida, sinta-se à vontade para vir e me perguntar.";
+		close;
+	}
+}

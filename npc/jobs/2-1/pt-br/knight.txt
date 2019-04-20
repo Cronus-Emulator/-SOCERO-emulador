@@ -42,6 +42,7 @@
 //= 3.3 Fixed missing changequest. [Joseph]
 //============================================================ 
 // traduzido pt-br por Weed0 para SOCERO
+// Revisado por [HD Scripts] em 08/04/2019
 
 prt_in,88,101,4	script	Chefe dos Cavaleiros#knt	56,{
 	mes "[Chefe dos Cavaleiros]";
@@ -1255,7 +1256,8 @@ OnInit:
 
 OnEnable:
 	enablenpc "Knight1";
-	if (!RENEWAL) {
+	//if (!RENEWAL) {
+	if (!checkre(0)) {
 		.MyMobs = 12;
 		monster "job_knt",39,150,"Poeira",1114,1,"Knight1::OnMyMobDead";
 		monster "job_knt",47,150,"Poeira",1114,1,"Knight1::OnMyMobDead";
@@ -1321,7 +1323,8 @@ OnInit:
 
 OnEnable:
 	enablenpc "Cavaleiro2";
-	if (!RENEWAL) {
+	//if (!RENEWAL) {
+	if (!checkre(0)) {
 		.MyMobs = 12;
 		monster "job_knt",43,42,"Lobo do Deserto",1106,1,"Cavaleiro2::OnMyMobDead";
 		monster "job_knt",43,62,"Lobo do Deserto",1106,1,"Cavaleiro2::OnMyMobDead";
@@ -1386,7 +1389,8 @@ OnInit:
 
 OnEnable:
 	enablenpc "Cavaleiro3";
-	if (!RENEWAL) {
+	//if (!RENEWAL) {
+	if (!checkre(0)) {
 		.MyMobs = 7;
 		monster "job_knt",147,167,"Goblin Arqueiro",1258,1,"Cavaleiro3::OnMyMobDead";
 		monster "job_knt",136,158,"Goblin á Vapor",1280,1,"Cavaleiro3::OnMyMobDead";
@@ -1408,7 +1412,7 @@ OnDisable:
 
 OnMyMobDead:
 	--.MyMobs;
-	if (.MeusMonstros < 1) {
+	if (.MyMobs < 1) {
 		mes "[Cavaleiro das Lutas]";
 		mes "...";
 		next;
@@ -1612,6 +1616,7 @@ prt_in,69,107,6	script	Cavaleira Educada#cav	4_F_JOB_KNIGHT,{
 				close;
 			}
 		}
+		mes "[Cavaleira Educada]";
 		mes "Você é um cavaleiro e você está procurando por um grupo em Morroc.";
 		mes "Como é que você vai fazer para encontrar?";
 		next;
@@ -1662,7 +1667,7 @@ prt_in,69,107,6	script	Cavaleira Educada#cav	4_F_JOB_KNIGHT,{
 		mes "O que você deve";
 		mes "fazer para vender seu item?";
 		next;
-		if (select("Grito bem alto para todos.: Abro uma sala de e espero.:Anuncio perguntando se há alguém que esteja interessado na compra.") == 3)
+		if (select("Grito bem alto para todos.:Abro uma sala de e espero.:Anuncio perguntando se há alguém que esteja interessado na compra.") == 3)
 			.@knight_t += 10;
 		mes "[Cavaleira Educada]";
 		mes "Enquanto você está esperando,";

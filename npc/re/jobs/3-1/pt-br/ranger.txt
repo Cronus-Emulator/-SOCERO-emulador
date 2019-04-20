@@ -1800,7 +1800,7 @@ job3_rang01,58,1,0	script	Worker#job_ranger	88,{
 		mes "3rd Test has been Disabled";
 		donpcevent "Third Test Timer#jr_12::OnDisable";
 		for(set .@i,14; .@i<=28; set .@i,.@i+1)
-			donpcevent "Egg Bomb#"+.@i+"::OnDisable";
+			donpcevent "Bomba-Ovo#"+.@i+"::OnDisable";
 		close;
 	case 9:
 		close;
