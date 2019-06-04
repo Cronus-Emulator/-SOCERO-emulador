@@ -18,55 +18,69 @@
 //=============== Tradução PT-BR ================
 // HanzoBR - Disponibilizado para Projeto SOCERO
 //===============================================
+// Revisado por [] em 27/04/2019
+//=https://forum.cronus-emulator.com/topic/158820-socero-tradu%C3%A7%C3%B5es/?do=findComment&comment=875031
 
 valkyrie,53,54,3	script	Menestrel#Valkyrie	741,{
 	if (ADVJOB == 0 || Upper != 1) {
 		set .@karma_d,rand(1,10);
 		if (.@karma_d > 4) {
 			mes "[Menestrel]";
-			mes "Parabéns";
+			mes "Parabéns.";
 			mes "Honra aos guerreiros!";
 			close;
 		}
 		mes "[Menestrel]";
-		mes "Quer cantar comigo?";
-		mes "Sha la la la la~";
+		mes "Você quer cantar";
+		mes "uma canção comigo?";
+		mes "Sha lá lá lá lá~";
 		close;
-	}
-	else if (ADVJOB == Job_Clown && Class == Job_Archer_High && JobLevel > 39) {
+	} else if (ADVJOB == Job_Clown && Class == Job_Archer_High && JobLevel > 39) {
 		mes "[Menestrel]";
-		mes "O mundo sombrio dos mortais precisa de uma música mais alegre.";
-        mes "Você irá trazer a música para eles e virar a maré na batalha contra o mal?";
+		mes "O mundo aborrecido dos";
+		mes "mortais está necessitando";
+		mes "de uma canção mais alegre.";
+		mes "Você vai trazer isto para";
+		mes "eles e virar a maré na batalha";
+		mes "contra o mal?";
 		next;
 		mes "[Menestrel]";
-		mes "Você fará isto por Rune-Midgard";
-		mes "Como Menestrel?";
+		mes "Você faria isso";
+		mes "por Rune-Midgard...";
+		mes "Como um Menestrel?";
 		next;
 		if (select("Não.:Sim.") == 1) {
 			mes "[Menestrel]";
-			mes "Quando você estiver pronto, volte e fale comigo.";
+			mes "Quando você estiver pronto,";
+			mes "Sinta-se livre para voltar.";
 			mes "Honra aos guerreiros!";
 			close;
 		}
 		if (SkillPoint) {
 			mes "[Menestrel]";
-			mes "Você ainda tem pontos de habilidades disponíveis.";
-			mes "Por favor, utilize todos, e torne a falar comigo.";
+			mes "Você ainda tem pontos de habilidades. Por favor,";
+			mes "use todos os seus pontos de habilidade restantes, e depois volte aqui.";
 			close;
 		}
 		jobchange Job_Clown;
 		set ADVJOB,0;
 		mes "[Menestrel]";
 		mes "Parabéns!";
-		mes "Como um Menestrel, suas suas músicas trarão esperança para seus aliados e desespero para seus inimigos.";
+		mes "Como um Menestrel, suas";
+		mes "canções trarão a";
+		mes "esperança aos seus aliados, e o";
+		mes "desespero aos seus inimigos.";
 		close;
 	}
 	mes "[Menestrel]";
-	mes "Bem vindo";
-	mes "Ao salão de Honra de Valhalla.";
+	mes "Bem-vindo";
+	mes "a Valhalla,";
+	mes "o Salão da Honra.";
 	next;
 	mes "[Menestrel]";
-	mes "Por favor, sinta-se a vontade enquanto estiver por aqui.";
-	mes "Honra aos Guerreiros!";
+	mes "Por favor";
+	mes "sinta-se confortável";
+	mes "enquanto estiver aqui.";
+	mes "Honra aos guerreiros!";
 	close;
 }

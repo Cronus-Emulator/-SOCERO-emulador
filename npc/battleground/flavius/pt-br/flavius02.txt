@@ -1,0 +1,584 @@
+//===== rAthena Script =======================================
+//= BattleGround System - Flavius Second
+//===== By: ==================================================
+//= L0ne_W0lf
+//===== Current Version: =====================================
+//= 1.8
+//===== Compatible With: =====================================
+//= rAthena Project
+//===== Description: =========================================
+//= [Official Conversion]
+//= Flavius Battleground.
+//= - Winning Team: 9 badges (11 if VIP)
+//= - Losing Team: 3 badges (5 if VIP)
+//===== Additional Comments: =================================
+//= 1.0 First Version.
+//= 1.1 Fixed NPCs being called for waiting rooms. (bugreport:4395)
+//= 1.2 Fixed pink crystal spawning as blue. [L0ne_W0lf]
+//= 1.3 Updated 'waitingroom' to support required zeny/lvl. [Kisuka]
+//= 1.4 Removed MaxLvl check in waitingrooms. Replaced setwall with setcell.
+//= 1.5 Label standardization. [Euphy]
+//= 1.6 Added GM management function. [Euphy]
+//= 1.7 Added VIP features and created a reward function. [Euphy]
+//= 1.8 Made Crystals immune to attacks until Guardians are defeated. [Cydh/Aleos]
+//============================================================
+// traduzido e revisado por Haikenz
+
+// NPCs da Sala de Espera
+//============================================================
+bat_room,142,227,4	script	Tenente Huvas	418,{
+	end;
+OnInit:
+	waitingroom "Estação de Batalha",11,"start#bat_b02::OnReadyCheck",1,0,80;
+	end;
+OnEnterBG:
+	set $@FlaviusBG2_id1, waitingroom2bg("bat_b02",10,290,"start#bat_b02::OnGuillaumeQuit","");
+	end;
+}
+
+bat_room,142,204,0	script	Tenente Yukon	414,{
+	end;
+OnInit:
+	waitingroom "Estação de Batalha",11,"start#bat_b02::OnReadyCheck",1,0,80;
+	end;
+OnEnterBG:
+	set $@FlaviusBG2_id2, waitingroom2bg("bat_b02",390,10,"start#bat_b02::OnCroixQuit","");
+	end;
+}
+
+bat_room,141,220,0	warp	back_bgroomb02a	1,1,bat_room,154,150
+bat_room,141,211,0	warp	back_bgroomb02b	1,1,bat_room,154,150
+
+bat_room,2,151,3	script	#bat_b02_tempo	844,{
+	end;
+
+OnInit:
+OnEnable:
+	initnpctimer;
+	end;
+
+OnStop:
+	stopnpctimer;
+	end;
+
+OnTimer1000:
+	stopnpctimer;
+	initnpctimer;
+	set .@chk_bat_a01,getmapusers("bat_b02");
+	if (.@chk_bat_a01 < 1) {
+		set $@FlaviusBG2, 0;
+		if( $@FlaviusBG2_id1 ) { bg_destroy $@FlaviusBG2_id1; set $@FlaviusBG2_id1, 0; }
+		if( $@FlaviusBG2_id2 ) { bg_destroy $@FlaviusBG2_id2; set $@FlaviusBG2_id2, 0; }
+		donpcevent "start#bat_b02::OnReadyCheck";
+	}
+	end;
+}
+
+
+// Engine do Campo de Batalha Flavius
+//============================================================
+bat_b02,15,15,3	script	start#bat_b02	844,{
+OnInit:
+	mapwarp "bat_b02","bat_room",154,150;
+	end;
+
+OnReadyCheck:
+	if( $@FlaviusBG2 )
+		end;
+	set .@Guillaume, getwaitingroomstate(0,"Tenente Huvas");
+	set .@Croix, getwaitingroomstate(0,"Tenente Yukon");
+	if( !.@Guillaume && !.@Croix ) {
+		donpcevent "#bat_b02_tempo::OnStop";
+		end;
+	}
+	if( .@Guillaume < 10 || .@Croix < 10 )
+		end;
+	set $@FlaviusBG2, 1;
+	set $@FlaviusBG2_Victory, 0;
+	set $@Croix_ScoreBG2, 0;
+	set $@Guill_ScoreBG2, 0;
+
+	bg_updatescore "bat_b02",$@Guill_ScoreBG2,$@Croix_ScoreBG2;
+	donpcevent "Tenente Huvas::OnEnterBG";
+	donpcevent "Tenente Yukon::OnEnterBG";
+	donpcevent "OBJ#bat_b02_a::OnKill";
+	donpcevent "OBJ#bat_b02_a::OnEnable";
+	donpcevent "OBJ#bat_b02_b::OnKill";
+	donpcevent "OBJ#bat_b02_b::OnEnable";
+	donpcevent "guardião#bat_b02_a::OnKill";
+	donpcevent "guardião#bat_b02_b::OnKill";
+	donpcevent "guardião#bat_b02_a::OnEnable";
+	donpcevent "guardião#bat_b02_b::OnEnable";
+	donpcevent "cell#bat_b02_a::OnRed";
+	donpcevent "cell#bat_b02_b::OnRed";
+	donpcevent "tempo#bat_b02::OnEnable";
+	disablenpc "Armada de Guillaume#b02_a";
+	disablenpc "Armada de Croix#b02_b";
+	disablenpc "Armada#bat_b02_aover";
+	disablenpc "Armada#bat_b02_bover";
+	bg_warp $@FlaviusBG2_id1,"bat_b02",87,75;
+	bg_warp $@FlaviusBG2_id2,"bat_b02",311,224;
+	donpcevent "countdown#bat_b02::OnEnable";
+	initnpctimer;
+	end;
+
+OnReset:
+	donpcevent "OBJ#bat_b02_a::OnKill";
+	donpcevent "OBJ#bat_b02_a::OnEnable";
+	donpcevent "OBJ#bat_b02_b::OnKill";
+	donpcevent "OBJ#bat_b02_b::OnEnable";
+	donpcevent "guardião#bat_b02_a::OnKill";
+	donpcevent "guardião#bat_b02_b::OnKill";
+	donpcevent "guardião#bat_b02_a::OnEnable";
+	donpcevent "guardião#bat_b02_b::OnEnable";
+	donpcevent "cell#bat_b02_a::OnRed";
+	donpcevent "cell#bat_b02_b::OnRed";
+	donpcevent "tempo#bat_b02::OnEnable";
+	disablenpc "Armada de Guillaume#b02_a";
+	disablenpc "Armada de Croix#b02_b";
+	disablenpc "Armada#bat_b02_aover";
+	disablenpc "Armada#bat_b02_bover";
+	bg_warp $@FlaviusBG2_id1,"bat_b02",87,75;
+	bg_warp $@FlaviusBG2_id2,"bat_b02",311,224;
+	end;
+
+OnGuillaumeQuit:
+OnCroixQuit:
+	bg_leave;
+	end;
+
+OnTimer10000:
+	stopnpctimer;
+	donpcevent "#bat_b02_tempo::OnEnable";
+	end;
+}
+
+bat_b02,1,1,3	script	OBJ#bat_b02_a	844,{
+OnEnable:
+	$@FlavBG2_C1_ID = bg_monster($@FlaviusBG2_id1,"bat_b02",61,150,"Cristal Rosa",1915,"OBJ#bat_b02_a::OnMyMobDead");
+	setunitdata $@FlavBG2_C1_ID,UMOB_DMGIMMUNE,1;
+	end;
+
+OnKill:
+	killmonster "bat_b02","OBJ#bat_b02_a::OnMyMobDead";
+	end;
+
+OnMyMobDead:
+	if (mobcount("bat_b02","OBJ#bat_b02_a::OnMyMobDead") < 1) {
+		mapannounce "bat_b02", "O cristal de Guillaume foi destruído.",bc_map,"0xFFCE00";
+		if ($@Croix_ScoreBG2 > 0) {
+			set $@FlaviusBG2_Victory,2;
+			set $@Croix_ScoreBG2,$@Croix_ScoreBG2+1;
+			enablenpc "Armada de Guillaume#b02_a";
+			enablenpc "Armada de Croix#b02_b";
+			donpcevent "tempo#bat_b02::OnStop";
+		}
+		else {
+			set $@Croix_ScoreBG2,1;
+			donpcevent "tempo#bat_b02::OnEnable";
+			donpcevent "start#bat_b02::OnReset";
+		}
+		donpcevent "#bat_b02_tempo::OnStop";
+		bg_updatescore "bat_b02",$@Guill_ScoreBG2,$@Croix_ScoreBG2;
+		bg_warp $@FlaviusBG2_id1,"bat_b02",10,290;
+		bg_warp $@FlaviusBG2_id2,"bat_b02",390,10;
+		donpcevent "#bat_b02_tempo::OnEnable";
+	}
+	end;
+}
+
+bat_b02,1,2,3	script	OBJ#bat_b02_b	844,{
+OnEnable:
+	$@FlavBG2_C2_ID = bg_monster($@FlaviusBG2_id2,"bat_b02",328,150,"Cristal Azul",1914,"OBJ#bat_b02_b::OnMyMobDead");
+	setunitdata $@FlavBG2_C2_ID,UMOB_DMGIMMUNE,1; // Make Crystal immune to damage until Guardians are defeated
+	end;
+
+OnKill:
+	killmonster "bat_b02","OBJ#bat_b02_b::OnMyMobDead";
+	end;
+
+OnMyMobDead:
+	if (mobcount("bat_b02","OBJ#bat_b02_b::OnMyMobDead") < 1) {
+		mapannounce "bat_b02", "O cristal do Croix foi destruído.",bc_map,"0xFFCE00";
+		if ($@Guill_ScoreBG2 > 0) {
+			set $@FlaviusBG2_Victory,1;
+			set $@Guill_ScoreBG2,$@Guill_ScoreBG2+1;
+			enablenpc "Armada de Guillaume#b02_a";
+			enablenpc "Armada de Croix#b02_b";
+			donpcevent "tempo#bat_b02::OnStop";
+		}
+		else {
+			set $@Guill_ScoreBG2,1;
+			donpcevent "tempo#bat_b02::OnEnable";
+			donpcevent "start#bat_b02::OnReset";
+		}
+		donpcevent "#bat_b02_timer::OnStop";
+		bg_updatescore "bat_b02",$@Guill_ScoreBG2,$@Croix_ScoreBG2;
+		bg_warp $@FlaviusBG2_id1,"bat_b02",10,290;
+		bg_warp $@FlaviusBG2_id2,"bat_b02",390,10;
+		donpcevent "#bat_b02_tempo::OnEnable";
+	}
+	end;
+}
+
+bat_b02,1,3,3	script	guardião#bat_b02_a	844,{
+OnEnable:
+	bg_monster $@FlaviusBG2_id1,"bat_b02",108,159,"Guardião de Guillaume",1949,"guardião#bat_b02_a::OnMyMobDead";
+	bg_monster $@FlaviusBG2_id1,"bat_b02",108,141,"Guardião de Guillaume",1949,"guardião#bat_b02_a::OnMyMobDead";
+	end;
+
+OnKill:
+	killmonster "bat_b02","guardião#bat_b02_a::OnMyMobDead";
+	end;
+
+OnMyMobDead:
+	if (mobcount("bat_b02","guardião#bat_b02_a::OnMyMobDead") < 1) {
+		donpcevent "cell#bat_b02_a::OnGreen";
+		mapannounce "bat_b02", "O Guardião que protegia o Cristal de Guillaume foi derrotado.",bc_map,"0xFFCE00";
+		setunitdata $@FlavBG2_C1_ID,UMOB_DMGIMMUNE,0; // Make Crystal damageable again
+	}
+	end;
+
+}
+
+bat_b02,1,3,3	script	guardião#bat_b02_b	844,{
+OnEnable:
+	bg_monster $@FlaviusBG2_id2,"bat_b02",307,160,"Guardião do Croix",1949,"guardião#bat_b02_b::OnMyMobDead";
+	bg_monster $@FlaviusBG2_id2,"bat_b02",307,138,"Guardião do Croix",1949,"guardião#bat_b02_b::OnMyMobDead";
+	end;
+
+OnKill:
+	killmonster "bat_b02","guardião#bat_b02_b::OnMyMobDead";
+	end;
+
+OnMyMobDead:
+	if (mobcount("bat_b02","guardião#bat_b02_b::OnMyMobDead") < 1) {
+		donpcevent "cell#bat_b02_b::OnGreen";
+		mapannounce "bat_b02", "O Guardião que protegia o Cristal do Croix foi derrotado.",bc_map,"0xFFCE00";
+		setunitdata $@FlavBG2_C2_ID,UMOB_DMGIMMUNE,0;
+	}
+	end;
+}
+
+bat_b02,1,4,3	script	cell#bat_b02_a	844,{
+OnRed:
+	setcell "bat_b02",62,149,60,151,cell_basilica,1;
+	setcell "bat_b02",62,149,60,151,cell_walkable,0;
+	end;
+
+OnGreen:
+	setcell "bat_b02",62,149,60,151,cell_basilica,0;
+	setcell "bat_b02",62,149,60,151,cell_walkable,1;
+	end;
+}
+
+bat_b02,1,5,3	script	cell#bat_b02_b	844,{
+OnRed:
+	setcell "bat_b02",327,151,329,149,cell_basilica,1;
+	setcell "bat_b02",327,151,329,149,cell_walkable,0;
+	end;
+
+OnGreen:
+	setcell "bat_b02",327,151,329,149,cell_basilica,0;
+	setcell "bat_b02",327,151,329,149,cell_walkable,1;
+	end;
+}
+
+bat_b02,1,6,1	script	tempo#bat_b02	844,{
+OnEnable:
+	donpcevent "Terapeuta de Batalha#b02_a::OnEnable";
+	donpcevent "Terapeuta de Batalha#b02_b::OnEnable";
+	end;
+
+OnStop:
+	donpcevent "Terapeuta de Batalha#b02_a::OnStop";
+	donpcevent "Terapeuta de Batalha#b02_b::OnStop";
+	end;
+}
+
+bat_b02,10,294,3	script	Terapeuta de Batalha#b02_a	95,{
+	specialeffect2 EF_HEAL;
+	mes "[Terapeuta de Batalha]";
+	mes "Apenas feche seus olhos";
+	mes "e respire fundo.";
+	mes "Você pode estar livre da dor.";
+	close;
+
+OnTimer25000:
+	specialeffect EF_SANCTUARY;
+	enablenpc "bat_b02_rp1_a_warp";
+	end;
+
+OnTimer26000:
+	disablenpc "bat_b02_rp1_a_warp";
+	end;
+
+OnTimer26500:
+	stopnpctimer;
+	donpcevent "Terapeuta de Batalha#b02_a::OnEnable";
+	end;
+
+OnEnable:
+	initnpctimer;
+	enablenpc "Terapeuta de Batalha#b02_a";
+	end;
+
+OnStop:
+	disablenpc "bat_b02_rp1_a_warp";
+	disablenpc "Terapeuta de Batalha#b02_a";
+	stopnpctimer;
+	end;
+}
+
+bat_b02,10,290,0	script	bat_b02_rp1_a_warp	45,10,10,{
+OnInit:
+	disablenpc "bat_b02_rp1_a_warp";
+	end;
+
+OnTouch_:
+	percentheal 100,100;
+	warp "bat_b02",87,73;
+	end;
+}
+
+bat_b02,389,14,3	script	Terapeuta de Batalha#b02_b	95,{
+	specialeffect2 EF_HEAL;
+	mes "[Terapeuta de Batalha]";
+	mes "Apenas feche seus olhos";
+	mes "e respire fundo.";
+	mes "Você pode estar livre da dor.";
+	close;
+
+OnTimer25000:
+	specialeffect EF_SANCTUARY;
+	enablenpc "bat_b02_rp1_b_warp";
+	end;
+
+OnTimer26000:
+	disablenpc "bat_b02_rp1_b_warp";
+	end;
+
+OnTimer26500:
+	stopnpctimer;
+	donpcevent "Terapeuta de Batalha#b02_b::OnEnable";
+	end;
+
+OnEnable:
+	initnpctimer;
+	enablenpc "Terapeuta de Batalha#b02_b";
+	end;
+
+OnStop:
+	disablenpc "bat_b02_rp1_b_warp";
+	disablenpc "Terapeuta de Batalha#b02_b";
+	stopnpctimer;
+	end;
+}
+
+bat_b02,389,10,0	script	bat_b02_rp1_b_warp	45,9,9,{
+OnInit:
+	disablenpc "bat_b02_rp1_a_warp";
+	end;
+
+OnTouch:
+	percentheal 100,100;
+	warp "bat_b02",312,225;
+	end;
+}
+
+bat_b02,87,76,0	script	A_CODE#bat_b02	-1,5,5,{
+OnTouch:
+	if (checkquest(2070) < 0)
+		//setquest 2070;
+	end;
+}
+
+bat_b02,312,224,0	script	B_CODE#bat_b02	-1,5,5,{
+OnTouch:
+	if (checkquest(2070) < 0)
+		//setquest 2070;
+	end;
+}
+
+bat_b02,10,294,3	script	Armada de Guillaume#b02_a	934,{
+	if ($@FlaviusBG2_id1 == getcharid(4)) {
+		if ($@FlaviusBG2_Victory == 1)
+			callfunc "F_BG_Badge",1,"Guillaume","Flavius";
+		else
+			callfunc "F_BG_Badge",0,"Guillaume","Flavius";
+	}
+	bg_leave;
+	warp "bat_room",154,150;
+	end;
+
+OnInit:
+	disablenpc "Armada de Guillaume#b02_a";
+	end;
+}
+
+bat_b02,389,14,3	script	Armada de Croix#b02_b	934,{
+	if ($@FlaviusBG2_id2 == getcharid(4)) {
+		if ($@FlaviusBG2_Victory == 2)
+			callfunc "F_BG_Badge",1,"Croix","Flavius";
+		else
+			callfunc "F_BG_Badge",0,"Croix","Flavius";
+	}
+	bg_leave;
+	warp "bat_room",154,150;
+	end;
+
+OnInit:
+	disablenpc "Armada de Croix#b02_b";
+	end;
+}
+
+bat_b02,1,5,3	script	countdown#bat_b02	844,{
+OnInit:
+	stopnpctimer;
+	end;
+
+OnEnable:
+	stopnpctimer;
+	initnpctimer;
+	end;
+
+OnStop:
+	stopnpctimer;
+	end;
+
+OnTimer7000:
+	mapannounce "bat_b02", "Armada de Guillaume Axl Rose: Vamos atacar para destruir esse cristal!",bc_map,"0xFF9900";
+	end;
+
+OnTimer8000:
+	mapannounce "bat_b02", "Armada de Croix Swandery: Mesmo que Guillaume esteja lutando para ganhar contra nós, a vitória é nossa. Vamos mostrar a eles nosso poder.",bc_map,"0xFF99CC";
+	end;
+
+OnTimer1800000:
+	mapannounce "bat_b02", "Marollo VII: Guillaume Marollo, Croix Marollo! E seus seguidores!",bc_map,"0x99CC00";
+	end;
+
+OnTimer1803000:
+	mapannounce "bat_b02", "Marollo VII: Ambos os campos são competitivos, por isso é difícil julgar qual time é superior.",bc_map,"0x99CC00";
+	end;
+
+OnTimer1808000:
+	mapannounce "bat_b02", "Marollo VII: Esta batalha de Flavian é um grande desperdício de tempo. Eu decidirei vitória e derrota com seu progresso.",bc_map,"0x99CC00";
+	end;
+
+OnTimer1822000:
+	mapannounce "bat_b02", "Marollo VII: Se você não pode aceitar os resultados, tente novamente em outra batalha no vale!",bc_map,"0x99CC00";
+	end;
+
+OnTimer1825000:
+	mapannounce "bat_b02", "Axl Rose, Swandery : Sim, senhor", bc_map, "0x99CC00";
+	end;
+
+OnTimer1830000:
+	donpcevent "tempo#bat_b02::OnStop";
+	bg_warp $@FlaviusBG2_id1,"bat_b02",10,290;
+	bg_warp $@FlaviusBG2_id2,"bat_b02",390,10;
+	enablenpc "Armada#bat_b02_aover";
+	enablenpc "Armada#bat_b02_bover";
+	end;
+
+OnTimer1900000:
+	mapwarp "bat_b02","bat_room",154,150;
+	donpcevent "countdown#bat_b02::OnStop";
+	end;
+}
+
+bat_b02,81,83,3	script	Acampamento Guillaume#flag32	973,{ end; }
+bat_b02,94,83,3	script	Acampamento Guillaume#flag33	973,{ end; }
+bat_b02,81,66,3	script	Acampamento Guillaume#flag34	973,{ end; }
+bat_b02,94,66,3	script	Acampamento Guillaume#flag35	973,{ end; }
+bat_b02,139,142,3	script	Acampamento Guillaume#flag36	973,{ end; }
+bat_b02,139,158,3	script	Acampamento Guillaume#flag37	973,{ end; }
+bat_b02,110,161,3	script	Acampamento Guillaume#flag38	973,{ end; }
+bat_b02,110,137,3	script	Acampamento Guillaume#flag39	973,{ end; }
+bat_b02,63,135,3	script	Acampamento Guillaume#flag40	973,{ end; }
+bat_b02,63,165,3	script	Acampamento Guillaume#flag41	973,{ end; }
+bat_b02,10,296,3	script	Acampamento Guillaume#flag42	973,{ end; }
+
+bat_b02,306,233,3	script	Acampamento Croix#flag32	974,{ end; }
+bat_b02,317,233,3	script	Acampamento Croix#flag33	974,{ end; }
+bat_b02,306,216,3	script	Acampamento Croix#flag34	974,{ end; }
+bat_b02,317,216,3	script	Acampamento Croix#flag35	974,{ end; }
+bat_b02,257,158,3	script	Acampamento Croix#flag36	974,{ end; }
+bat_b02,257,141,3	script	Acampamento Croix#flag37	974,{ end; }
+bat_b02,297,164,3	script	Acampamento Croix#flag38	974,{ end; }
+bat_b02,297,136,3	script	Acampamento Croix#flag39	974,{ end; }
+bat_b02,336,161,3	script	Acampamento Croix#flag40	974,{ end; }
+bat_b02,336,139,3	script	Acampamento Croix#flag41	974,{ end; }
+bat_b02,389,16,3	script	Acampamento Croix#flag42	974,{ end; }
+
+bat_b02,10,294,3	script	Armada#bat_b02_aover	419,{
+	set .@A_B_gap,$@Guill_ScoreBG2 - $@Croix_ScoreBG2;
+	if ($@FlaviusBG2_id1 == getcharid(4)) {
+		if (.@A_B_gap > 0)
+			callfunc "F_BG_Badge",1,"Guillaume","Flavius";
+		else if (.@A_B_gap == 0)
+			callfunc "F_BG_Badge",0,"Guillaume","Flavius";
+		else
+			callfunc "F_BG_Badge",0,"Guillaume","Flavius";
+	}
+	else {
+		mes "[Axl Rose]";
+		mes "Por que você está aqui, mercenário Croix? Eu definitivamente tenho certeza da vitória contra os tolos Croix como você. Ha!";
+		close;
+	}
+	bg_leave;
+	warp "bat_room",154,150;
+	end;
+
+OnInit:
+	disablenpc "Armada#bat_b02_aover";
+	end;
+}
+
+bat_b02,389,14,3	script	Armada#bat_b02_bover	415,{
+	set .@A_B_gap,$@Guill_ScoreBG2 - $@Croix_ScoreBG2;
+	if ($@FlaviusBG2_id2 == getcharid(4)) {
+		if (.@A_B_gap > 0)
+			callfunc "F_BG_Badge",1,"Croix","Flavius";
+		else if (.@A_B_gap == 0)
+			callfunc "F_BG_Badge",0,"Croix","Flavius";
+		else
+			callfunc "F_BG_Badge",1,"Croix","Flavius";
+	}
+	else {
+		mes "[Swandery]";
+		mes "Por que você vem aqui como um Guillaume? Você será enviado para onde você deveria estar!";
+		close;
+	}
+	bg_leave;
+	warp "bat_room",154,150;
+	end;
+
+OnInit:
+	disablenpc "Armada#bat_b02_bover";
+	end;
+}
+
+bat_b02,1,10,3	script	Libertar Todos#b02	81,{
+	set .@i, callfunc("F_GM_NPC",1854,0);
+	if (.@i == -1) {
+		mes "Cancelado.";
+		close;
+	} else if (.@i == 0) {
+		end;
+	} else {
+		mes "Posso te ajudar?";
+		next;
+		switch(select("Libertar todos.:Cancelar.")) {
+		case 1:
+			mes "Tchau.";
+			close2;
+			mapwarp "bat_b02","bat_room",154,150;
+			end;
+		case 2:
+			mes "Cancelado.";
+			close;
+		}
+	}
+}

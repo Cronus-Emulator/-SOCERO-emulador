@@ -23,6 +23,7 @@
 //= 1.8 Translate PT-BR [Holy]
 //= 1.8.1 Revisado PT-BR [HD Scripts]
 //============================================================
+// revisado por Haikenz
 
 tur_dun01,156,36,5	script	Instrutor Sobrevivente#jr01	59,{
 	mes "[Instrutor Sobrevivente]";
@@ -33,9 +34,10 @@ tur_dun01,156,36,5	script	Instrutor Sobrevivente#jr01	59,{
 			next;
 			mes "[Instrutor Sobrevivente]";
 			mes "O que está acontecendo?";
-			mes "Os monstros aqui são um pouco dificeis de se derrotar, então tome cuidado.";
+			mes "Os monstros aqui são um pouco";
+			mes "dificeis de se derrotar, então tome cuidado.";
 			next;
-			if (select("Estou aqui para me tornar um Sentinela.:Estou apenas passeando.") == 2) {
+			if(select("Estou aqui para me tornar um Sentinela.:Estou apenas passeando.") == 2) {
 				mes "[Instrutor Sobrevivente]";
 				mes "Hã?";
 				mes "O clima está realmente ótimo. Vamos tirar uma foto para comemorar?";
@@ -63,9 +65,10 @@ tur_dun01,156,36,5	script	Instrutor Sobrevivente#jr01	59,{
 			}
 			mes "[Instrutor Sobrevivente]";
 			mes "Ok!";
-			mes "Parece que você não possui nenhuma experiência.";
+			mes "Parece que você não";
+			mes "possui nenhuma experiência.";
 			next;
-			if (VIP_SCRIPT) { // Comando para VIP
+			if (VIP_SCRIPT) {
 				callfunc "VIP_Third_Class";
 				set job_ranger01,1;
 				setquest 8254;
@@ -84,7 +87,8 @@ tur_dun01,156,36,5	script	Instrutor Sobrevivente#jr01	59,{
 			if (Class == Job_Hunter || Class == Job_Baby_Hunter) {
 				mes "[Instrutor Sobrevivente]";
 				mes "Ah espere, antes disso.";
-				mes "Quando você se tornar um Sentinela, você não poderá mais aprender habilidades de Atirador de Elite, deseja continuar?";
+				mes "Quando você se tornar um Sentinela,";
+				mes "você não poderá mais aprender habilidades de Atirador de Elite, deseja continuar?";
 				next;
 				switch(select("Irei pensar um pouco mais.:Eu estou pronto para me tornar um Sentinela.")) {
 				case 1:
@@ -95,6 +99,7 @@ tur_dun01,156,36,5	script	Instrutor Sobrevivente#jr01	59,{
 				case 2:
 					mes "[Instrutor Sobrevivente]";
 					mes "Tudo bem.";
+					mes "Você está pronto então.";
 					next;
 				}
 				mes "[Instrutor Sobrevivente]";
@@ -200,9 +205,9 @@ tur_dun01,156,36,5	script	Instrutor Sobrevivente#jr01	59,{
 				mes "Dê o seu melhor.";
 				set job_ranger01,3;
 				changequest 8255,8256;
-				getitem 1703,1;   // Arco
-				getitem 12323,10; // Asa de Mosca de Iniciante
-				getitem 1750,500; // Flecha
+				getitem 1703,1;   //Arco
+				getitem 12323,10; //Asa de Mosca de Iniciante
+				getitem 1750,500; //Flecha
 				close;
 			}
 			mes "Eu sabia.";
@@ -218,7 +223,7 @@ tur_dun01,156,36,5	script	Instrutor Sobrevivente#jr01	59,{
 			mes "Humm?";
 			mes "Pelo que você está esperando?";
 			next;
-			if (select("Me fale sobre a missão novamente.:Estou apenas querendo conversar.") == 1) {
+			if(select("Me fale sobre a missão novamente.:Estou apenas querendo conversar.") == 1) {
 				mes "[Instrutor Sobrevivente]";
 				mes "Ah, sim.";
 				mes "Este é o espírito de uma pessoa que vai fazer um teste?";
@@ -234,7 +239,7 @@ tur_dun01,156,36,5	script	Instrutor Sobrevivente#jr01	59,{
 				mes "Como você não está com nenhum equipamento, então tome cuidado com os monstros.";
 				mes "Bem, vamos começar?";
 				next;
-				if (select("Espere um minuto:Eu irei começar") == 1) {
+				if(select("Espere um minuto:Eu irei começar") == 1) {
 					mes "[Instrutor Sobrevivente]";
 					mes "Que tipo de preparação pode levar tanto tempo.";
 					next;
@@ -304,7 +309,8 @@ tur_dun01,156,36,5	script	Instrutor Sobrevivente#jr01	59,{
 	next;
 	mes "[Instrutor Sobrevivente]";
 	mes "O que está acontecendo?";
-	mes "Os monstros aqui são um pouco dificeis, então tome cuidado.";
+	mes "Os monstros aqui são um pouco difíceis,";
+	mes "então tome cuidado.";
 	close;
 }
 
@@ -331,9 +337,9 @@ tur_dun01,91,169,3	script	Instrutor do Teste#jr02	732,{
 			mes "Hã? Quem é você? O que você está fazendo aqui, seu bebê arqueiro.";
 			next;
 			mes "[Instrutor do Teste]";
-			mes "Já que você está aqui para encomodar, você poderia parar?!";
+			mes "Já que você está aqui para incomodar, você poderia parar?!";
 			next;
-			if (select("Teste prático de Sentinela?:Eu vim para o teste.") == 1) {
+			if(select("Teste prático de Sentinela?:Eu vim para o teste.") == 1) {
 				mes "[Instrutor do Teste]";
 				mes "O que, quem é você...?";
 				next;
@@ -379,7 +385,7 @@ tur_dun01,91,169,3	script	Instrutor do Teste#jr02	732,{
 			mes "Eu sei que o caminho básico para sobreviver pode estar aumentando a força do próprio corpo. Mas, acho que o envio de aventureiros é mais fácil para mim.";
 			next;
 			mes "[Instrutor do Teste]";
-			mes "Então, derrote ^0000ff1 Lavadeira^000000 e me traga ^0000ff1 Asa de Libélula^000000.";
+			mes "Então, derrote ^0000ff1 Lavadeira^000000 e me traga ^0000ff1Asa de Libélula^000000.";
 			next;
 			mes "[Instrutor do Teste]";
 			mes "Se você remover os itens fornecidos, não poderemos te ajudar, então tome cuidado.";
@@ -403,7 +409,7 @@ tur_dun01,91,169,3	script	Instrutor do Teste#jr02	732,{
 					mes "[Instrutor do Teste]";
 					mes "Bem, antes de explicar, você poderia me entregar Asa de Libélula?";
 					mes "Você já ouviu o ditado, 'em qualquer situação, alimente-se primeiro'?";
-					delitem 7064,1; // Asa de Libélula
+					delitem 7064,1; //Asa de Libélula
 					set job_ranger01,5;
 					changequest 8257,8258;
 					close;
@@ -438,7 +444,7 @@ tur_dun01,91,169,3	script	Instrutor do Teste#jr02	732,{
 				mes "Se você cobrir com arroz, fica com algas assadas, muito saboroso e delicioso.";
 				next;
 				mes "[Instrutor do Teste]";
-				mes "Você precisa ser fort eo suficiente para não ser tão exigente com essas coisas...";
+				mes "Você precisa ser forte o suficiente para não ser tão exigente com essas coisas...";
 				next;
 				break;
 			case 2:
@@ -454,11 +460,11 @@ tur_dun01,91,169,3	script	Instrutor do Teste#jr02	732,{
 			mes "Ok, irei te enviar para o teste prático.";
 			next;
 			mes "[Instrutor do Teste]";
-			mes "A prática é constuída de 3 partes no total.";
+			mes "A prática é construída de 3 partes no total.";
 			mes "É para reavaliar as coisas que você aprendeu como um Caçador ou Atirador de Elite, então não há mais nada pra se preocupar.";
 			next;
 			mes "[Instrutor do Teste]";
-			mes "Se você receber um ponto de passagem ao longo de três testes, você estará em seu caminh para se tornar um Sentinela.";
+			mes "Se você receber um ponto de passagem ao longo de três testes, você estará em seu caminho para se tornar um Sentinela.";
 			next;
 			mes "[Instrutor do Teste]";
 			mes "Irei te explicar os caminhos para o teste.";
@@ -489,7 +495,7 @@ tur_dun01,91,169,3	script	Instrutor do Teste#jr02	732,{
 			mes "[Instrutor do Teste]";
 			mes "Agora, eu irei te levar para o local do teste prático, sua preparação está terminada?";
 			next;
-			if (select("Por favor espere um pouco:Vamos para o local do teste prático!") == 1) {
+			if(select("Por favor espere um pouco:Vamos para o local do teste prático!") == 1) {
 				mes "[Instrutor do Teste]";
 				mes "Hã? Você está realmente pronto?";
 				next;
@@ -552,7 +558,7 @@ tur_dun01,91,169,3	script	Instrutor do Teste#jr02	732,{
 						mes "[Instrutor do Teste]";
 						mes "Certo. Vou respeitar sua opinião.";
 						mes "Estou cancelando a mudança de classe para "+strcharinfo(0)+".";
-						delitem 1703,1; // Arco
+						delitem 1703,1; //Arco
 						set job_ranger01,0;
 						for(set .@i,8254; .@i<=8262; set .@i,.@i+1)
 							if (checkquest(.@i) > -1) erasequest .@i;
@@ -635,7 +641,7 @@ L_Start:
 			next;
 			mes "[Instrutor do Teste]";
 			mes "Irei levá-la por precaução.";
-			delitem 6156,countitem(6156); // Relatório de Aprovação
+			delitem 6156,countitem(6156); //Relatório de Aprovação
 			next;
 		}
 	}
@@ -670,7 +676,7 @@ L_Start:
 		erasequest 8260;
 		erasequest 8261;
 	}
-	if (.@arrow) getitem 1750,100; // Flecha
+	if (.@arrow) getitem 1750,100; //Flecha
 	close2;
 	warp "job3_rang01",30,36;
 	end;
@@ -713,7 +719,7 @@ job3_rang01,30,44,3	script	Sala de Espera#jr_03	88,{
 				mes "[Equipe DTS]";
 				mes "Certo. Vou respeitar sua opinião.";
 				mes "Estou cancelando a mudança de classe para "+strcharinfo(0)+".";
-				delitem 1703,1; // Arco
+				delitem 1703,1; //Arco
 				set job_ranger01,0;
 				for(set .@i,8254; .@i<=8262; set .@i,.@i+1)
 					if (checkquest(.@i) > -1) erasequest .@i;
@@ -830,17 +836,17 @@ OnTimer6000:
 	mapannounce "job3_rang02","Aviso do Supervisor do Teste : O 1° teste irá avaliar sua visão e precisão.",bc_map,"0x87ceeb";
 	end;
 OnTimer9000:
-	mapannounce "job3_rang02","Aviso do Supervisor do Teste : O método de teste é, matar monstros chamados 'Poring' entre os monstros invocados aleatoriamente entre os 8 locais.",bc_map,"0x87ceeb";
+	mapannounce "job3_rang02","Aviso do Supervisor do Teste : O método de teste é, matar monstros chamados 'Poring' entre os monstros invocados aleatoriamente entre os 8 locais.",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	end;
 OnTimer12000:
-	mapannounce "job3_rang02","Aviso do Supervisor do Teste : Seja o que parecer, você precis derrotar os monstros chamados 'Poring' para obter um ponto, e se você matar os outros, irá perder pontos, então tome cuidado.",bc_map,"0xffb6c1";
+	mapannounce "job3_rang02","Aviso do Supervisor do Teste : Seja o que parecer, você precisa derrotar os monstros chamados 'Poring' para obter um ponto, e se você matar os outros, irá perder pontos, então tome cuidado.",bc_map,"0xffb6c1"; //FW_NORMAL 12 0 0
 	end;
 OnTimer15000:
-	mapannounce "job3_rang02","Aviso do Supervisor do Teste : O tempo de execução do teste é de 3 minutos. Você precisa obter 15 pontos ou mais para se qualificar para o próximo teste.",bc_map,"0x87ceeb"; 
+	mapannounce "job3_rang02","Aviso do Supervisor do Teste : O tempo de execução do teste é de 3 minutos. Você precisa obter 15 pontos ou mais para se qualificar para o próximo teste.",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	end;
 OnTimer18000:
 	stopnpctimer;
-	mapannounce "job3_rang02","Aviso do Supervisor do Teste : Então vamos começar o teste. Boa sorte.",bc_map,"0x87ceeb";
+	mapannounce "job3_rang02","Aviso do Supervisor do Teste : Então vamos começar o teste. Boa sorte.",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	donpcevent "Supervisor do Teste#jr_04::OnStart";
 	end;
 }
@@ -906,28 +912,28 @@ OnTimer122000:
 OnTimer129000:
 OnTimer136000:
 	set $@job_rang_text01,$@job_rang_text01+1;
-	mapannounce "job3_rang02","Aviso do Supervisor do Teste : "+.text$[$@job_rang_text01]+"! Derrote o Poring!",bc_map,"0x87ceeb";
+	mapannounce "job3_rang02","Aviso do Supervisor do Teste : "+.text$[$@job_rang_text01]+"! Derrote o Poring!",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	donpcevent "RespostaCorreta#jr::OnStart";
 	end;
 OnTimer143000:
-	mapannounce "job3_rang02","Aviso do Supervisor do Teste : Ótimo! Agora o resultado do teste!",bc_map,"0x87ceeb";
+	mapannounce "job3_rang02","Aviso do Supervisor do Teste : Ótimo! Agora o resultado do teste!",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	end;
 OnTimer146000:
 	if ($@job_rang_point01 < 1)
 		set $@job_rang_point01,0;
-	mapannounce "job3_rang02","Aviso do Supervisor do Teste : Irei anunciar o resultado do teste. O número de Porings derrotados é de ..." + $@job_rang_point01 + "!",bc_map,"0x87ceeb";
+	mapannounce "job3_rang02","Aviso do Supervisor do Teste : Irei anunciar o resultado do teste. O número de Porings derrotados é de ..." + $@job_rang_point01 + "!",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	end;
 OnTimer149000:
 	if ($@job_rang_point01 > 14) {
-		mapannounce "job3_rang02","Aviso do Supervisor do Teste : Parabéns! Você derrotou " + $@job_rang_point01 + " do total de 20 Porings, então você passou no 1° teste. Irei te enviar para o local do segundo teste.",bc_map,"0xffb6c1";
+		mapannounce "job3_rang02","Aviso do Supervisor do Teste : Parabéns! Você derrotou " + $@job_rang_point01 + " do total de 20 Porings, então você passou no 1° teste. Irei te enviar para o local do segundo teste.",bc_map,"0xffb6c1"; //FW_NORMAL 12 0 0
 		mapwarp "job3_rang02","job3_rang02",113,58;
 		donpcevent "Cronômetro do 2° Teste#jr_08::OnEnable";
 		stopnpctimer;
 	} else
-		mapannounce "job3_rang02","Aviso do Supervisor do Teste : Você não derrotou 15 Porings ou mais do total de 20, então você falhou no 1° teste... Me desculpe e tente novamente.",bc_map,"0x87ceeb";
+		mapannounce "job3_rang02","Aviso do Supervisor do Teste : Você não derrotou 15 Porings ou mais do total de 20, então você falhou no 1° teste... Me desculpe e tente novamente.",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	end;
 OnTimer151000:
-	mapannounce "job3_rang02","Aviso do Supervisor do Teste : O primeiro teste termina agora. Por favor dê tudo de si no próximo. Adeus.",bc_map,"0x87ceeb";
+	mapannounce "job3_rang02","Aviso do Supervisor do Teste : O primeiro teste termina agora. Por favor dê tudo de si no próximo. Adeus.",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	mapwarp "job3_rang02","tur_dun01",93,165;
 	end;
 OnTimer154000:
@@ -1083,81 +1089,81 @@ OnStop:
 	stopnpctimer;
 	end;
 OnTimer3000:
-	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : Sim. Parabéns você acabou de passar no 1° teste prático. Eu sou o Supervisor do 2° teste: Kowsyun.",bc_map,"0x87ceeb";
+	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : Sim. Parabéns você acabou de passar no 1° teste prático. Eu sou o Supervisor do 2° teste: Kowsyun.",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	end;
 OnTimer6000:
-	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : O segundo teste irá avaliar seu desempenho no uso de armadilhas.",bc_map,"0x87ceeb";
+	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : O segundo teste irá avaliar seu desempenho no uso de armadilhas.",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	end;
 OnTimer9000:
-	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : Quando o teste começar, você receberá uma 'Capsula de Bombardeio' de um membro próximo a você, e então você deverá derrotar os monstros em seu caminho.",bc_map,"0x87ceeb";
+	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : Quando o teste começar, você receberá uma 'Capsula de Bombardeio' de um membro próximo a você, e então você deverá derrotar os monstros em seu caminho.",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	end;
 OnTimer11000:
-	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : Quando você usa uma 'Capsula de Bombardeio' um Poring Bomba é invocado próximo a você, e depois de 3 segundos ele irá explodir.",bc_map,"0x87ceeb";
+	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : Quando você usa uma 'Capsula de Bombardeio' um Poring Bomba é invocado próximo a você, e depois de 3 segundos ele irá explodir.",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	end;
 OnTimer14000:
-	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : O alcande da explosão é de 5x5 células próximas ao Poring Bomba, por isso tenha cuidado para não ser pelo pela explosão.",bc_map,"0xffb6c1";
+	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : O alcande da explosão é de 5x5 células próximas ao Poring Bomba, por isso tenha cuidado para não ser pelo pela explosão.",bc_map,"0xffb6c1"; //FW_NORMAL 12 0 0
 	end;
 OnTimer17000:
-	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : Se você completar a missão dada pelo membro da Equipe, venha me ver e então você passará no 2° teste!",bc_map,"0x87ceeb";
+	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : Se você completar a missão dada pelo membro da Equipe, venha me ver e então você passará no 2° teste!",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	end;
 OnTimer20000:
-	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : Ah! Quando vier me ver, utilize antes todas as suas 'Capsulas de Bombardeio'.",bc_map,"0xffb6c1";
+	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : Ah! Quando vier me ver, utilize antes todas as suas 'Capsulas de Bombardeio'.",bc_map,"0xffb6c1"; //FW_NORMAL 12 0 0
 	end;
 OnTimer23000:
-	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : O período do teste durará três minutos no total! Complete a missão em 3 minutos e sobreviva! Em seguida, me visite!",bc_map,"0x87ceeb";
+	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : O período do teste durará três minutos no total! Complete a missão em 3 minutos e sobreviva! Em seguida, me visite!",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	end;
 OnTimer26000:
-	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : Bem, começaremos agora!! Que comece!!!!!!",bc_map,"0x87ceeb";
+	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : Bem, começaremos agora!! Que comece!!!!!!",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	donpcevent "Rust#jr_09::OnEnable";
 	end;
 OnTimer80000:
-	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : 1 Minuto se passou. Você já está vindo me ver, correto?",bc_map,"0x87ceeb";
+	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : 1 Minuto se passou. Você já está vindo me ver, correto?",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	end;
 OnTimer83000:
-	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : Não seja apressado, vá com calma e cuidado.",bc_map,"0x87ceeb";
+	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : Não seja apressado, vá com calma e cuidado.",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	end;
 OnTimer140000:
-	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : 2 Minutos se passaram. Você já está perto.?",bc_map,"0x87ceeb";
+	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : 2 Minutos se passaram. Você já está perto.?",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	end;
 OnTimer143000:
-	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : No entanto, você precisa sobreviver dentro do tempo limite, certo? Por favor, tenha cautela.",bc_map,"0x87ceeb";
+	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : No entanto, você precisa sobreviver dentro do tempo limite, certo? Por favor, tenha cautela.",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	end;
 OnTimer170000:
-	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : 2 Minutos e 30 Segundos se passaram. Não há muito tempo!",bc_map,"0x87ceeb";
+	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : 2 Minutos e 30 Segundos se passaram. Não há muito tempo!",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	end;
 OnTimer173000:
-	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : Apresse-se! Apresse-se! Rápido.",bc_map,"0x87ceeb";
+	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : Apresse-se! Apresse-se! Rápido.",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	end;
 OnTimer200000:
-	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : 3 Minutos se passaram! 3 Minutos!!!! Serei um pouco legal com você, por isso apresse-se!!!!!!",bc_map,"0x87ceeb";
+	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : 3 Minutos se passaram! 3 Minutos!!!! Serei um pouco legal com você, por isso apresse-se!!!!!!",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	end;
 OnTimer205000:
-	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : 5 Segundos restando!!",bc_map,"0x87ceeb";
+	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : 5 Segundos restando!!",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	end;
 OnTimer206000:
-	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : 4 Segundos restando!!",bc_map,"0x87ceeb";
+	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : 4 Segundos restando!!",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	end;
 OnTimer207000:
-	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : 3 Segundos restando!!",bc_map,"0x87ceeb";
+	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : 3 Segundos restando!!",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	end;
 OnTimer208000:
-	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : 2 Segundos restando!!",bc_map,"0x87ceeb";
+	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : 2 Segundos restando!!",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	end;
 OnTimer209000:
-	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : 1 Segundo restando!!",bc_map,"0x87ceeb";
+	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : 1 Segundo restando!!",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	end;
 OnTimer210000:
-	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : Ugh... O que você está fazendo? O tempo acabou!",bc_map,"0x87ceeb";
+	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : Ugh... O que você está fazendo? O tempo acabou!",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	end;
 OnTimer213000:
-	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : Você não conseguiu chegar no limite de tempo, portanto o 2° exame termina aqui!",bc_map,"0x87ceeb";
+	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : Você não conseguiu chegar no limite de tempo, portanto o 2° exame termina aqui!",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	end;
 OnTimer217000:
-	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : Se você quiser culpar algo, culpe sua própria estupidez! Comece novamente desde o começo!",bc_map,"0x87ceeb";
+	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : Se você quiser culpar algo, culpe sua própria estupidez! Comece novamente desde o começo!",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	mapwarp "job3_rang02","tur_dun01",93,165;
 	end;
 OnTimer220000:
-	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : Se você quiser culpar algo, culpe sua própria estupidez! Comece novamente desde o começo!",bc_map,"0x87ceeb";
+	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : Se você quiser culpar algo, culpe sua própria estupidez! Comece novamente desde o começo!",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	mapwarp "job3_rang02","tur_dun01",93,165;
 	donpcevent "Rust#jr_09::OnDisable";
 	donpcevent "Invocação de Monstros#jr_10::OnDisable";
@@ -1170,7 +1176,7 @@ OnTimer223000:
 	end;
 }
 
-job3_rang02,111,56,3	script	Rust#jr_09	89,{
+job3_rang02,111,56,3	script	Staff Rust#jr_09	89,{
 	if (job_ranger01 == 6) {
 		if (countitem(12258) < 1) {
 			percentheal 100,0;
@@ -1179,7 +1185,7 @@ job3_rang02,111,56,3	script	Rust#jr_09	89,{
 			mes "Irei te dar 'Capsulas de Bombardeio.";
 			mes "As 'Capsulas de Bombardeio' pode ser dada novamente após todas serem gastas, então tome cuidado.";
 			if (countitem(6156)) {
-				getitem 12258,5; // Capsula de Bombardeio
+				getitem 12258,5; //Capsula de Bombardeio
 				close;
 			}
 			next;
@@ -1187,9 +1193,9 @@ job3_rang02,111,56,3	script	Rust#jr_09	89,{
 			mes "[Rust]";
 			mes "E a missão é.... entregar esses documentos para o Supervisor, Precaução. ...";
 			setquest 8260;
-			getitem 6156, (MaxWeight-Weight-2000)/10; // Relatório de Aprovação
-			getitem 12258,10; // Capsula de Bombardeio
-			getitem 569,100;  // Poção de Aprendiz
+			getitem 6156, (MaxWeight-Weight-2000)/10; //Relatório de Aprovação
+			getitem 12258,10; //Capsula de Bombardeio
+			getitem 569,100;  //Poção de Aprendiz
 			close;
 		}
 		mes "[Rust]";
@@ -1255,10 +1261,10 @@ OnDisable:
 	killmonster "job3_rang02","Invocação de Monstros#jr_10::OnMyMobDead";
 	disablenpc "Invocação de Monstros#jr_10";
 	end;
-OnTouch:
+OnTouch_:
 	percentheal 10,0;
 	specialeffect2 EF_ABSORBSPIRITS;
-	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : Você está indo bem! Se você se aproximar um pouco mais, você será capaz de me ver.",bc_map,"0x87ceeb";
+	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : Você está indo bem! Se você se aproximar um pouco mais, você será capaz de me ver.",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	end;
 OnMyMobDead:
 	end;
@@ -1278,7 +1284,7 @@ OnDisable:
 	stopnpctimer;
 	disablenpc "Supervisor do Teste#jr_11";
 	end;
-OnTouch:
+OnTouch_:
 	if (job_ranger01 == 6) {
 		if (countitem(12258)) {
 			mes "[Supervisor do Teste Kowsyun]";
@@ -1335,23 +1341,23 @@ OnTouch:
 	mes "Recupere o mais rápido possível!";
 	close;
 OnTimer60000:
-	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : Ouça, você não tem que se apressar em seu teste, mas por que você está se atrasando?",bc_map,"0xffb6c1";
+	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : Ouça, você não tem que se apressar em seu teste, mas por que você está se atrasando?",bc_map,"0xffb6c1"; //FW_NORMAL 12 0 0
 	end;
 OnTimer63000:
-	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : Odeio pessoas que me fazem esperar! Se você não falar comigo em 30 segundos para continuar o teste, irei encerrar com a realização do seu teste!",bc_map,"0xffb6c1";
+	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : Odeio pessoas que me fazem esperar! Se você não falar comigo em 30 segundos para continuar o teste, irei encerrar com a realização do seu teste!",bc_map,"0xffb6c1"; //FW_NORMAL 12 0 0
 	end;
 OnTimer93000:
-	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : Rápido! Rápido! Vamos.",bc_map,"0xffb6c1";
+	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : Rápido! Rápido! Vamos.",bc_map,"0xffb6c1"; //FW_NORMAL 12 0 0
 	end;
 OnTimer96000:
-	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : Você não conseguiu chegar no limite de tempo, então o 2° teste termina aqui!",bc_map,"0x87ceeb";
+	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : Você não conseguiu chegar no limite de tempo, então o 2° teste termina aqui!",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	end;
 OnTimer99000:
-	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : Se você quiser culpar algo, culpe sua própria estupidez! Comece novamente desde o começo!",bc_map,"0x87ceeb";
+	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : Se você quiser culpar algo, culpe sua própria estupidez! Comece novamente desde o começo!",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	mapwarp "job3_rang02","tur_dun01",93,165;
 	end;
 OnTimer102000:
-	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : Se você quiser culpar algo, culpe sua própria estupidez! Comece novamente desde o começo!",bc_map,"0x87ceeb";
+	mapannounce "job3_rang02","Supervisor do Teste Kowsyun : Se você quiser culpar algo, culpe sua própria estupidez! Comece novamente desde o começo!",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	mapwarp "job3_rang02","tur_dun01",93,165;
 	donpcevent "Rust#jr_09::OnDisable";
 	donpcevent "Invocação de Monstros#jr_10::OnDisable";
@@ -1378,16 +1384,16 @@ OnDisable:
 	disablenpc "Cronômetro do 3° Teste#jr_12";
 	end;
 OnTimer3000:
-	mapannounce "job3_rang02","Supervisor do Teste : Bem, então vamos começar o 3° teste prático! Você está pronto?",bc_map,"0x87ceeb";
+	mapannounce "job3_rang02","Supervisor do Teste : Bem, então vamos começar o 3° teste prático! Você está pronto?",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	end;
 OnTimer6000:
-	mapannounce "job3_rang02","Supervisor do Teste : De agora em diante, a cada 3 segundos, irá aparecer uma 'Bomba-Ovo'! Olhe-as com cuidado e utilize o seu lobo para desarmá-las!",bc_map,"0x87ceeb";
+	mapannounce "job3_rang02","Supervisor do Teste : De agora em diante, a cada 3 segundos, irá aparecer uma 'Bomba-Ovo'! Olhe-as com cuidado e utilize o seu lobo para desarmá-las!",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	end;
 OnTimer9000:
-	mapannounce "job3_rang02","Supervisor do Teste : Você pode controlar o lobo utilizando a tecla ALT e o botão esquerdo, o lobo irá se mover de acordo com seu clique! Então se a direção for uma bomba ele irá atacá-la!",bc_map,"0x87ceeb";
+	mapannounce "job3_rang02","Supervisor do Teste : Você pode controlar o lobo utilizando a tecla ALT e o botão esquerdo, o lobo irá se mover de acordo com seu clique! Então se a direção for uma bomba ele irá atacá-la!",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	end;
 OnTimer12000:
-	mapannounce "job3_rang02","Supervisor do Teste : As 'Bomba-Ovos' serão invocadas 20 vezes! A cada vez que você desarmar uma com sucesso, você ganha 1 ponto! Se você tiver mais de 10 pontos, você passará no teste prático, então vamos! O teste irá começar!!!!!",bc_map,"0x87ceeb";
+	mapannounce "job3_rang02","Supervisor do Teste : As 'Bomba-Ovos' serão invocadas 20 vezes! A cada vez que você desarmar uma com sucesso, você ganha 1 ponto! Se você tiver mais de 10 pontos, você passará no teste prático, então vamos! O teste irá começar!!!!!",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	set .n,14;
 	end;
 OnTimer15000:
@@ -1421,24 +1427,24 @@ OnTimer113000:
 	set .n,0;
 	end;
 OnTimer116000:
-	mapannounce "job3_rang02","Supervisor do Teste : Bem, vamos ver o resultado?!",bc_map,"0x87ceeb";
+	mapannounce "job3_rang02","Supervisor do Teste : Bem, vamos ver o resultado?!",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	end;
 OnTimer119000:
-	mapannounce "job3_rang02","Supervisor do Teste : Sua pontuação é de ..." + $@job_rang_point03 + " em 20!",bc_map,"0x87ceeb";
+	mapannounce "job3_rang02","Supervisor do Teste : Sua pontuação é de ..." + $@job_rang_point03 + " em 20!",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	end;
 OnTimer121000:
 	if ($@job_rang_point03 > 9) {
-		mapannounce "job3_rang02","Supervisor do Teste : Você passou em todos os testes práticos! Vamos para a sala de espera!!!!!",bc_map,"0x87ceeb";
+		mapannounce "job3_rang02","Supervisor do Teste : Você passou em todos os testes práticos! Vamos para a sala de espera!!!!!",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 		mapwarp "job3_rang02","job3_rang01",89,38;
 	} else
-		mapannounce "job3_rang02","Supervisor do Teste : Você não conseguiu passar dos 10 pontos, então você falhou!!!!",bc_map,"0x87ceeb";
+		mapannounce "job3_rang02","Supervisor do Teste : Você não conseguiu passar dos 10 pontos, então você falhou!!!!",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	end;
 OnTimer124000:
-	mapannounce "job3_rang02","Supervisor do Teste : Que pena, mas você terá que refazer o teste desde o começo!",bc_map,"0x87ceeb";
+	mapannounce "job3_rang02","Supervisor do Teste : Que pena, mas você terá que refazer o teste desde o começo!",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	mapwarp "job3_rang02","tur_dun01",93,165;
 	end;
 OnTimer127000:
-	mapannounce "job3_rang02","Supervisor do Teste : Que pena, mas você terá que refazer o teste desde o começo!",bc_map,"0x87ceeb";
+	mapannounce "job3_rang02","Supervisor do Teste : Que pena, mas você terá que refazer o teste desde o começo!",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	set $@job_rang_point03,0;
 	mapwarp "job3_rang02","tur_dun01",93,165;
 	donpcevent "Supervisor do Teste#jr_13::OnDisable";
@@ -1475,7 +1481,7 @@ job3_rang02,251,49,3	script	Supervisor do Teste#jr_13	732,{
 			next;
 			mes "[Supervisor do Teste]";
 			mes "Bem, em primeiro lugar receba a flauta, após convocar o lobo volte a falar comigo!";
-			getitem 12380,1; // Flauta do Filhote de Lobo
+			getitem 12380,1; //Flauta do Filhote de Lobo
 			setquest 8261;
 			close;
 		}
@@ -1533,33 +1539,33 @@ OnDisable:
 	disablenpc "Supervisor do Teste#jr_13";
 	end;
 OnTimer3000:
-	mapannounce "job3_rang02","Supervisor do Teste : Bem-vindo ao campo do 3° teste prático! Eu sou o Supervisor do 3° teste!",bc_map,"0x87ceeb";
+	mapannounce "job3_rang02","Supervisor do Teste : Bem-vindo ao campo do 3° teste prático! Eu sou o Supervisor do 3° teste!",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	end;
 OnTimer6000:
-	mapannounce "job3_rang02","Supervisor do Teste : Não fique parado durante o teste, se você não falar comigo novamente em 2 minutos, o teste irá acabar!",bc_map,"0x87ceeb";
+	mapannounce "job3_rang02","Supervisor do Teste : Não fique parado durante o teste, se você não falar comigo novamente em 2 minutos, o teste irá acabar!",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	end;
 OnTimer9000:
-	mapannounce "job3_rang02","Supervisor do Teste : Não hesite e vamos começar!",bc_map,"0x87ceeb";
+	mapannounce "job3_rang02","Supervisor do Teste : Não hesite e vamos começar!",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	end;
 OnTimer60000:
-	mapannounce "job3_rang02","Supervisor do Teste : Não fique parado durante o teste, se você não falar comigo novamente em 1 minuto, o teste irá acabar!",bc_map,"0x87ceeb";
+	mapannounce "job3_rang02","Supervisor do Teste : Não fique parado durante o teste, se você não falar comigo novamente em 1 minuto, o teste irá acabar!",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	end;
 OnTimer63000:
-	mapannounce "job3_rang02","Supervisor do Teste : Não hesite e vamos começar!",bc_map,"0x87ceeb";
+	mapannounce "job3_rang02","Supervisor do Teste : Não hesite e vamos começar!",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	end;
 OnTimer120000:
-	mapannounce "job3_rang02","Supervisor do Teste : Por que você não começa o teste?",bc_map,"0x87ceeb";
+	mapannounce "job3_rang02","Supervisor do Teste : Por que você não começa o teste?",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	end;
 OnTimer123000:
-	mapannounce "job3_rang02","Supervisor do Teste : Você me respondeu durante o teste, então estou encerrando!",bc_map,"0x87ceeb";
+	mapannounce "job3_rang02","Supervisor do Teste : Você me respondeu durante o teste, então estou encerrando!",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	end;
 OnTimer127000:
 	set $@job_rang_point03,0;
-	mapannounce "job3_rang02","Supervisor do Teste : Que pena, mas tente novamente!",bc_map,"0x87ceeb";
+	mapannounce "job3_rang02","Supervisor do Teste : Que pena, mas tente novamente!",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	mapwarp "job3_rang02","tur_dun01",93,165;
 	end;
 OnTimer130000:
-	mapannounce "job3_rang02","Supervisor do Teste : Que pena, mas tente novamente!",bc_map,"0x87ceeb";
+	mapannounce "job3_rang02","Supervisor do Teste : Que pena, mas tente novamente!",bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	mapwarp "job3_rang02","tur_dun01",93,165;
 	end;
 OnTimer133000:
@@ -1577,14 +1583,14 @@ OnInit:
 OnEnable:
 	enablenpc strnpcinfo(0);
 	initnpctimer;
-	getmapxy(.@map$,.@x,.@y,1);
+	getmapxy(.@map$,.@x,.@y,BL_NPC);
 	monster "job3_rang02",.@x,.@y,"Bomba-Ovo",1047,1,strnpcinfo(0)+"::OnMyMobDead";
 	switch(atoi(strnpcinfo(2))%3) {
 		case 0: set .@str$,"Ei, Irei explodir. O que irá fazer?"; break;
 		case 1: set .@str$,"Eu... não, eu não aguento mais!!"; break;
 		case 2: set .@str$,"Estou quase terminando... Não pare."; break;
 	}
-	mapannounce "job3_rang02","Bomba-Ovo : "+.@str$,bc_map,"0x87ceeb";
+	mapannounce "job3_rang02","Bomba-Ovo : "+.@str$,bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	end;
 OnDisable:
 	stopnpctimer;
@@ -1598,11 +1604,11 @@ OnMyMobDead:
 		case 1: set .@str$,"Não fique triste. O sofrimento sempre vem no descuido."; break;
 		case 2: set .@str$,"Infelizmente, era apenas um sonho..."; break;
 	}
-	mapannounce "job3_rang02","Bomba-Ovo : "+.@str$,bc_map,"0x87ceeb";
+	mapannounce "job3_rang02","Bomba-Ovo : "+.@str$,bc_map,"0x87ceeb"; //FW_NORMAL 12 0 0
 	donpcevent strnpcinfo(0)+"::OnDisable";
 	end;
 OnTimer10000:
-	mapannounce "job3_rang02","Bomba-Ovo : Ughhhhhhhhhhhhhh!!! Então, o que eu disse!!",bc_map,"0xFF9900";
+	mapannounce "job3_rang02","Bomba-Ovo : Ughhhhhhhhhhhhhh!!! Então, o que eu disse!!",bc_map,"0xFF9900"; //FW_NORMAL 12 0 0
 	donpcevent strnpcinfo(0)+"::OnDisable";
 	end;
 }
@@ -1659,19 +1665,19 @@ job3_rang01,90,43,3	script	Mestre dos Sentinelas#jr_29	832,{
 		mes "Bem, você já teve experiência o suficiente.";
 		next;
 		mes "[Mestre dos Sentinelas]";
-		mes "Antes de mudar de classe ^0000ffse dispessa de seu falcão^000000, e verifique se você já utilizou todos os seus ^0000ffPontos de Habilidade^000000.";
+		mes "Antes de mudar de classe ^0000ffretire o seu falcão^000000, e verifique se você já utilizou todos os seus ^0000ffPontos de Habilidade^000000.";
 		next;
-		if (select("Espere um minuto:Estou pronto") == 1) {
+		if(select("Espere um minuto:Estou pronto") == 1) {
 			mes "[Mestre dos Sentinelas]";
 			mes "Eu não estou fugindo para ganhar tempo.";
 			close;
 		}
 		mes "[Mestre dos Sentinelas]";
 		if (checkfalcon()) {
-			mes "Eu não disse para se despedir de seu falcão??";
+			mes "Eu não disse para retire o seu falcão??";
 			next;
 			mes "[Mestre dos Sentinelas]";
-			mes "Por favor se dispessa de seu falcão e volte novamente.";
+			mes "Por favor se dispersa de seu falcão e volte novamente.";
 			close;
 		}
 		if (SkillPoint != 0) {
@@ -1681,18 +1687,18 @@ job3_rang01,90,43,3	script	Mestre dos Sentinelas#jr_29	832,{
 			mes "Utilize todos os seus pontos de habilidade antes de falar comigo.";
 			close;
 		}
-		mes "Good. No falcon and you've used up all your skill points.";
+		mes "Boa. Nenhum falcão e você usou todos os seus pontos de habilidade.";
 		next;
 		mes "[Mestre dos Sentinelas]";
-		mes "Okay, before you really change the job into a ranger, I'll ask you on more time.";
-		mes "Do you really want to become a ranger?";
+		mes "Ok, antes que você realmente mude a classe para um Sentinela, eu vou pedir mais tempo.";
+		mes "Você realmente quer se tornar um Sentinela?";
 		next;
-		if (select("No:Yes!") == 1) {
+		if (select("Não:Sim!") == 1) {
 			mes "[Mestre dos Sentinelas]";
-			mes "...Um? That's not the answer that I was waiting for...";
+			mes "...Hum? Essa não é a resposta que eu estava esperando...";
 			next;
 			mes "[Mestre dos Sentinelas]";
-			mes "Even after passing through all the rough practical tests, you don't want to become a ranger... are you sure?";
+			mes "Mesmo depois de passar por todos os testes práticos, você não quer se tornar um Sentinela... tem certeza?";
 			close;
 		}
 		mes "[Mestre dos Sentinelas]";
@@ -1729,19 +1735,19 @@ job3_rang01,90,43,3	script	Mestre dos Sentinelas#jr_29	832,{
 		mes "[Mestre dos Sentinelas]";
 		mes "A partir de agora você é um Sentinela!";
 		mes "Desejo muita sorte a você em sua jornada!";
-		delitem 1703,1; // Arco
+		delitem 1703,1; //Arco
 		set job_ranger01,8;
 		completequest 8262;
 		jobchange roclass(eaclass()|EAJL_THIRD);
-		getitem 5748,1; // Visão do Sentinela
-		getitem 2795,1; // Anel de Maçã Verde
-		getitem 6124,1; // Flauta Uivante's_Flute
+		getitem 5748,1; //Visão do Sentinela
+		getitem 2795,1; //Anel de Maçã Verde
+		getitem 6124,1; //Flauta Uivante's_Flute
 		close;
 	}
 	mes "Ei, você parece bem.";
 	mes "O que você está fazendo aqui?";
 	next;
-	switch(select("Só vim visitar:Por favor me leve devolta")) {
+	switch(select("Só vim visitar:Por favor me leve de volta")) {
 	case 1:
 		mes "[Mestre dos Sentinelas]";
 		mes "Bem, não havia motivos para você vir.";
@@ -1760,45 +1766,45 @@ job3_rang01,90,43,3	script	Mestre dos Sentinelas#jr_29	832,{
 	}
 }
 
-job3_rang01,58,1,0	script	Worker#job_ranger	88,{
+job3_rang01,58,1,0	script	Operário#job_ranger	88,{
 	callfunc "F_GM_NPC";
-	switch(select("Enable Waiting Room:Disable Waiting Room:Enable 1st Test:Disable 1st Test:Enable 2nd Test:Disable 2nd Test:Enable 3rd Test:Disable 3rd Test:Cancel")) {
+	switch(select("Habilitar Sala de Espera:Desativar Sala de Espera:Habilitar 1º Teste:Desabilitar 1º Teste:Habilitar 2º Teste:Desativar 2º Teste:Habilitar 3º Teste:Desativar 3º Teste:Cancelar")) {
 	case 1:
-		mes "Enabled Waiting Room";
-		donpcevent "Test Waiting Room#jr_03::OnEnable";
+		mes "Sala de espera habilitada";
+		donpcevent "Sala de Espera#jr_03::OnEnable";
 		close;
 	case 2:
-		mes "Disabled Waiting Room";
-		donpcevent "Test Waiting Room#jr_03::OnDisable";
+		mes "Sala de espera desabilitada";
+		donpcevent "Sala de Espera#jr_03::OnDisable";
 		close;
 	case 3:
-		mes "1st Test Enabled";
-		donpcevent "Test Supervisor#jr_04::OnEnable";
+		mes "1º teste habilitado";
+		donpcevent "Supervisor do Teste#jr_04::OnEnable";
 		close;
 	case 4:
-		mes "1st Test Disabled";
-		donpcevent "Test Supervisor#jr_04::OnDisable";
-		donpcevent "First Test Timer#jr_05::OnDisable";
-		donpcevent "CallCorrectAnswer#jr::OnReset";
-		donpcevent "CallWrongAnswer#jr::OnReset";
-		donpcevent "CallCorrectAnswer#jr::OnDisable";
-		donpcevent "CallWrongAnswer#jr::OnDisable";
+		mes "1º teste desabilitado";
+		donpcevent "Supervisor do Teste#jr_04::OnDisable";
+		donpcevent "Cronômetro do 1° Teste#jr_05::OnDisable";
+		donpcevent "RespostaCorreta#jr::OnReset";
+		donpcevent "RespostaErrada#jr::OnReset";
+		donpcevent "RespostaCorreta#jr::OnDisable";
+		donpcevent "RespostaErrada#jr::OnDisable";
 		close;
 	case 5:
-		mes "2nd Test Enabled";
-		donpcevent "Second Test Timer#jr_08::OnEnable";
+		mes "2º teste habilitado";
+		donpcevent "Cronômetro do 2° Teste#jr_08::OnEnable";
 		close;
 	case 6:
-		mes "2nd Test Disabled";
-		donpcevent "Second Test Timer#jr_08::OnDisable";
+		mes "2º teste desabilitado";
+		donpcevent "Cronômetro do 2° Teste#jr_08::OnDisable";
 		close;
 	case 7:
-		mes "3rd Test has been Enabled";
-		donpcevent "Third Test Timer#jr_12::OnEnable";
+		mes "3º teste habilitado";
+		donpcevent "Cronômetro do 3° Teste#jr_12::OnEnable";
 		close;
 	case 8:
-		mes "3rd Test has been Disabled";
-		donpcevent "Third Test Timer#jr_12::OnDisable";
+		mes "3º teste desabilitado";
+		donpcevent "Cronômetro do 3° Teste#jr_12::OnDisable";
 		for(set .@i,14; .@i<=28; set .@i,.@i+1)
 			donpcevent "Bomba-Ovo#"+.@i+"::OnDisable";
 		close;

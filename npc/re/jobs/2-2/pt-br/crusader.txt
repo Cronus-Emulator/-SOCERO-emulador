@@ -1,0 +1,66 @@
+//===== rAthena Script =======================================
+//= Crusader Job Quest
+//===== Description: =========================================
+//= [Official Conversion]
+//= Job quest for Crusader classes
+//===== Changelogs: ==========================================
+//= 1.0 Location changed in ep16.1 [Capuche]
+//============================================================
+// traduzido e revisado por Haikenz
+
+// Senior Crusader: 1st Collect Items Test
+//============================================================
+prt_cas,251,75,1	duplicate(Senior Crusader_)	Lider dos Templários	4_M_CRU_OLD
+
+// Suffering Man: 2nd Endurance Test
+//============================================================
+prt_cas,238,94,5	duplicate(Man in Anguish_)	Homen Angustiado	4_M_JOB_KNIGHT1
+
+// Crusader: 4th Purification Test
+//============================================================
+prt_cas,261,101,3	duplicate(Patron Knight_)	Bliant Piyord	4_M_CRU
+
+// Actual tests
+//============================================================
+
+//----------------------------------------------------------------------------
+// Endurance Test
+//----------------------------------------------------------------------------
+job_cru,98,105,4	script	 Invocador#cr5	WARPNPC,3,3,{
+	end;
+OnTouch_:
+	set CRUS_Q,6;
+	changequest 3010,3011;
+	warp "prt_cas",238,94;	// inaccurate location
+	end;
+}
+
+//----------------------------------------------------------------------------
+// Purification Test
+//----------------------------------------------------------------------------
+job_cru,168,180,4	script	Invocador de Monstro#cr5	WARPNPC,3,3,{
+	end;
+OnInit:
+	disablenpc "Invocador de Monstro#cr5";
+	end;
+
+OnTouch_:
+	warp "prt_cas",238,94;	// inaccurate location
+	donpcevent "Invocador de Monstro#cr0::OnReset";
+	donpcevent "Invocador de Monstro#cr4::OnReset";
+	donpcevent "Invocador de Monstro#cr0::OnEnd";
+	donpcevent "Invocador de Monstro#cr4::OnEnd";
+	donpcevent "Invocador de Monstro#cr5::OnEnd";
+	donpcevent "Invocador de Monstro#cr6::OnStop";
+	donpcevent "Invocador de Monstro#cr6::OnEnd";
+	donpcevent "Sala de Espera#cr1::OnStart";
+	end;
+
+OnStart:
+	enablenpc "Invocador de Monstro#cr5";
+	end;
+
+OnEnd:
+	disablenpc "Invocador de Monstro#cr5";
+	end;
+}

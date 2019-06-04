@@ -23,7 +23,10 @@
 //= 1.6 Updated to match the latest official script. [Euphy]
 //= 1.7 Tradução PT-BR [Clare]
 //= 1.7.1 Adaptação para rAthena [HD Scripts]
-//============================================================ 
+//============================================================
+// revisado por [Haikenz] 27/04/2018
+//https://forum.cronus-emulator.com/topic/158820-socero-tradu%C3%A7%C3%B5es/?do=findComment&comment=875030
+//--
 
 morocc_in,174,30,6	script	Garoto#link1	716,{
 	if (Class == Job_Soul_Linker) {
@@ -43,7 +46,7 @@ morocc_in,174,30,6	script	Garoto#link1	716,{
 			mes "do sol? Eu estou familiarizado";
 		}
 		else {
-			mes "Você é um guerreiro";
+			mes "Você é uma guerreira";
 			mes "da lua? Eu estou familiarizado";
 		}
 		mes "com seus caminhos. Afinal,";
@@ -56,7 +59,7 @@ morocc_in,174,30,6	script	Garoto#link1	716,{
 		mes "[Garoto]";
 		mes "Hm... Eu não tenho nada a";
 		mes "oferecer para você. Mas se você conhecer";
-		mes "algum praticante de Taekwon Dô";
+		mes "algum praticante de Taekwondo";
 		mes "experiente, mande-os até mim,";
 		mes "pelo que sei eles poderão se";
 		mes "beneficiar com meus conhecimentos.";
@@ -65,7 +68,7 @@ morocc_in,174,30,6	script	Garoto#link1	716,{
 	if (JobLevel < 40) {
 		mes "[Garoto]";
 		mes "Então você está estudando";
-		mes "Taekwon Dô. Isso é bom,";
+		mes "Taekwondo. Isso é bom,";
 		mes "na verdade muito bom. Basta";
 		mes "aprimorar sua habilidades e";
 		mes "manter um bom treinamento.";
@@ -98,7 +101,7 @@ morocc_in,174,30,6	script	Garoto#link1	716,{
 				mes "[Garoto]";
 				mes "Agora ouça...";
 				mes "Eu sei que você é um";
-				mes "discípulo de Taekwon Dô.";
+				mes "discípulo de Taekwondo.";
 				mes "É uma arte respeitável, mas";
 				mes "eu gostaria de lhe fazer";
 				mes "uma proposta.";
@@ -108,7 +111,7 @@ morocc_in,174,30,6	script	Garoto#link1	716,{
 				mes "Eu estive olhando para você, e eu";
 				mes "posso dizer que você tem um grande";
 				mes "poder espiritual. E esse";
-				mes "seu potêncial não deve ser desperdiçado.";
+				mes "seu potencial não deve ser desperdiçado.";
 				mes "Então porque não fazer de";
 				mes "você um ''Espiritualista''?";
 				next;
@@ -237,7 +240,7 @@ morocc_in,174,30,6	script	Garoto#link1	716,{
 					mes "Eu sei que você sabe o que";
 					mes "precisa trazer, mas eu vou";
 					mes "repetir novamente:";
-					mes "^0000FF1 Diamanete de 3 Quilates^000000,";
+					mes "^0000FF1 Diamante de 3 Quilates^000000,";
 					mes "^0000FF1 Coração Imortal^000000 e";
 					mes "^0000FF1 Rosa Eterna^000000.";
 					close;
@@ -263,9 +266,9 @@ morocc_in,174,30,6	script	Garoto#link1	716,{
 			if (SkillPoint) {
 				mes "[Maia]";
 				mes "Você ainda possui";
-				mes "alguns pontos não distribuidos.";
+				mes "alguns pontos não distribuídos.";
 				mes "Use todos eles para aprender";
-				mes "as habilidades de Taekwon Dô, e depois";
+				mes "as habilidades de Taekwon, e depois";
 				mes "volte quando estiver pronto.";
 				close;
 			}
@@ -295,7 +298,7 @@ morocc_in,174,30,6	script	Garoto#link1	716,{
 		else if (SOUL_Q > 2) {
 			mes "[Maia]";
 			mes "Você está pronto";
-			mes "para entrar nas profudenzas";
+			mes "para entrar nas profundezas";
 			mes "da sua mente de novo?";
 			next;
 			if (select("Não:Sim") == 1) {
@@ -336,7 +339,7 @@ OnInit:
 }
 
 job_soul,30,31,0	script	Maia#link2::SLTester	-1,3,3,{
-OnTouch:
+OnTouch_:
 	if (Class == Job_Taekwon) {
 		if (JobLevel < 40) {
 			set getvariableofnpc(.SoulLinkerTest,"Garoto#link1"),0;
@@ -493,9 +496,9 @@ OnTouch:
 	end;
 }
 
-job_soul,35,30,6	duplicate(SLTester)	Maia#link6	4_M_KID2
+job_soul,35,30,6	duplicate(SLTester)	Maia#link6	716
 
-job_soul,30,35,6	script	Espírito do Monge#link4	4_M_GRANDMONK,{
+job_soul,30,35,6	script	Espírito do Monge#link4	827,{
 	if (SOUL_Q == 2) {
 		mes "[Espírito do Monge]";
 		mes "Quem eu sou...?";
@@ -510,7 +513,7 @@ job_soul,30,35,6	script	Espírito do Monge#link4	4_M_GRANDMONK,{
 		mes "[Espírito do Monge]";
 		mes "Durante minha vida, eu e meus colegas";
 		mes "fazíamos o melhor para garantir";
-		mes "que faríamos tudo que pudessemos";
+		mes "que faríamos tudo que pudéssemos";
 		mes "como um Monge. Mesmo assim...";
 		mes "Eu ainda não acho que fiz o melhor";
 		mes "uso de minhas habilidades.";
@@ -524,7 +527,7 @@ job_soul,30,35,6	script	Espírito do Monge#link4	4_M_GRANDMONK,{
 		mes "tornar isso possível.";
 		next;
 		set SOUL_Q,4;
-		if (checkquest(6008) == -1) {
+		if(checkquest(6008) == -1) {
 			changequest 6007,6008;
 		}
 		mes "[Espírito do Monge]";
@@ -540,7 +543,7 @@ job_soul,30,35,6	script	Espírito do Monge#link4	4_M_GRANDMONK,{
 	close;
 }
 
-job_soul,30,25,7	script	Espírito do Sábio#link5	4_M_SAGE_A,{
+job_soul,30,25,7	script	Espírito do Sábio#link5	754,{
 	if (SOUL_Q == 2) {
 		mes "[Espírito do Sábio]";
 		mes "Fale com Maia.";
@@ -555,7 +558,7 @@ job_soul,30,25,7	script	Espírito do Sábio#link5	4_M_SAGE_A,{
 		mes "Minha busca pelo conhecimento";
 		mes "concedeu-me um poder incrível.";
 		mes "Na vida, eu poderia destruir";
-		mes "qualquer coisa que quisese. Poucos Sábios";
+		mes "qualquer coisa que quisesse. Poucos Sábios";
 		mes "conseguiriam chegar ao meu nível...";
 		next;
 		mes "[Espírito do Sábio]";
@@ -573,7 +576,7 @@ job_soul,30,25,7	script	Espírito do Sábio#link5	4_M_SAGE_A,{
 		mes "sua ajuda. Eu imploro,";
 		mes "deixe-me ser seu espirito aliado.";
 		set SOUL_Q,4;
-		if (checkquest(6008) == -1) {
+		if(checkquest(6008) == -1) {
 			changequest 6007,6008;
 		}
 		next;
@@ -589,7 +592,7 @@ job_soul,30,25,7	script	Espírito do Sábio#link5	4_M_SAGE_A,{
 	close;
 }
 
-job_soul,25,30,5	script	Espírito do Alquimista#link7	4_F_ALCHE,{
+job_soul,25,30,5	script	Espírito do Alquimista#link7	744,{
 	if (SOUL_Q == 2) {
 		mes "[Espírito do Alquimista]";
 		mes "Oh! Eu realmente quero";
@@ -615,9 +618,9 @@ job_soul,25,30,5	script	Espírito do Alquimista#link7	4_F_ALCHE,{
 		mes "melhorei minhas habilidades desde que";
 		mes "morri. Mas eu não posso";
 		mes "ir para o outro mundo, não antes de";
-		mes "re-passar minhas tecnicas...";
+		mes "re-passar minhas técnicas...";
 		set SOUL_Q,4;
-		if (checkquest(6008) == -1) {
+		if(checkquest(6008) == -1) {
 			changequest 6007,6008;
 		}
 		next;
@@ -635,7 +638,7 @@ job_soul,25,30,5	script	Espírito do Alquimista#link7	4_F_ALCHE,{
 	close;
 }
 
-job_soul,1,5,0	script	Timer#link3	HIDDEN_NPC,{
+job_soul,1,5,0	script	Timer#link3	111,{
 	end;
 
 OnEnable:
@@ -667,7 +670,7 @@ OnTimer183000:
 	stopnpctimer;
 }
 
-sec_in02,35,153,0	script	Variáveis Espiritualista	4_M_OPERATION,{
+sec_in02,35,153,0	script	Variáveis Espiritualista	871,{
 	callfunc "F_GM_NPC";
 	mes "[Variáveis Espiritualista]";
 	mes "Eu posso resetar os NPCs da mudança de classe";

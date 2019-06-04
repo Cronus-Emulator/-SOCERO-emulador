@@ -14,12 +14,15 @@
 //=============== Tradução PT-BR ================
 // HanzoBR - Disponibilizado para Projeto SOCERO
 //=============================================== 
+// revisado por Haikenz
+
 alberta_in,53,43,6	script	Mercador#mer	86,{
 	if (Upper == 1) {
 		if (Class == Job_Novice_High && (ADVJOB == Job_Whitesmith || ADVJOB == Job_Creator)) {
 			mes "[Chefe Mahnsoo]";
 			mes "Há quanto tempo!";
-			mes "Ei, você não desistiu do seu negócio né?";
+			mes "Ei, você não desistiu";
+			mes "do seu negócio né?";
 			mes "O que aconteceu?";
 			next;
 			mes "[Chefe Mahnsoo]";
@@ -44,8 +47,7 @@ alberta_in,53,43,6	script	Mercador#mer	86,{
 			skill "MC_CHANGECART",1,SKILL_PERM;
 			skill "MC_LOUD",1,SKILL_PERM;
 			mes "[Chefe Mahnsoo]";
-			mes "Ahh, que nostálgico, como nos velhos tempos.";
-			mes "Ok, faça seu melhor!";
+			mes "Ahh, que nostálgico, como nos velhos tempos. Ok, faça seu melhor!";
 			close;
 		}else{
 			mes "[Chefe Mahnsoo]";
@@ -79,7 +81,7 @@ alberta_in,53,43,6	script	Mercador#mer	86,{
 			next;
 			if (!callfunc("F_CanChangeJob")) {
 				mes "[Chefe Mahnsoo]";
-				mes "Mas para isto, seu nívela Base deve ser 9 e gastar todos seus pontos em habilidades básicas.";
+				mes "Mas para isto, seu nível de Base deve ser 9 e gastar todos seus pontos em habilidades básicas.";
 				next;
 				mes "[Chefe Mahnsoo]";
 				mes "Você não acha que precisamos saber habilidades básicas, embora apenas lidamos com dinheiro?";
@@ -96,20 +98,18 @@ alberta_in,53,43,6	script	Mercador#mer	86,{
 			getitem 1381,1;	// N_Battle_Axe
 			next;
 			mes "[Chefe Mahnsoo]";
-			mes "Certamente precizamos de jovens que tenham paixão para atingir nosso grande objetivo de obter 20% da moeda Mundial.";
-			mes "Entendeu?";
-			mes "Isto apenas significa que ganharemos MUITO DINHEIRO.";
+			mes "Certamente precisamos de jovens que tenham paixão para atingir nosso grande objetivo de obter 20% da moeda Mundial.";
+			mes "Entendeu? Isto apenas significa que ganharemos MUITO DINHEIRO.";
 			close;
 		}
 	case 2:
 		mes "[Chefe Mahnsoo]";
-		mes "Mercador? Simplificando é a pessooa que vende e ganha dinheiro é um Mercador.";
+		mes "Mercador? Simplificando é a pessoa que vende e ganha dinheiro é um Mercador.";
 		mes "Não feito para combate sem habilidades especiais de ataque/recuperação, mas um mercador pode comprar coisas por um preço barato e vender por valor maior.";
 		next;
 		mes "[Chefe Mahnsoo]";
 		mes "Bom, o Mercador tem uma habilidade suprema chamada Mamonita que ataca o inimigo com seu dinheiro. nós podemos equipar tudo exceto Arcos, Bastões, e espadas de Duas Mãos";
-		mes "Mas podemos sempre comprar e vender estes itens em nossas lojas.";
-		mes "Sim, nós Mercadores sempre tempos dinheiro em mente, entendeu?";
+		mes "Mas podemos sempre comprar e vender estes itens em nossas lojas. Sim, nós Mercadores sempre tempos dinheiro em mente, entendeu?";
 		close;
 	case 3:
 		mes "[Chefe Mahnsoo]";
@@ -124,9 +124,6 @@ alberta_in,53,43,6	script	Mercador#mer	86,{
 		mes "Desde que, cumpra com os requisitos exigidos.";
 		close;
 	case 4:
-	    mes "[Chefe Mahnsoo]";
-	    mes "Você me fez perder tempo e clientes.";
-		mes "Nunca mais tome meu tempo a menos que seja necessário.";
 		close;
 	}
 }

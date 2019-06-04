@@ -43,6 +43,7 @@
 //============================================================ 
 // traduzido pt-br por Weed0 para SOCERO
 // Revisado por [HD Scripts] em 08/04/2019
+// Revisado por [Haikenz] em 26/04/2019
 
 prt_in,88,101,4	script	Chefe dos Cavaleiros#knt	56,{
 	mes "[Chefe dos Cavaleiros]";
@@ -89,7 +90,6 @@ prt_in,88,101,4	script	Chefe dos Cavaleiros#knt	56,{
 				mes "Aha~";
 				mes "Você deve ter muito tempo livre. Por que você não vai caçar alguns monstros em vez de perambular sem rumo?";
 				close;
-				close;
 			}
 		}
 		else {
@@ -105,8 +105,7 @@ prt_in,88,101,4	script	Chefe dos Cavaleiros#knt	56,{
 		if (select("Eu quero mudar minha classe para Cavaleiro.:Estou apenas visitando.") == 1) {
 			mes "[Chefe dos Cavaleiros]";
 			mes "Nossa...";
-			mes ""+((Sex)?"Um jovem":"Uma jovem")+"";
-			mes ""+((Sex)?"rapaz":"moça")+" que deseja";
+			mes ""+((Sex==SEX_MALE)?"um jovem":"uma jovem")+" que deseja";
 			mes "se tornar um Cavaleiro!";
 			mes "A Cavalaria de Prontera";
 			mes "irá ajudar você.";
@@ -120,7 +119,7 @@ prt_in,88,101,4	script	Chefe dos Cavaleiros#knt	56,{
 			mes "Não podemos considerar os candidatos que ainda não são experientes o suficiente para se tornar cavaleiros.";
 			next;
 			mes "[Chefe dos Cavaleiros]";
-			mes "Uma vez aplicado, analizamos";
+			mes "Uma vez aplicado, analisamos";
 			mes "se você é elegível, e iniciamos o procedimento de mudança de classe. Será que você";
 			mes "gostaria de aplicar-se agora?";
 			next;
@@ -139,11 +138,11 @@ prt_in,88,101,4	script	Chefe dos Cavaleiros#knt	56,{
 					mes "todos os seus pontos de habilidade.";
 					close;
 				}
-				KNIGHT_Q = 1;
+				set KNIGHT_Q,1;
 				setquest 9000;
 				mes "Deixe-me ver...";
 				mes "Seu nome é";
-				mes ""+strcharinfo(0)+"...";
+				mes strcharinfo(0) + "...";
 				mes "É isso mesmo?";
 				next;
 				mes "[Chefe dos Cavaleiros]";
@@ -340,7 +339,7 @@ prt_in,88,101,4	script	Chefe dos Cavaleiros#knt	56,{
 			mes "juntado itens";
 			mes "que são difíceis";
 			mes "de conseguir. Eu aprovo!";
-			mes "Eu acredito "+((Sex)?"ele vai ":" ela vai")+"  continue a ser fiel depois de se tornar um Cavaleiro.";
+			mes "Eu acredito "+((Sex==SEX_MALE)?"ele vai ":" ela vai")+" continuar a ser fiel depois de se tornar um Cavaleiro.";
 		}
 		next;
 		mes "[Chefe dos Cavaleiros]";
@@ -377,7 +376,7 @@ prt_in,88,101,4	script	Chefe dos Cavaleiros#knt	56,{
 		mes "a opinião da Ana.";
 		next;
 		mes "[Cavaleira Educada]";
-		if (Sex) {
+		if (Sex == SEX_MALE) {
 			mes "Hum ~ Ele é tão educado!";
 			mes "Ele vai crescer para ser um cavaleiro maravilhoso.!";
 		}
@@ -396,7 +395,7 @@ prt_in,88,101,4	script	Chefe dos Cavaleiros#knt	56,{
 		mes "sua opinião.";
 		next;
 		mes "[Cavaleiro Devotado]";
-		if (Sex) {
+		if (Sex == SEX_MALE) {
 			mes "Ele parece um pouco bruto, mas algo brilha dentro dele. Com um polimento, seu verdadeiro valor vai brilhar";
 			mes "como o sol.";
 		}
@@ -411,7 +410,7 @@ prt_in,88,101,4	script	Chefe dos Cavaleiros#knt	56,{
 		mes "de ouvir sua avaliação.";
 		next;
 		mes "[Cavaleiro Modesto]";
-		mes "Jovem  "+((Sex)?"cavalheiro":"dama")+" vindo aqui com a determinação de se tornar um Cavaleiro é o suficiente...";
+		mes "Jovem  "+((Sex==SEX_MALE)?"cavalheiro":"dama")+" vindo aqui com a determinação de se tornar um Cavaleiro é o suficiente...";
 		next;
 		mes "[Chefe dos Cavaleiros]";
 		mes "Todos";
@@ -454,9 +453,9 @@ prt_in,88,101,4	script	Chefe dos Cavaleiros#knt	56,{
 		close;
 	}
 L_Mission:
-		mes "Hum?";
-		mes "Espadachim "+strcharinfo(0)+".";
-		mes "Como estão os testes?";
+	mes "Hum?";
+	mes "Espadachim " + strcharinfo(0) + ".";
+	mes "Como estão os testes?";
 	if (getarg(0)) {
 		mes "Ah~ Você não sabe";
 		mes "quem visitar agora?";
@@ -470,7 +469,7 @@ L_Mission:
 	}
 }
 
-prt_in,75,107,4	script	Cavaleiro Dedicado#cav	1_M_YOUNGKNIGHT,{
+prt_in,75,107,4	script	Cavaleiro Dedicado#knt	65,{
 	mes "[Cavaleiro Dedicado]";
 	if (BaseJob != Job_Swordman) {
 		if (BaseJob == Job_Knight) {
@@ -534,7 +533,7 @@ prt_in,75,107,4	script	Cavaleiro Dedicado#cav	1_M_YOUNGKNIGHT,{
 			mes "deseja";
 			mes "se tornar um Cavaleiro.";
 			mes "Seu nome é";
-			mes ""+strcharinfo(0)+",";
+			mes strcharinfo(0) + ",";
 			mes "correto?";
 			next;
 			mes "[Cavaleiro Dedicado]";
@@ -565,7 +564,7 @@ prt_in,75,107,4	script	Cavaleiro Dedicado#cav	1_M_YOUNGKNIGHT,{
 				next;
 				mes "[Cavaleiro Dedicado]";
 				mes "Por favor, vá até o meu colega Cavaleiro Honroso, ele lhe dará o seu próximo teste. Ótimo trabalho dominando as habilidades de Espadachim.";
-				KNIGHT_Q = 4;
+				set KNIGHT_Q,4;
 				changequest 9000,9003;
 				close;
 			}
@@ -578,12 +577,12 @@ prt_in,75,107,4	script	Cavaleiro Dedicado#cav	1_M_YOUNGKNIGHT,{
 			next;
 			mes "[Cavaleiro Dedicado]";
 			switch(rand(1,2)) {
-			//Bigode de Anão Ancião, Asa de Morcego Vermelho, Asa de Morcego Vermelho, Asa de Morcego 
+			//Bigode de Anão Ancião, Asa de Morcego Vermelho, Asa de Morcego Vermelho, Asa de Morcego
 			case 1: setarray .@items[0], 1040,5, 7006,5, 931,5, 1057,5, 903,5, 1028,5, 2; break;
 			//Pata de Inseto, Coração de Sereia, Flor de Planta Carnívora, Carne de Ostra, Frigideira Velha, Casco de Caramujo.
 			case 2: setarray .@items[0], 1042,5, 950,5, 1032,5, 966,5, 7031,5, 946,5, 3; break;
 			}
-			KNIGHT_Q = .@items[12];
+			set KNIGHT_Q,.@items[12];
 			if (KNIGHT_Q == 2) changequest 9000,9001;
 			else changequest 9000,9002;
 			mes "^236B8E"+.@items[1]+" "+getitemname(.@items[0])+"^000000,";
@@ -632,7 +631,7 @@ prt_in,75,107,4	script	Cavaleiro Dedicado#cav	1_M_YOUNGKNIGHT,{
 			delitem .@items[10],.@items[11];
 			if (KNIGHT_Q == 2) changequest 9001,9003;
 			else changequest 9002,9003;
-			KNIGHT_Q = 4;
+			set KNIGHT_Q,4;
 			mes "[Cavaleiro Dedicado]";
 			mes "Por favor, visite o meu colega Cavaleiro Honroso, e continue os testes com a dedicação e lealdade que você mostrou para mim hoje.";
 			close;
@@ -664,7 +663,7 @@ prt_in,75,107,4	script	Cavaleiro Dedicado#cav	1_M_YOUNGKNIGHT,{
 		close;
 	}
 	else if (KNIGHT_Q == 14) {
-		mes "Você deve ter terminado todos os testes. Bom trabalho! Você deve ir ver o nosso capitão, para que todos nós possanos dar a nossa avaliação.";
+		mes "Você deve ter terminado todos os testes. Bom trabalho! Você deve ir ver o nosso capitão, para que todos nós possamos dar a nossa avaliação.";
 		close;
 	}
 	else {
@@ -674,7 +673,7 @@ prt_in,75,107,4	script	Cavaleiro Dedicado#cav	1_M_YOUNGKNIGHT,{
 	}
 }
 
-prt_in,71,91,0	script	Cavaleiro Honroso#cav	1_M_YOUNGKNIGHT,{
+prt_in,71,91,0	script	Cavaleiro Honroso#knt	65,{
 	mes "[Cavaleiro Honroso]";
 	if (BaseJob != Job_Swordman) {
 		if (BaseJob == Job_Knight) {
@@ -720,7 +719,7 @@ prt_in,71,91,0	script	Cavaleiro Honroso#cav	1_M_YOUNGKNIGHT,{
 			next;
 			mes "[Cavaleiro Honroso]";
 			mes "Armas de duas mãos";
-			mes "pode melhorar o seu ataque, mas diminue suas defesas. Existe algo que possa superar essa fraqueza?";
+			mes "pode melhorar o seu ataque, mas diminui suas defesas. Existe algo que possa superar essa fraqueza?";
 			next;
 			mes "[Cavaleiro Honroso]";
 			mes "Uma arma ou algum tipo";
@@ -735,7 +734,7 @@ prt_in,71,91,0	script	Cavaleiro Honroso#cav	1_M_YOUNGKNIGHT,{
 		next;
 		mes "[Cavaleiro Honroso]";
 		mes "Armas de duas mãos";
-		mes "pode melhorar o seu ataque, mas diminue suas defesas. Existe algo que possa superar essa fraqueza?";
+		mes "pode melhorar o seu ataque, mas diminui suas defesas. Existe algo que possa superar essa fraqueza?";
 		next;
 		mes "[Cavaleiro Honroso]";
 		mes "Uma arma ou algum tipo";
@@ -754,13 +753,13 @@ prt_in,71,91,0	script	Cavaleiro Honroso#cav	1_M_YOUNGKNIGHT,{
 			mes "Para se tornar";
 			mes "um Cavaleiro?";
 			mes "pense nisso,";
-			mes "você  "+((Sex)?"garoto":"garota")+" tem certeza";
+			mes "você  "+((Sex==SEX_MALE)?"garoto":"garota")+" tem certeza";
 			mes "que quer fazer isto?";
 			next;
 			mes "[Cavaleiro Honroso]";
 			mes "Vamos ver...";
 			mes "Seu nome é";
-			mes ""+strcharinfo(0)+".";
+			mes strcharinfo(0) + ".";
 			next;
 			mes "[Cavaleiro Honroso]";
 			mes "Mas, antes de vir até mim, você deve visitar os outros.";
@@ -868,7 +867,7 @@ prt_in,71,91,0	script	Cavaleiro Honroso#cav	1_M_YOUNGKNIGHT,{
 		mes "Um Cavaleiro deve possuir grande força, defesa, velocidade e habilidade para manejar uma espada de duas mãos. Qual das seguintes armas não é afetada pela habilidade Velocidade com Espada de 2 Mãos?";
 		next;
 		if (select("Kataná:Espada Matadora:Espada Larga:Flamberge") != 4) {
-			KNIGHT_Q = 5;
+			set KNIGHT_Q,5;
 			mes "[Cavaleiro Honroso]";
 			mes "Errado!";
 			mes "Essa é uma espada de duas mãos!";
@@ -882,7 +881,7 @@ prt_in,71,91,0	script	Cavaleiro Honroso#cav	1_M_YOUNGKNIGHT,{
 		mes "Bom, agora deixe-me perguntar sobre algumas habilidades. Qual das seguintes habilidades não é necessária aprender Impacto de Tyr?";
 		next;
 		if (select("Perícia com Espada de Duas Mãos Lv.5:Impacto Explosivo Lv.3:Provocar Lv.10:Golpe Fulminante Lv.10") != 3) {
-			KNIGHT_Q = 5;
+			set KNIGHT_Q,5;
 			mes "[Cavaleiro Honroso]";
 			mes "Errado!";
 			mes "Você precisa dela para aprender Impacto de Tyr! Você deve saber mais sobre a classe Cavaleiro antes de mudar de classe para Cavaleiro!";
@@ -892,7 +891,7 @@ prt_in,71,91,0	script	Cavaleiro Honroso#cav	1_M_YOUNGKNIGHT,{
 		mes "Cavaleiros também podem usar Lanças, ao contrário de outras classes, e também tem perícia com a Lanças. Quais as habilidades não são necessários para aprender a habilidade Brandir Lança?";
 		next;
 		if (select("Perfurar Lv.5:Estocada Lv.3:Lança Bumerangue Lv.3:Montaria Lv.1") != 3) {
-			KNIGHT_Q = 5;
+			set KNIGHT_Q,5;
 			mes "[Cavaleiro Honroso]";
 			mes "Errado! Você precisa dela para aprender Brandir Lança! Como pode você não saber sobre cavaleiros e querer se tornar um?";
 			next;
@@ -905,7 +904,7 @@ prt_in,71,91,0	script	Cavaleiro Honroso#cav	1_M_YOUNGKNIGHT,{
 		mes "Algumas Lanças também têm atributos mágicos, assim como magias. Das seguintes lanças podem atacar um Pesadelo que tem o atributo Fantasma?";
 		next;
 		if (select("Zephyrus:Lança:Guisarme-Bico:Foice") != 1) {
-			KNIGHT_Q = 5;
+			set KNIGHT_Q,5;
 			mes "[Cavaleiro Honroso]";
 			mes "Errado! Você estará fazendo absolutamente nenhum dano com esse tipo de Lança! Volte depois que você aprender mais sobre Cavaleiros!";
 			next;
@@ -920,7 +919,7 @@ prt_in,71,91,0	script	Cavaleiro Honroso#cav	1_M_YOUNGKNIGHT,{
 		mes "Mas, você pode contrariar esta diminuição da velocidade se você aprender a habilidade Perícia em Montaria. Qual a percentagem de sua velocidade de ataque normal você terá após a aprendizagem de Perícia em Montaria nível 3 ?";
 		next;
 		if (select("70% de velocidade de ataque normal:80% de velocidade de ataque normal:90% de velocidade de ataque normal:100% da velocidade de ataque normal") != 2) {
-			KNIGHT_Q = 5;
+			set KNIGHT_Q,5;
 			mes "[Cavaleiro Honroso]";
 			mes "Errado!";
 			mes "Não se preocupe em andar de Peco Peco se você não sabe nada sobre Perícia em Montaria!";
@@ -943,12 +942,12 @@ prt_in,71,91,0	script	Cavaleiro Honroso#cav	1_M_YOUNGKNIGHT,{
 			next;
 			break;
 		case 2:
-			KNIGHT_Q = 5;
+			set KNIGHT_Q,5;
 			mes "[Cavaleiro Honroso]";
-			mes "Você tem a idéia errada. Você realmente acredita que está ajudando o novato? Dê a um homem um peixe, ele comerá por um dia. Ensine-o a pescar, ele comerá a vida inteira!";
+			mes "Você tem a ideia errada. Você realmente acredita que está ajudando o novato? Dê a um homem um peixe, ele comerá por um dia. Ensine-o a pescar, ele comerá a vida inteira!";
 			close;
 		case 3:
-			KNIGHT_Q = 5;
+			set KNIGHT_Q,5;
 			mes "[Cavaleiro Honroso]";
 			mes "Você realmente acredita que isso vai realmente ajudar um pobre iniciante? É generoso, mas, eles não sabem o verdadeiro valor dos zenys e itens até que eles ganhem por si próprios.";
 			close;
@@ -966,12 +965,12 @@ prt_in,71,91,0	script	Cavaleiro Honroso#cav	1_M_YOUNGKNIGHT,{
 			next;
 			break;
 		case 2:
-			KNIGHT_Q = 5;
+			set KNIGHT_Q,5;
 			mes "[Cavaleiro Honroso]";
 			mes "Você está louco? Você não percebe a falha nesse tipo de pensamento? Você não pode suportar uma grande quantidade de monstros. E se você acabar morrendo? Quem irá proteger os inocentes?";
 			close;
 		case 3:
-			KNIGHT_Q = 5;
+			set KNIGHT_Q,5;
 			mes "[Cavaleiro Honroso]";
 			mes "Eu vejo sua ganância e não temos nada disso aqui! Parece que você não se importa verdadeiramente com os outros!";
 			mes "Perdeu!";
@@ -990,17 +989,17 @@ prt_in,71,91,0	script	Cavaleiro Honroso#cav	1_M_YOUNGKNIGHT,{
 			next;
 			break;
 		case 2:
-			KNIGHT_Q = 5;
+			set KNIGHT_Q,5;
 			mes "[Cavaleiro Honroso]";
 			mes "Você é a escória! Você se esforça para se tornar um Cavaleiro por riqueza pessoal? Você perdeu! Nós não vamos aceitar alguém como você na nossa Cavalaria!";
 			close;
 		case 3:
-			KNIGHT_Q = 5;
+			set KNIGHT_Q,5;
 			mes "[Cavaleiro Honroso]";
 			mes "Então você está tentando se tornar famoso através da Cavalaria? Isso é patético. Nós não vamos aceitar alguém como você na nossa Cavalaria!";
 			close;
 		}
-		KNIGHT_Q = 6;
+		set KNIGHT_Q,6;
 		changequest 9003,9004;
 		mes "[Cavaleiro Honroso]";
 		mes "Bem, então,";
@@ -1059,7 +1058,7 @@ prt_in,71,91,0	script	Cavaleiro Honroso#cav	1_M_YOUNGKNIGHT,{
 	}
 }
 
-prt_in,79,94,4	script	Cavaleiro das Lutas#cav	4_M_JOB_KNIGHT1,{
+prt_in,79,94,4	script	Cavaleiro das Lutas#knt	733,{
 	mes "[Cavaleiro das Lutas]";
 	mes "...";
 	next;
@@ -1070,12 +1069,13 @@ prt_in,79,94,4	script	Cavaleiro das Lutas#cav	4_M_JOB_KNIGHT1,{
 	mes "[Cavaleiro das Lutas]";
 	if (BaseJob != Job_Swordman) {
 		if (BaseJob == Job_Knight) mes "Proteja.";
-		else {
-		mes ( BaseClass == Job_Novice ) ? "...Vá brincar lá fora.":"...Hmpf.";
-	}
-		close;
+		else if (BaseClass == Job_Novice) {
+			mes "...Vá brincar";
+			mes "lá fora.";
 		}
-		
+		else mes "...Hmpf.";
+		close;
+	}
 	if (KNIGHT_Q == 0) {
 		mes "...O que?";
 		close;
@@ -1101,19 +1101,19 @@ prt_in,79,94,4	script	Cavaleiro das Lutas#cav	4_M_JOB_KNIGHT1,{
 	}
 	else if (KNIGHT_Q == 6 || KNIGHT_Q == 7) {
 		if (KNIGHT_Q == 6) {
-			.@mes$ = "O cavaleiro honroso me enviou a você.: Ah, nada,.";
+			set .@mes$,"O cavaleiro honroso me enviou a você.: Ah, nada,.";
 			mes ".....O que?";
 			next;
 		}
 		else {
-			.@mes$ = "Eu quero tentar novamente!:...";
+			set .@mes$,"Eu quero tentar novamente!:...";
 			next;
 		}
 		if (select(.@mes$) == 1) {
 			mes "[Cavaleiro das Lutas]";
 			mes "...";
 			next;
-			KNIGHT_Q = 7;
+			set KNIGHT_Q,7;
 			if (checkquest(9004) != -1) {
 				changequest 9004,9005;
 			}
@@ -1153,7 +1153,7 @@ prt_in,79,94,4	script	Cavaleiro das Lutas#cav	4_M_JOB_KNIGHT1,{
 
 // Teste 2 parte 1
 //==========================================================
-job_knt,89,106,4	script	Windsor#cav	4_M_JOB_KNIGHT1,{
+job_knt,89,106,4	script	Windsor#knt	733,{
 	mes "[Cavaleiro das Lutas]";
 	mes "...";
 	next;
@@ -1164,7 +1164,7 @@ job_knt,89,106,4	script	Windsor#cav	4_M_JOB_KNIGHT1,{
 	mes "[Cavaleiro das Lutas]";
 	mes "...Perguntas?";
 	next;
-	.@i = select("Que tipo de teste é esse?:Como posso fazer o teste?:Eu quero de sair.:Não.");
+	set .@i, select("Que tipo de teste é esse?:Como posso fazer o teste?:Eu quero de sair.:Não.");
 	mes "[Cavaleiro das Lutas]";
 	mes "...";
 	if (.@i == 4) close;
@@ -1226,21 +1226,21 @@ job_knt,89,106,4	script	Windsor#cav	4_M_JOB_KNIGHT1,{
 	}
 }
 
-job_knt,89,106,4	script	Windsor Bento#cav	4_M_JOB_KNIGHT1,{
+job_knt,89,106,4	script	Windsor Bento#knt	733,{
 	end;
 
 OnInit:
-	disablenpc "Windsor Bento#cav";
-	waitingroom "Sala de Espera",20,"Windsor Bento#cav::OnStartArena",1;
+	disablenpc "Windsor Bento#knt";
+	waitingroom "Sala de Espera",20,"Windsor Bento#knt::OnStartArena",1;
 	enablewaitingroomevent;
 	end;
 
 OnStartArena:
-	killmonster "job_knt", "Knight1::OnMyMobDead";
+	killmonster "job_knt", "Cavaleiro1::OnMyMobDead";
 	killmonster "job_knt", "Cavaleiro2::OnMyMobDead";
 	killmonster "job_knt", "Cavaleiro3::OnMyMobDead";
 	warpwaitingpc "job_knt",43,146;
-	donpcevent "Knight1::OnEnable";
+	donpcevent "Cavaleiro1::OnEnable";
 	disablewaitingroomevent;
 	end;
 
@@ -1249,41 +1249,40 @@ OnStart:
 	end;
 }
 
--	script	Knight1	-1,{
+-	script	Cavaleiro1	-1,{
 OnInit:
-	disablenpc "Knight1";
+	disablenpc "Cavaleiro1";
 	end;
 
 OnEnable:
 	enablenpc "Knight1";
-	//if (!RENEWAL) {
 	if (!checkre(0)) {
-		.MyMobs = 12;
-		monster "job_knt",39,150,"Poeira",1114,1,"Knight1::OnMyMobDead";
-		monster "job_knt",47,150,"Poeira",1114,1,"Knight1::OnMyMobDead";
-		monster "job_knt",39,142,"Poeira",1114,1,"Knight1::OnMyMobDead";
-		monster "job_knt",47,142,"Poeira",1114,1,"Knight1::OnMyMobDead";
+		set .MyMobs,12;
+		monster "job_knt",39,150,"Poeira",1114,1,"Cavaleiro1::OnMyMobDead";
+		monster "job_knt",47,150,"Poeira",1114,1,"Cavaleiro1::OnMyMobDead";
+		monster "job_knt",39,142,"Poeira",1114,1,"Cavaleiro1::OnMyMobDead";
+		monster "job_knt",47,142,"Poeira",1114,1,"Cavaleiro1::OnMyMobDead";
 	}
 	else
-		.MyMobs = 8;
-	monster "job_knt",43,137,"Piere",1160,1,"Knight1::OnMyMobDead";
-	monster "job_knt",43,137,"Andre",1095,1,"Knight1::OnMyMobDead";
-	monster "job_knt",43,137,"Deniro",1105,1,"Knight1::OnMyMobDead";
-	monster "job_knt",43,155,"Piere",1160,1,"Knight1::OnMyMobDead";
-	monster "job_knt",43,155,"Andre",1095,1,"Knight1::OnMyMobDead";
-	monster "job_knt",43,155,"Deniro",1105,1,"Knight1::OnMyMobDead";
-	monster "job_knt",35,146,"Argos",1100,1,"Knight1::OnMyMobDead";
-	monster "job_knt",52,146,"Argos",1100,1,"Knight1::OnMyMobDead";
+		set .MyMobs,8;
+	monster "job_knt",43,137,"Piere",1160,1,"Cavaleiro1::OnMyMobDead";
+	monster "job_knt",43,137,"Andre",1095,1,"Cavaleiro1::OnMyMobDead";
+	monster "job_knt",43,137,"Deniro",1105,1,"Cavaleiro1::OnMyMobDead";
+	monster "job_knt",43,155,"Piere",1160,1,"Cavaleiro1::OnMyMobDead";
+	monster "job_knt",43,155,"Andre",1095,1,"Cavaleiro1::OnMyMobDead";
+	monster "job_knt",43,155,"Deniro",1105,1,"Cavaleiro1::OnMyMobDead";
+	monster "job_knt",35,146,"Argos",1100,1,"Cavaleiro1::OnMyMobDead";
+	monster "job_knt",52,146,"Argos",1100,1,"Cavaleiro1::OnMyMobDead";
 	initnpctimer;
 	end;
 
 OnDisable:
-	killmonster "job_knt", "Knight1::OnMyMobDead";
-	disablenpc "Knight1";
+	killmonster "job_knt", "Cavaleiro1::OnMyMobDead";
+	disablenpc "Cavaleiro1";
 	end;
 
 OnMyMobDead:
-	--.MyMobs;
+	set .MyMobs,.MyMobs-1;
 	if (.MyMobs < 1) {
 		mes "[Cavaleiro das Lutas]";
 		mes "...";
@@ -1293,14 +1292,14 @@ OnMyMobDead:
 		mes "para o próximo nível.";
 		close2;
 		warp "job_knt",43,52;
-		donpcevent "Knight1::OnDisable";
+		donpcevent "Cavaleiro1::OnDisable";
 		donpcevent "Cavaleiro2::OnEnable";
 		stopnpctimer;
 	}
 	end;
 
 OnTimer180000:
-	donpcevent "Knight1::OnDisable";
+	donpcevent "Cavaleiro1::OnDisable";
 	end;
 
 OnTimer181000:
@@ -1309,8 +1308,8 @@ OnTimer181000:
 
 OnTimer182000:
 	stopnpctimer;
-	donpcevent "Knight1::OnDisable";
-	donpcevent "Windsor Bento#cav::OnStart";
+	donpcevent "Cavaleiro1::OnDisable";
+	donpcevent "Windsor Bento#knt::OnStart";
 	end;
 }
 
@@ -1323,9 +1322,8 @@ OnInit:
 
 OnEnable:
 	enablenpc "Cavaleiro2";
-	//if (!RENEWAL) {
 	if (!checkre(0)) {
-		.MyMobs = 12;
+		set .MyMobs,12;
 		monster "job_knt",43,42,"Lobo do Deserto",1106,1,"Cavaleiro2::OnMyMobDead";
 		monster "job_knt",43,62,"Lobo do Deserto",1106,1,"Cavaleiro2::OnMyMobDead";
 		monster "job_knt",60,68,"Anaconda",1030,1,"Cavaleiro2::OnMyMobDead";
@@ -1334,7 +1332,7 @@ OnEnable:
 		monster "job_knt",27,35,"Anaconda",1030,1,"Cavaleiro2::OnMyMobDead";
 	}
 	else
-		.MyMobs = 6;
+		set .MyMobs,6;
 	monster "job_knt",53,52,"Frilldora",1119,1,"Cavaleiro2::OnMyMobDead";
 	monster "job_knt",34,52,"Frilldora",1119,1,"Cavaleiro2::OnMyMobDead";
 	monster "job_knt",58,52,"Drainliar",1111,1,"Cavaleiro2::OnMyMobDead";
@@ -1350,7 +1348,7 @@ OnDisable:
 	end;
 
 OnMyMobDead:
-	--.MyMobs;
+	set .MyMobs,.MyMobs-1;
 	if (.MyMobs < 1) {
 		mes "[Cavaleiro das Lutas]";
 		mes "...Hmm.";
@@ -1376,7 +1374,7 @@ OnTimer181000:
 OnTimer182000:
 	stopnpctimer;
 	donpcevent "Cavaleiro2::OnDisable";
-	donpcevent "Windsor Bento#cav::OnStart";
+	donpcevent "Windsor Bento#knt::OnStart";
 	end;
 }
 
@@ -1389,14 +1387,13 @@ OnInit:
 
 OnEnable:
 	enablenpc "Cavaleiro3";
-	//if (!RENEWAL) {
 	if (!checkre(0)) {
-		.MyMobs = 7;
+		set .MyMobs,7;
 		monster "job_knt",147,167,"Goblin Arqueiro",1258,1,"Cavaleiro3::OnMyMobDead";
 		monster "job_knt",136,158,"Goblin á Vapor",1280,1,"Cavaleiro3::OnMyMobDead";
 	}
 	else
-		.MyMobs = 5;
+		set .MyMobs,5;
 	monster "job_knt",136,152,"Goblin",1122,1,"Cavaleiro3::OnMyMobDead";
 	monster "job_knt",150,152,"Goblin",1123,1,"Cavaleiro3::OnMyMobDead";
 	monster "job_knt",143,145,"Goblin",1124,1,"Cavaleiro3::OnMyMobDead";
@@ -1411,7 +1408,7 @@ OnDisable:
 	end;
 
 OnMyMobDead:
-	--.MyMobs;
+	set .MyMobs,.MyMobs-1;
 	if (.MyMobs < 1) {
 		mes "[Cavaleiro das Lutas]";
 		mes "...";
@@ -1423,13 +1420,13 @@ OnMyMobDead:
 		mes "...Vá falar com";
 		mes "a Cavaleira Educada agora.";
 		close2;
-		KNIGHT_Q = 8;
+		set KNIGHT_Q,8;
 		if(checkquest(9007) == -1) {
 			changequest 9006,9007;
 		}
 		warp "prt_in",80,100;
 		donpcevent "Cavaleiro3::OnDisable";
-		donpcevent "Windsor Bento#cav::OnStart";
+		donpcevent "Windsor Bento#knt::OnStart";
 		stopnpctimer;
 	}
 	end;
@@ -1445,13 +1442,13 @@ OnTimer181000:
 OnTimer182000:
 	stopnpctimer;
 	donpcevent "Cavaleiro3::OnDisable";
-	donpcevent "Windsor Bento#cav::OnStart";
+	donpcevent "Windsor Bento#knt::OnStart";
 	end;
 }
 
 // Teste 3 (Maneiras)
 //==========================================================
-prt_in,69,107,6	script	Cavaleira Educada#cav	4_F_JOB_KNIGHT,{
+prt_in,69,107,6	script	Cavaleira Educada#knt	728,{
 	mes "[Cavaleira Educada]";
 	if (BaseJob != Job_Swordman) {
 		if (BaseJob == Job_Knight) {
@@ -1513,6 +1510,8 @@ prt_in,69,107,6	script	Cavaleira Educada#cav	4_F_JOB_KNIGHT,{
 		mes "[Cavaleira Educada]";
 		mes "Para se candidatar, fale";
 		mes "com o Capitão.";
+		mes "todo o caminho";
+		mes "até lá. Hee hee~";
 		close;
 	}
 	else if (KNIGHT_Q >= 1 && KNIGHT_Q <= 7) {
@@ -1616,14 +1615,13 @@ prt_in,69,107,6	script	Cavaleira Educada#cav	4_F_JOB_KNIGHT,{
 				close;
 			}
 		}
-		mes "[Cavaleira Educada]";
 		mes "Você é um cavaleiro e você está procurando por um grupo em Morroc.";
 		mes "Como é que você vai fazer para encontrar?";
 		next;
-		if (select("Gritar que estou procurando por um grupo.: Abro uma sala de conversa e espero.: Procuro pessoas que procuram Cavaleiros.") != 1)
-			.@knight_t += 10;
+		if (select("Gritar que estou procurando por um grupo.:Abro uma sala de conversa e espero.:Procuro pessoas que procuram Cavaleiros.") != 1)
+			set .@knight_t,.@knight_t+10;
 		mes "[Cavaleira Educada]";
-		mes "Você formou um grupo com jogadores de niveis iguais. Há um Sacerdote, um Bruxo, um Caçador, um Assassino, e um Ferreiro...";
+		mes "Você formou um grupo com jogadores de níveis iguais. Há um Sacerdote, um Bruxo, um Caçador, um Assassino, e um Ferreiro...";
 		next;
 		mes "[Cavaleira Educada]";
 		mes "Vocês seis decidiram ir caçar e escolheram ir às Pirâmides.";
@@ -1635,12 +1633,12 @@ prt_in,69,107,6	script	Cavaleira Educada#cav	4_F_JOB_KNIGHT,{
 		mes "O que você deve fazer?";
 		next;
 		if (select("Checo a área a frente.:Reúno os monstros para os membros do meu grupo.:Lidero o grupo lentamente na frente.") != 2)
-			.@knight_t += 10;
+			set .@knight_t,.@knight_t+10;
 		mes "[Cavaleira Educada]";
 		mes "Mas alguns jogadores rudes, vieram com um grupo de monstros e desapareceram! O que você deve fazer?";
 		next;
-		if (select("Impesso os monstros de chegarem até o grupo.:Defendo-os enquanto o grupo se retira.:Fujo no meu Peco Peco.") == 2)
-			.@knight_t += 10;
+		if (select("Impeço os monstros de chegarem até o grupo.:Defendo-os enquanto o grupo se retira.:Fujo no meu Peco Peco.") == 2)
+			set .@knight_t,.@knight_t+10;
 		mes "[Cavaleira Educada]";
 		mes "Felizmente, todos sobreviveram á crise. Mas enquanto você anda, você encontra uma pessoa que não está no seu grupo, desabada no chão.";
 		next;
@@ -1648,7 +1646,7 @@ prt_in,69,107,6	script	Cavaleira Educada#cav	4_F_JOB_KNIGHT,{
 		mes "A pessoa está pedindo educadamente por ajuda. O que você deve fazer?";
 		next;
 		if (select("Peço ao Sacerdote do meu grupo para ajudar.:Digo que vou ajudar com Zeny.: Ignoro e sigo em frente.") == 1)
-			.@knight_t += 10;
+			set .@knight_t,.@knight_t+10;
 		mes "[Cavaleira Educada]";
 		mes "Você deve despedir-se dos membros de seu grupo porque você deve ir para outro lugar.";
 		next;
@@ -1658,8 +1656,8 @@ prt_in,69,107,6	script	Cavaleira Educada#cav	4_F_JOB_KNIGHT,{
 		mes "a batalha. Qual";
 		mes "sua ação?";
 		next;
-		if (select("Dou a quem mais merecer.:Finjo que nada aconteceu e fico pra mim.:Decido com o grupo quem irá ficar com o item.") != 2)
-			.@knight_t += 10;
+		if(select("Dou a quem mais merecer.:Finjo que nada aconteceu e fico pra mim.:Decido com o grupo quem irá ficar com o item.") != 2)
+			set .@knight_t,.@knight_t+10;
 		mes "[Cavaleira Educada]";
 		mes "Você acaba com o item e você vai para Prontera vendê-lo. Há muitas pessoas com lojas e salas abertas procurando vender itens.";
 		next;
@@ -1668,7 +1666,7 @@ prt_in,69,107,6	script	Cavaleira Educada#cav	4_F_JOB_KNIGHT,{
 		mes "fazer para vender seu item?";
 		next;
 		if (select("Grito bem alto para todos.:Abro uma sala de e espero.:Anuncio perguntando se há alguém que esteja interessado na compra.") == 3)
-			.@knight_t += 10;
+			set .@knight_t,.@knight_t+10;
 		mes "[Cavaleira Educada]";
 		mes "Enquanto você está esperando,";
 		mes "alguém vem e implora";
@@ -1685,8 +1683,8 @@ prt_in,69,107,6	script	Cavaleira Educada#cav	4_F_JOB_KNIGHT,{
 		mes "alguém que está perdido.";
 		mes "O que você deve fazer?";
 		next;
-		if (select("Diga a pessoa como faz para alcançar a saída.:Levo a pessoa até a saída.:Dou uma asa de borboleta.") != 3)
-			.@knight_t += 10;
+		if(select("Diga a pessoa como faz para alcançar a saída.:Levo a pessoa até a saída.:Dou uma asa de borboleta.") != 3)
+			set .@knight_t,.@knight_t+10;
 		mes "[Cavaleira Educada]";
 		mes "Você está caçando por um bom tempo, e agora você está com pouco HP!";
 		mes "O que é muito perigoso.";
@@ -1697,12 +1695,12 @@ prt_in,69,107,6	script	Cavaleira Educada#cav	4_F_JOB_KNIGHT,{
 		mes "Como você pediria";
 		mes "ao Sacerdote uma Cura?";
 		next;
-		if (select("Será que eu poderia ser curado,por favor?:Posso ser curado?:Cura pf!!") == 1)
-			.@knight_t += 10;
+		if (select("Guardo o item.:Procuro ao redor para encontrar o dono.:Apenas ando por perto.") != 1)
+			set .@knight_t,.@knight_t+10;
 		mes "[Cavaleira Educada]";
-		mes "Agora você está muito";
-		mes "exausto e é hora";
-		mes "de voltar para a cidade.";
+		mes "Ok,";
+		mes "este é o";
+		mes "fim do meu teste!";
 		next;
 		mes "[Cavaleira Educada]";
 		mes "Então você encontra";
@@ -1711,16 +1709,16 @@ prt_in,69,107,6	script	Cavaleira Educada#cav	4_F_JOB_KNIGHT,{
 		mes "O que você";
 		mes "faz?";
 		next;
-		if (select("Guardo o item.:Procuro ao redor para encontrar o dono.:Apenas ando por perto.") != 1)
-			.@knight_t += 10;
+		if (select("Será que eu poderia ser curado,por favor?:Posso ser curado?:Cura pf!!") == 1)
+			set .@knight_t,.@knight_t+10;
 		mes "[Cavaleira Educada]";
-		mes "Ok,";
-		mes "este é o";
-		mes "fim do meu teste!";
+		mes "Agora você está muito";
+		mes "exausto e é hora";
+		mes "de voltar para a cidade.";
 		next;
 		mes "[Cavaleira Educada]";
 		if (.@knight_t == 100) {
-			KNIGHT_Q = 10;
+			set KNIGHT_Q,10;
 			changequest 9008,9009;
 			mes "Bom trabalho, esse tipo de mentalidade é necessária para um Cavaleiro! Para o seu próximo teste, visite o Cavaleiro Devotado, por favor~";
 			next;
@@ -1740,7 +1738,7 @@ prt_in,69,107,6	script	Cavaleira Educada#cav	4_F_JOB_KNIGHT,{
 			mes "Agora, é hora de você ir visitar o Cavaleiro Devotado para o seu próximo teste. Se saia bem no resto de seus testes. É melhor prometer~";
 			close;
 		}
-		KNIGHT_Q = 9;
+		set KNIGHT_Q,9;
 		mes "Hmm...";
 		mes "Para ser honesta, eu não acho que sua atitude é boa o suficiente para ser um cavaleiro ainda.";
 		next;
@@ -1792,7 +1790,7 @@ prt_in,69,107,6	script	Cavaleira Educada#cav	4_F_JOB_KNIGHT,{
 
 // Test Teste 4 (paciência)
 //==========================================================
-prt_in,70,99,6	script	Cavaleiro Devotado#cav	4_M_JOB_KNIGHT2,{
+prt_in,70,99,6	script	Cavaleiro Devotado#knt	734,{
 	mes "[Cavaleiro Devotado]";
 	if (BaseJob != Job_Swordman) {
 		if (BaseJob == Job_Knight) {
@@ -1889,7 +1887,7 @@ prt_in,70,99,6	script	Cavaleiro Devotado#cav	4_M_JOB_KNIGHT2,{
 			mes "a qualidade de";
 			mes "reverência.";
 			close2;
-			KNIGHT_Q = 11;
+			set KNIGHT_Q,11;
 			changequest 9009,9010;
 			warp "job_knt",143,57;
 			end;
@@ -1909,7 +1907,7 @@ prt_in,70,99,6	script	Cavaleiro Devotado#cav	4_M_JOB_KNIGHT2,{
 			mes "Você foi muito descuidado no último teste. Espada do Cavaleiro existe para proteger os outros, não para atormentar os monstros mais fracos.";
 			next;
 			mes "[Cavaleiro Devotado]";
-			mes "Em um mundo onde tudo existe em harmonia, você não pode deixar os seres humanos destruirem tudo continuamente sem propósito. Este princípio se aplica ao mundo real, não apenas para este teste.";
+			mes "Em um mundo onde tudo existe em harmonia, você não pode deixar os seres humanos destruírem tudo continuamente sem propósito. Este princípio se aplica ao mundo real, não apenas para este teste.";
 			next;
 			mes "[Cavaleiro Devotado]";
 			mes "O teste";
@@ -1945,48 +1943,48 @@ prt_in,70,99,6	script	Cavaleiro Devotado#cav	4_M_JOB_KNIGHT2,{
 	}
 }
 
-job_knt,1,1,1	script	Cronômetro#cav	1_M_PAY_ELDER,{
+job_knt,1,1,1	script	Cronômetro#knt	107,{
 OnTimer300000:
-	enablenpc "Teletransporte#cav";
+	enablenpc "Teletransporte#knt";
 	end;
 
 OnTimer300500:
-	donpcevent "Cronômetro#cav::OnDisable";
-	disablenpc "Teletransporte#cav";
+	donpcevent "Cronômetro#knt::OnDisable";
+	disablenpc "Teletransporte#knt";
 	end;
 
 OnTimer301500:
 	stopnpctimer;
-	donpcevent "Cronômetro#cav::OnEnable";
+	donpcevent "Cronômetro#knt::OnEnable";
 	end;
 
 OnInit:
 OnEnable:
-	enablenpc "Cronômetro#cav";
-	monster "job_knt",141,57,"Poring",1002,1,"Cronômetro#cav::OnMyMobDead";
-	monster "job_knt",145,57,"Poring",1002,1,"Cronômetro#cav::OnMyMobDead";
-	monster "job_knt",143,55,"Poring",1002,1,"Cronômetro#cav::OnMyMobDead";
-	monster "job_knt",143,59,"Poring",1002,1,"Cronômetro#cav::OnMyMobDead";
-	monster "job_knt",141,55,"Lunático",1063,1,"Cronômetro#cav::OnMyMobDead";
-	monster "job_knt",141,59,"Lunático",1063,1,"Cronômetro#cav::OnMyMobDead";
-	monster "job_knt",145,55,"Lunático",1063,1,"Cronômetro#cav::OnMyMobDead";
-	monster "job_knt",145,59,"Lunático",1063,1,"Cronômetro#cav::OnMyMobDead";
-	monster "job_knt",139,57,"Chonchon",1011,1,"Cronômetro#cav::OnMyMobDead";
-	monster "job_knt",147,57,"Chonchon",1011,1,"Cronômetro#cav::OnMyMobDead";
-	monster "job_knt",143,53,"Chonchon",1011,1,"Cronômetro#cav::OnMyMobDead";
-	monster "job_knt",143,61,"Chonchon",1011,1,"Cronômetro#cav::OnMyMobDead";
+	enablenpc "Cronômetro#knt";
+	monster "job_knt",141,57,"Poring",1002,1,"Cronômetro#knt::OnMyMobDead";
+	monster "job_knt",145,57,"Poring",1002,1,"Cronômetro#knt::OnMyMobDead";
+	monster "job_knt",143,55,"Poring",1002,1,"Cronômetro#knt::OnMyMobDead";
+	monster "job_knt",143,59,"Poring",1002,1,"Cronômetro#knt::OnMyMobDead";
+	monster "job_knt",141,55,"Lunático",1063,1,"Cronômetro#knt::OnMyMobDead";
+	monster "job_knt",141,59,"Lunático",1063,1,"Cronômetro#knt::OnMyMobDead";
+	monster "job_knt",145,55,"Lunático",1063,1,"Cronômetro#knt::OnMyMobDead";
+	monster "job_knt",145,59,"Lunático",1063,1,"Cronômetro#knt::OnMyMobDead";
+	monster "job_knt",139,57,"Chonchon",1011,1,"Cronômetro#knt::OnMyMobDead";
+	monster "job_knt",147,57,"Chonchon",1011,1,"Cronômetro#knt::OnMyMobDead";
+	monster "job_knt",143,53,"Chonchon",1011,1,"Cronômetro#knt::OnMyMobDead";
+	monster "job_knt",143,61,"Chonchon",1011,1,"Cronômetro#knt::OnMyMobDead";
 	//Esses monstros estavam fora dos limites. Ajustado para que fiquem nos seus limites.
-	monster "job_knt",165,54,"Cogumelo",1182,1,"Cronômetro#cav::OnMyMobDead";
-	monster "job_knt",165,57,"Cogumelo",1182,1,"Cronômetro#cav::OnMyMobDead";
-	monster "job_knt",122,54,"Cogumelo",1182,1,"Cronômetro#cav::OnMyMobDead";
-	monster "job_knt",122,57,"Cogumelo",1182,1,"Cronômetro#cav::OnMyMobDead";
+	monster "job_knt",165,54,"Cogumelo",1182,1,"Cronômetro#knt::OnMyMobDead";
+	monster "job_knt",165,57,"Cogumelo",1182,1,"Cronômetro#knt::OnMyMobDead";
+	monster "job_knt",122,54,"Cogumelo",1182,1,"Cronômetro#knt::OnMyMobDead";
+	monster "job_knt",122,57,"Cogumelo",1182,1,"Cronômetro#knt::OnMyMobDead";
 	initnpctimer;
 	end;
 
 OnDisable:
-	killmonster "job_knt","Cronômetro#cav::OnMyMobDead";
-	disablenpc "Cronômetro#cav";
-	disablenpc "Teletransporte#cav";
+	killmonster "job_knt","Cronômetro#knt::OnMyMobDead";
+	disablenpc "Cronômetro#knt";
+	disablenpc "Teletransporte#knt";
 	end;
 
 OnMyMobDead:
@@ -1994,12 +1992,12 @@ OnMyMobDead:
 	end;
 }
 
-job_knt,145,57,1	script	Teletransporte#cav	1_M_PAY_ELDER,22,22,{
+job_knt,145,57,1	script	Teletransporte#knt	107,22,22,{
 OnInit:
-	disablenpc "Teletransporte#cav";
+	disablenpc "Teletransporte#knt";
 	end;
-OnTouch:
-	KNIGHT_Q = 12;
+OnTouch_:
+	set KNIGHT_Q,12;
 	changequest 9010,9011;
 	warp "prt_in",80,100;
 	end;
@@ -2007,7 +2005,7 @@ OnTouch:
 
 // Teste 5, Criação de Claymores para cavaleiros
 //==========================================================
-prt_in,87,92,4	script	Cavaleiro Modesto#cav	2_M_SWORDMASTER,{
+prt_in,87,92,4	script	Cavaleiro Modesto#knt	119,{
 	mes "[Cavaleiro Modesto]";
 	if (BaseJob != Job_Swordman) {
 		if (BaseJob == Job_Knight) {
@@ -2033,8 +2031,7 @@ prt_in,87,92,4	script	Cavaleiro Modesto#cav	2_M_SWORDMASTER,{
 				mes "1 ^3355FFAço^000000 por causa das características da Claymore. Se você quiser, eu posso criar uma para você. Pela honra da Cavalaria de Prontera!";
 				close;
 			case 2:
-				set .@now_weight,MaxWeight-Weight;
-				if (.@now_weight < 1800) {
+				if (MaxWeight - Weight < 1800) {
 					mes "[Cavaleiro Modesto]";
 					mes "Ah não...";
 					mes "Parece que você está carregando coisas demais. Você não tem espaço suficiente para uma Claymore pesada em seu inventário.";
@@ -2070,7 +2067,7 @@ prt_in,87,92,4	script	Cavaleiro Modesto#cav	2_M_SWORDMASTER,{
 						mes "Você ganhou um item confiável.";
 						mes "Será ser uma boa companheira em suas aventuras.";
 						delitem 999,1; //Aço
-						Zeny -= 74000;
+						set Zeny, Zeny - 74000;
 						getitem 1163,1; //Claymore
 						close;
 					}
@@ -2143,7 +2140,8 @@ prt_in,87,92,4	script	Cavaleiro Modesto#cav	2_M_SWORDMASTER,{
 				mes "um teste.";
 				next;
 				mes "[Cavaleiro Modesto]";
-				mes "Vamos conversar";
+				mes "Nós deveríamos";
+				mes "conversar";
 				mes "casualmente?";
 				next;
 				mes "[Cavaleiro Modesto]";
@@ -2160,7 +2158,7 @@ prt_in,87,92,4	script	Cavaleiro Modesto#cav	2_M_SWORDMASTER,{
 			}
 		}
 		else if (KNIGHT_Q == 13) {
-			mes "Ah, você denovo.";
+			mes "Ah, você de novo.";
 			mes "O que lhe traz";
 			mes "até mim?";
 			next;
@@ -2191,7 +2189,7 @@ prt_in,87,92,4	script	Cavaleiro Modesto#cav	2_M_SWORDMASTER,{
 				close;
 			}
 		}
-		switch(select("Para me tornar mais forte ...:Para ajudar a minha guilda ...:Porque eu estou insatisfeito comigo mesmo...")) {
+		switch(select("Para me tornar mais forte...:Para ajudar a minha guilda...:Porque eu estou insatisfeito comigo mesmo...")) {
 		case 1:
 			mes "[Cavaleiro Modesto]";
 			mes "Para se tornar mais forte, você diz?";
@@ -2203,7 +2201,7 @@ prt_in,87,92,4	script	Cavaleiro Modesto#cav	2_M_SWORDMASTER,{
 			next;
 			switch(select("Ganhar riqueza e fama.: Poder me proteger.:Poder proteger os outros.")) {
 			case 1:
-				.@knight_t += 10;
+				set .@knight_t,.@knight_t+10;
 				mes "[Cavaleiro Modesto]";
 				mes "Claro, a riqueza e a fama têm o seu lugar no mundo. Mas nós, como cavaleiros devemos viver para as virtudes mais elevadas.";
 				next;
@@ -2215,7 +2213,7 @@ prt_in,87,92,4	script	Cavaleiro Modesto#cav	2_M_SWORDMASTER,{
 				break;
 			case 3:
 				mes "[Cavaleiro Modesto]";
-				mes "Ah, uma idéia maravilhosa. A força de um Cavaleiro deve ser usada para proteger os fracos e defender a justiça.";
+				mes "Ah, uma ideia maravilhosa. A força de um Cavaleiro deve ser usada para proteger os fracos e defender a justiça.";
 				next;
 				mes "[Cavaleiro Modesto]";
 				mes "Infelizmente, existem alguns cavaleiros que nos envergonham por esquecer os ideais que deveriam ser básicos para Cavalaria...";
@@ -2243,7 +2241,7 @@ prt_in,87,92,4	script	Cavaleiro Modesto#cav	2_M_SWORDMASTER,{
 				next;
 				break;
 			case 2:
-				.@knight_t += 10;
+				set .@knight_t,.@knight_t+10;
 				mes "[Cavaleiro Modesto]";
 				mes "É claro que a riqueza é importante.";
 				mes "Mas nós cavaleiros devemos viver para as virtudes mais elevadas.";
@@ -2251,7 +2249,7 @@ prt_in,87,92,4	script	Cavaleiro Modesto#cav	2_M_SWORDMASTER,{
 				break;
 			case 3:
 				mes "[Cavaleiro Modesto]";
-				mes "Ah, uma idéia maravilhosa. A força de um Cavaleiro deve ser usada para proteger os fracos e defender a justiça.";
+				mes "Ah, uma ideia maravilhosa. A força de um Cavaleiro deve ser usada para proteger os fracos e defender a justiça.";
 				next;
 				mes "[Cavaleiro Modesto]";
 				mes "Infelizmente, há alguns cavaleiros que nos envergonham por esquecer os ideais que deveriam ser os básicos para a Cavalaria...";
@@ -2260,11 +2258,11 @@ prt_in,87,92,4	script	Cavaleiro Modesto#cav	2_M_SWORDMASTER,{
 			}
 			break;
 		case 3:
-			.@knight_t += 5;
+			set .@knight_t,.@knight_t+5;
 			mes "[Cavaleiro Modesto]";
 			mes "Satisfação, você disse.";
 			mes "Parece que você se tornou";
-			mes "um bom espadacim.";
+			mes "um bom espadachim.";
 			mes "Existe uma razão especial para que você deseje ser um Cavaleiro?";
 			next;
 			mes "[Cavaleiro Modesto]";
@@ -2279,20 +2277,20 @@ prt_in,87,92,4	script	Cavaleiro Modesto#cav	2_M_SWORDMASTER,{
 			next;
 			switch(select("Habilidades.:Objetivo.:Aparência.")) {
 			case 1:
-				.@knight_t += 5;
+				set .@knight_t,.@knight_t+5;
 				mes "[Cavaleiro Modesto]";
 				mes "Habilidade é algo que você ganha com a experiência como um Cavaleiro. Não pode ser seu maior objetivo. Caso contrário, você nunca ficará satisfeito como um Cavaleiro.";
 				next;
 				break;
 			case 2:
-				.@knight_t -= 5;
+				set .@knight_t,.@knight_t-5;
 				mes "[Cavaleiro Modesto]";
 				mes "Eu vejo...";
-				mes "Sempre ter uma meta é muito importante. Você pode estar cheio de idéias quando se tornar um cavaleiro, mas isso pode mudar com o tempo.";
+				mes "Sempre ter uma meta é muito importante. Você pode estar cheio de ideias quando se tornar um cavaleiro, mas isso pode mudar com o tempo.";
 				next;
 				break;
 			case 3:
-				.@knight_t += 5;
+				set .@knight_t,.@knight_t+5;
 				mes "[Cavaleiro Modesto]";
 				mes "Ah não...";
 				mes "O que você vê não é o que realmente importa. Um espadachim pode ser mais forte do que um Cavaleiro, e até mesmo cavaleiro pode ficar fraco se ele se torna preguiçoso.";
@@ -2323,7 +2321,7 @@ prt_in,87,92,4	script	Cavaleiro Modesto#cav	2_M_SWORDMASTER,{
 			next;
 			switch(select("Eu vou crescer dentro de um curto período de tempo.:Eu gostaria de testar minha capacidade como um Cavaleiro.:Eu gostaria de ir a lugares mais difíceis.")) {
 			case 1:
-				.@knight_t += 10;
+				set .@knight_t,.@knight_t+10;
 				mes "[Cavaleiro Modesto]";
 				mes "Não tenha muita pressa para se tornar forte. Mesmo que se torne";
 				mes "um Cavaleiro, você ainda será você mesmo.";
@@ -2350,7 +2348,7 @@ prt_in,87,92,4	script	Cavaleiro Modesto#cav	2_M_SWORDMASTER,{
 			switch(select("Meus Amigos.:Os membros do meu Clã.:Meu amor.")) {
 			case 1:
 				mes "[Cavaleiro Modesto]";
-				mes "Eu entendo, eles quetem compartilhar a alegria de suas conquistas. Nunca perca o seu bom coração, e sempre ajude os seus amigos.";
+				mes "Eu entendo, eles tem que compartilhar a alegria de suas conquistas. Nunca perca o seu bom coração, e sempre ajude os seus amigos.";
 				next;
 				break;
 			case 2:
@@ -2363,7 +2361,7 @@ prt_in,87,92,4	script	Cavaleiro Modesto#cav	2_M_SWORDMASTER,{
 				mes "Oh, juventude!";
 				mes "Tornando-se um Cavaleiro";
 				mes "para o seu amor!";
-				mes "Sempre proteja "+((Sex)?"ele":"ela")+"";
+				mes "Sempre proteja "+((Sex==SEX_MALE)?"ele":"ela")+"...";
 				mes "Mesmo com o sacrifício";
 				mes "de sua própria vida!";
 				next;
@@ -2384,7 +2382,7 @@ prt_in,87,92,4	script	Cavaleiro Modesto#cav	2_M_SWORDMASTER,{
 			next;
 			switch(select("Lugares confortáveis para cavaleiros irem...:Os caminhos diferentes de um cavaleiro...:Maneiras de obter mais dinheiro como um Cavaleiro...")) {
 			case 1:
-				.@knight_t += 5;
+				set .@knight_t,.@knight_t+5;
 				mes "[Cavaleiro Modesto]";
 				mes "Há muitos lugares que são confortáveis ou desconfortáveis neste mundo. No entanto cavaleiros devem";
 				mes "ser capazes de sobreviver em qualquer lugar.";
@@ -2396,7 +2394,7 @@ prt_in,87,92,4	script	Cavaleiro Modesto#cav	2_M_SWORDMASTER,{
 				next;
 				break;
 			case 3:
-				.@knight_t += 15;
+				set .@knight_t,.@knight_t+15;
 				mes "[Cavaleiro Modesto]";
 				mes "Ah não. Você tem a riqueza como uma prioridade sendo um Cavaleiro? Nós não fomos treinados para ser assim. Venha novamente quando você entender";
 				mes "sobre isto...";
@@ -2406,13 +2404,14 @@ prt_in,87,92,4	script	Cavaleiro Modesto#cav	2_M_SWORDMASTER,{
 			break;
 		}
 		mes "[Cavaleiro Modesto]";
-		mes "Ah, não, ficamos conversando por muito tempo...";
+		mes "Ah, não, ficamos conversando";
+		mes "por muito tempo...";
 		mes "Peço desculpas por";
 		mes "mantê-lo aqui";
 		mes "por tanto tempo.";
 		next;
 		if (.@knight_t == 0) {
-			KNIGHT_Q = 14;
+			set KNIGHT_Q,14;
 			changequest 9011,9012;
 			mes "[Cavaleiro Modesto]";
 			mes "Eu gosto de conversar com você. Você me faz lembrar de mim como um jovem recruta. Vamos falar com o capitão e decidir sobre a sua";
@@ -2426,7 +2425,7 @@ prt_in,87,92,4	script	Cavaleiro Modesto#cav	2_M_SWORDMASTER,{
 			close;
 		}
 		else if (.@knight_t == 5) {
-			KNIGHT_Q = 14;
+			set KNIGHT_Q,14;
 			changequest 9011,9012;
 			mes "[Cavaleiro Modesto]";
 			mes "Eu gosto de falar com você. Você pode pensar mais nos princípios da Cavalaria depois que você se tornar um Cavaleiro.";
@@ -2436,7 +2435,7 @@ prt_in,87,92,4	script	Cavaleiro Modesto#cav	2_M_SWORDMASTER,{
 			close;
 		}
 		else if (.@knight_t == 10) {
-			KNIGHT_Q = 14;
+			set KNIGHT_Q,14;
 			changequest 9011,9012;
 			mes "[Cavaleiro Modesto]";
 			mes "Eu gosto de conversar com você. Embora, haja algumas";
@@ -2454,7 +2453,7 @@ prt_in,87,92,4	script	Cavaleiro Modesto#cav	2_M_SWORDMASTER,{
 			close;
 		}
 		else {
-			KNIGHT_Q = 13;
+			set KNIGHT_Q,13;
 			mes "[Cavaleiro Modesto]";
 			mes "Conversar";
 			mes "com jovens";

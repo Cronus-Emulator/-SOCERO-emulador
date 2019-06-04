@@ -1,0 +1,473 @@
+//===== rAthena Script =======================================
+//= Super Novice Job Quest
+//===== By: ==================================================
+//= Darkchild
+//===== Current Version: =====================================
+//= 2.4
+//===== Compatible With: =====================================
+//= rAthena Project; SVN r15340+
+//===== Description: =========================================
+//= [Official Conversion]
+//= Super Novice Job Change Npc
+//= Super Novice Cart Rental Npc
+//= Some Other Useless Super Novice Npc
+//===== Additional Comments: =================================
+//= 1.9 Rescripted to the Aegis 10.3 Standars. [Samuray22]
+//= 2.0 Rescripted again, this time using an iRO base. [L0ne_W0lf]
+//= 2.1 Swapped use of baseclass for basejob. [L0ne_W0lf]
+//= 2.2 Added Quest Log commands. [Kisuka]
+//= 2.3 NPC "Esseray" calls Ex. Super Novice script when enabled. [Euphy]
+//= 2.4 Added an Ex. Super Novice dialog check. [Euphy]
+//============================================================
+// traduzido por Haikenz
+
+aldeba_in,223,167,3	script	Tzerero#sn	709,{
+	if (BaseJob == Job_Super_Novice) {
+		mes "[Tzerero]";
+		mes "Você é um membro do Clube do Aprendiz.";
+		mes "Você recebeu seu treinamento";
+		mes "e chegou próximo à perfeição.";
+		mes "Aprender é a sua profissão!";
+		next;
+		mes "[Tzerero]";
+		mes "Espero que você continue a aprender,";
+		mes "e promover a existência e";
+		mes "o talento de um Aprendiz.";
+		close;
+	}
+	if (countitem(938) > 29 && countitem(907) > 29 && SUPNOV_Q == 1) {
+		delitem 938,30; //Muco Pegajoso
+		delitem 907,30; //Resina
+		mes "[Tzerero]";
+		mes "Ah, você trouxe os";
+		mes "itens que eu pedi!";
+		mes "Você provou a si mesmo";
+		mes "ser digno de se juntar ao nosso";
+		mes "clube de Super Aprendizes";
+		next;
+		mes "[Tzerero]";
+		mes "Então, como prometido, eu vou";
+		mes "transformar você em um";
+		mes "^3355FFSuper Aprendiz^000000...Hã?";
+		mes "O que há atrás de você?";
+		next;
+		select("Hã?:O que é isso?");
+		mes "^3355FFVocê olha para trás, mas...";
+		mes "Não há nada lá.";
+		mes "Algo suspeito está acontecendo aqui!^000000";
+		next;
+		completequest 6010;
+		callfunc "F_ClearJobVar";
+		getitem 2339,1; //G_Strings
+		if (Upper==0) jobchange Job_Super_Novice;
+		if (Upper==2) jobchange Job_Super_Baby;
+		mes "[Tzerero]";
+		mes "Bwaha! Eu peguei você!";
+		mes "Então... gostou da minha piada?";
+		mes "Bem, vamos esquecer isso...";
+		next;
+		mes "[Tzerero]";
+		mes "Assim como qualquer qualquer";
+		mes "homem adulto como";
+		mes "eu carregaria";
+		mes "um par de trajes.";
+		next;
+		mes "[Tzerero]";
+		mes "O importante é...";
+		mes "você se juntou a estimada";
+		mes "sociedade dos grandes Super Aprendizes.";
+		next;
+		mes "[Tzerero]";
+		mes "Considere estes trajes como um presente...";
+		mes "Esta mesma roupa é usada";
+		mes "pelo Sr. Kimu-Shaun,";
+		mes "nosso lendário fundador do clube, em";
+		mes "seus primeiros dias de lutar por";
+		mes "um vida mais feliz.";
+		next;
+		mes "[Tzerero]";
+		mes "Saia e aproveite sua nova vida";
+		mes "como um Super Aprendiz! Seja";
+		mes "forte e ajude as pessoas";
+		mes "sendo um homem";
+		mes "brilhante a todo tempo!";
+		close;
+	}
+	if (SUPNOV_Q == 1) {
+		mes "[Tzerero]";
+		mes "Huh? Você esqueceu o que eu";
+		mes "pedi a você? Ok,";
+		mes "Eu vou explicar só mais uma vez.";
+		mes "Por favor, lembre-se";
+		mes "desta vez...";
+		next;
+		mes "[Tzerero]";
+		mes "Eu pedi para você me trazer";
+		mes "^FF000030 Mucos pegajoso^000000 e";
+		mes "^FF000030 Resinas^000000.";
+		close;
+	}
+	if (BaseJob == Job_Novice && Upper != 1) {
+		mes "[Tzerero]";
+		mes "... Hmm?";
+		mes "Pare";
+		mes "Deixe-me olhar para você.";
+		next;
+		mes "[Tzerero]";
+		mes ".....";
+		mes ".......";
+		mes ".........";
+		emotion ET_THINK;
+		next;
+		mes "[Tzerero]";
+		mes "Eu vejo que a luz";
+		mes "da grandeza brilha";
+		mes "dentro de você...";
+		next;
+		mes "[Tzerero]";
+		mes "Por que você não se junta a nós";
+		mes "novato? Junte-se a";
+		mes "nós e aprenderá a sutil";
+		mes "condição de ser";
+		mes "ainda melhor...";
+		next;
+		mes "[Tzerero]";
+		mes "Aceite minha oferta ...";
+		mes "Rejeite suas";
+		mes "roupas marrons e empoeiradas";
+		mes "e renasça como...";
+		next;
+		mes "[Tzerero]";
+		mes "...um ^CE6300Super Aprendiz^000000.";
+		next;
+		switch(select("Aceitar a oferta:Rejeitar a oferta:Quero saber mais detalhes.")) {
+		case 1:
+			if (!callfunc("F_CanChangeJob")) {
+				mes "[Tzerero]";
+				mes "Hmm... Mas você realmente";
+				mes "apreciar o valor de";
+				mes "encontrando força em";
+				mes "fraqueza? Você deve";
+				mes "provar para mim que você.";
+				next;
+				mes "[Tzerero]";
+				mes "Terá que continuar como aprendiz...";
+				mes "até aprender as";
+				mes "Habilidades Básicas e";
+				mes "e almeje o nível 10 de classe...";
+				close;
+			}
+			if (BaseLevel < 45) {
+				mes "[Tzerero]";
+				mes "Hmm... Mas você realmente";
+				mes "valoriza o estilo de vida descontraído";
+				mes "de aventureiro banal?";
+				mes "Prove para mim que não";
+				mes "e que deseja melhorar ...";
+				next;
+				mes "[Tzerero]";
+				mes "Vá e viva intensamente...";
+				mes "Voê deve atingir o Nível 45...";
+				mes "Então poderá se juntar a nós...";
+				close;
+			}
+			mes "[Tzerero]";
+			mes "eu posso ver em seus olhos";
+			mes "a determinação de";
+			mes "simplismente viver a vida...";
+			next;
+			mes "[Tzerero]";
+			mes "Apenas os verdadeiramente sábios podem";
+			mes "viver a vida com maior liberdade";
+			next;
+			mes "[Tzerero]";
+			mes "Apesar de sermos muito humildes,";
+			mes "ainda é preciso  um pouco mais que querer";
+			mes "para se juntar a nós. ";
+			mes "Há um pequeno teste de qualificação...";
+			next;
+			mes "[Tzerero]";
+			mes "Para este teste, você terá";
+			mes "que me trazer alguns itens de";
+			mes "monstros comuns.";
+			next;
+			mes "[Tzerero]";
+			mes "Hmmmm...";
+			mes "^FF000030 Mucos Pegajosos^000000";
+			mes "e ^FF000030 Resinas";
+			mes "^000000 será adequado para testar o sua";
+			mes "capacidade de lutar contra inimigos simples.";
+			next;
+			mes "[Tzerero]";
+			mes "Além disso, o número 30";
+			mes "é significativo. Não é";
+			mes "qualquer coisa especial... apenas";
+			mes "um número comum.";
+			mes "Hahahahaha ~";
+			next;
+			set SUPNOV_Q,1;
+			setquest 6010;
+			mes "[Tzerero]";
+			mes "Boa sorte, meu amigo";
+			close;
+		case 2:
+			mes "[Tzerero]";
+			mes "Bem, bem... suponho que o";
+			mes "valor da vida simples";
+			mes "é difícil para você";
+			mes "para entender. Tudo bem...";
+			mes "A vida é sua.";
+			next;
+			mes "[Tzerero]";
+			mes "Mas, se você ver o";
+			mes "luz da sabedoria, você";
+			mes "será bem vindos para me visitar";
+			mes "a qualquer hora...";
+			next;
+			mes "[Tzerero]";
+			mes "Como nosso clube de Aprendizes";
+			mes "cresce mais popular e";
+			mes "nós ganhamos mais seguidores";
+			mes "podemos considerar o uso de";
+			mes "um teste mais difícil...";
+			close;
+		case 3:
+			mes "[Tzerero]";
+			mes "Nosso Clube de Aprendizes foi fundado";
+			mes "pelo lendário senhor";
+			mes "Kimu-Shaun... talvez o";
+			mes "maior homem da nossa geração.";
+			next;
+			mes "[Tzerero]";
+			mes "Ele percebeu que havia";
+			mes "muito sofrimento no";
+			mes "mundo, especialmente entre";
+			mes "as pessoas comuns de";
+			mes "Rune-Midgard ...";
+			next;
+			mes "[Tzerero]";
+			mes "Ele aprendeu as habilidades de";
+			mes "todas as classes diferentes que ele";
+			mes "conhecia... mas já que ele não";
+			mes "permanece em um lugar por muito tempo";
+			mes "ele se tornou um valete de todos os";
+			mes "comércios... e um mestre de ninguém.";
+			next;
+			mes "[Tzerero]";
+			mes "Em compartilhar a dor de";
+			mes "um homem comum, ele";
+			mes "tornou-se um mesmo...";
+			mes "o maior Super Aprendiz";
+			mes "nunca visto.";
+			next;
+			mes "[Tzerero]";
+			mes "Os membros da nossa sociedade";
+			mes "vivem como senhor";
+			mes "Kimu-Shaun, de acordo com";
+			mes "os princípios que ele colocou diante de nós...";
+			close;
+		}
+	}
+	else {
+		if (BaseJob == Job_Super_Novice) {
+			mes "[Tzerero]";
+			mes "Como você gosta de viver";
+			mes "simplesmente como um Super";
+			mes "Aprendiz? Tenho certeza de que";
+			mes "você está gostando disso~";
+			next;
+			mes "[Tzerero]";
+			mes "Por favor, cresça como um Super";
+			mes "Aprendiz ajudando";
+			mes "todas as pessoas.";
+			mes "com o talento de um Aprendiz...";
+			next;
+			mes "[Tzerero]";
+			mes "Eu te encorajo a";
+			mes "crescer em seu Super";
+			mes "Aprendiz e se torne";
+			mes "um exemplo de vida.";
+			close;
+		}
+		mes "[Tzerero]";
+		mes "Olá, eu sou Tzerero.";
+		mes "sou encarregado do";
+		mes "Clube dos Aprendizes.";
+		next;
+		mes "[Tzerero]";
+		mes "Hmmm ... você parece estar bem";
+		mes "acima da média das pessoas.";
+		mes "Sim, você é definitivamente mais";
+		mes "'extraordinário' do que";
+		mes "'parece...'";
+		next;
+		mes "[Tzerero]";
+		mes "*Suspiro* eu suponho que você";
+		mes "nunca entenderia";
+		mes "nosso modo de vida, a";
+		mes "grandeza sútil";
+		mes "sendo comum. Mas";
+		mes "tudo bem.";
+		next;
+		mes "[Tzerero]";
+		mes "Bem ... existem milhares";
+		mes "de pessoas diferentes neste";
+		mes "mundo, então eu apenas tento aceitar";
+		mes "todas as nossas diferenças.";
+		mes "Eu espero que você também.";
+		close;
+	}
+}
+
+aldeba_in,216,169,5	script	Esseray#sn	86,{
+	if (Class == Job_Super_Novice_E || Class == Job_Super_Baby_E) {
+		mes "[Esseray]";
+		mes "Você! Está mais forte que antes.";
+		mes "Eu sabia que você poderia passar no teste~";
+		close;
+	}
+	if (BaseJob == Job_Super_Novice) {
+		if (checkre(0))
+		callfunc "Esseray_Ex";
+		mes "[Esseray]";
+		mes "Hm? Ei, você é um membro";
+		mes "da nossa grande Sociedade de Aprendizes";
+		mes "não é você? Não é o";
+		mes "melhor clube de todos os tempos?!";
+		next;
+		mes "[Essaray]";
+		mes "Vivendo a vida mundanamente";
+		mes "de acordo com os princípios";
+		mes "do Senhor Kimu-Shaun ...";
+		mes "É ótimo ser comum!";
+		next;
+		mes "[Esseray]";
+		mes "Vamos tentar levar nossas vidas";
+		mes "o mais normalmente possível!";
+		mes "Para sua referência, eu sou";
+		mes "o número um membro,";
+		mes "sob o senhor Tzerero de";
+		mes "claro!";
+		close;
+	}
+	if (BaseJob == Job_Novice && Upper != 1) {
+		mes "[Esseray]";
+		mes "Hah ~ você não sabe de nada";
+		mes "sobre ser uma pessoa normal ainda!";
+		mes "Por que você não se junta ao nosso Novato";
+		mes "Sociedade? Este clube é o melhor do mundo ~";
+		next;
+		mes "[Esseray]";
+		mes "Sim, Super Novatos";
+		mes "são os melhores personagens!";
+		mes "Hahahahahahahaha!";
+		close;
+	}
+	else {
+		mes "[Esseray]";
+		mes "Bah ~! Você é melhor que";
+		mes "média ... Inferno, você pode";
+		mes "até ser 'especial'";
+		mes "Que pena! Bem ...";
+		mes "Eu espero que você ainda viva";
+		mes "sua vida positivamente.";
+		close;
+	}
+}
+
+aldebaran,54,238,5	script	Funcionária da Kafra#sn	117,{
+	if (BaseJob == Job_Super_Novice) {
+		mes "[Funcionária da Kafra]";
+		if (Sex == SEX_MALE)
+			mes "Olá, Senhor Super Aprendiz.";
+		else
+			mes "Olá, Senhora Super Aprendiz.";
+			mes "Você deve ter sido realmente";
+			mes "desapontado que o outro";
+			mes "funcionários da Kafra não deixariam";
+			mes "você aluga um carrinho deles.";
+			mes "Mas não se preocupe agora...";
+			next;
+			mes "[Funcionária da Kafra]";
+			mes "Estou aqui para apoiar vocês";
+			mes "fornecendo carrinhos ...";
+			next;
+			mes "[Funcionária da Kafra]";
+			mes "^3355FF*sus surra *^000000";
+			mes "^555555Eu não deveria fazer isso";
+			mes "porque é contra o nosso";
+			mes "política da empresa. Mas eu senti";
+			mes "realmente sinto muito por Super Novices";
+			mes "...então aqui estou eu.^000000";
+			next;
+			mes "[Funcionária da Kafra]";
+			mes "De qualquer forma, você gostaria de alugar um carrinho? A taxa de serviço é de 1.900 zeny.";
+			next;
+		if (select("Alugar carrinho.:Cancelar.") == 1) {
+			mes "[Funcionária da Kafra]";
+			mes "Oh, aqui está a coisa ...";
+			mes "Você aprendeu o 'carrinho de compras'";
+			mes "habilidade? Eu posso te alugar";
+			mes "carrinho, mas se você não tiver";
+			mes "aprendeu a empurrar, você";
+			mes "apenas desperdice seu zeny.";
+			next;
+			mes "[Funcionária da Kafra]";
+			mes "Então tenha certeza que você tem";
+			mes "a habilidade 'Empurrar Carrinho' já.";
+			next;
+		if (select("Alugar carrinho.:Cancelar") == 1) {
+			if (checkcart ()) {
+				mes "[Funcionária da Kafra]";
+				mes "Oh, você já equipou um carrinho.";
+				close;
+				}
+				if (Zeny >= 1899) {
+					set RESRVPTS, RESRVPTS + 190;
+					set Zeny, Zeny-1900;
+					if (getskilllv("MC_PUSHCART") > 0) setcart;
+					mes "[Funcionária da Kafra]";
+					mes "Obrigado por usar o meu serviço.";
+					mes "Embora o que eu esteja fazendo possa";
+					mes "não seja legítimo para outro";
+					mes "Funcionários da Kafra, eu fortemente";
+					mes "acredito que estou fazendo o que é certo para os clientes.";
+					close;
+				}
+				else {
+					mes "[Funcionária da Kafra]";
+					mes "Sinto muito, mas você não tem zeny suficiente. A taxa de serviço é de 1.900 zeny.";
+					close;
+				}
+			}
+			mes "[Funcionária da Kafra]";
+			mes "Por favor, volte quando quiser.";
+			mes "Obrigado por usar meus serviços.";
+			close;
+		}
+		mes "[Funcionária da Kafra]";
+		mes "Por favor, volte quando quiser.";
+		mes "Obrigado por usar meus serviços.";
+		close;
+	}
+	mes "[Funcionária da Kafra]";
+	mes "Bom dia - Opa...!";
+	mes "Eu não acho que posso te fornecer";
+	mes "os serviços que você quer...";
+	mes "Por favor, procure outra";
+	mes "Funcionária da Kafra. Peço desculpas";
+	mes "por tal inconveniência...";
+	close;
+}
+
+//============================================================
+// Old changelog
+//============================================================
+//= Dialogs From Some Other Scripts (Most Of It)
+//= 1.3-1.5 Added Baby class support (and to the Kafta SN Cart
+//=     renter, too) [Lupus]
+//= 1.6 Added a fix which prevent High Novices passing
+//=     this Job Quests again. [Lupus]
+//= 1.7 Fixed Baby Class Support. [Lupus]
+//= 1.8 Now a Baby can become a Super Baby [Lupus]
+//============================================================

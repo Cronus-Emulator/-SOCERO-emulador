@@ -16,61 +16,76 @@
 //=============== Tradução PT-BR ================
 // HanzoBR - Disponibilizado para Projeto SOCERO
 //===============================================
+// Revisado por [Haikenz] 24/04/2019
+//=https://forum.cronus-emulator.com/topic/158820-socero-tradu%C3%A7%C3%B5es/?do=findComment&comment=875031
 
-valkyrie,53,42,3	script	Champion#Valkyrie	52,{
+valkyrie,53,42,3	script	Mestre#Valkyrie	52,{
 	if (ADVJOB == 0 || Upper != 1) {
 		set .@karma_d,rand(1,10);
 		if (.@karma_d > 4) {
-			mes "[Champion]";
-			mes "Parabéns!";
+			mes "[Mestre]";
+			mes "Parabéns.";
 			mes "Honra aos guerreiros!";
 			close;
 		}
-		mes "[Champion]";
+		mes "[Mestre]";
 		mes "Habilidade.";
 		mes "Velocidade.";
 		mes "Força.";
 		mes "Agilidade.";
 		next;
-		mes "[Champion]";
-		mes "O Champion, pode dominar todas estas coisas";
-		mes "Mas só se pode dominar tanto nesta vida se...";
+		mes "[Mestre]";
+		mes "Um Mestre pode";
+		mes "tirar proveito de todas";
+		mes "essas coisas. Mas um";
+		mes "só pode dominar";
+		mes "tanto na vida...";
 		close;
 	}
 	else if (ADVJOB == Job_Champion && Class == Job_Acolyte_High && JobLevel > 39) {
-		mes "[Champion]";
-		mes "É hora de grandes heróis se levantarem contra as forças do mal que assolam o mundo de Rune-Midgard!";
+		mes "[Mestre]";
+		mes "Este é o tempo.";
+		mes "Tempo de grandes heróis";
+		mes "para estar a frente contra as";
+		mes "forças do mal que praguejam";
+		mes "o mundo de Rune-Midgard!";
 		next;
-		mes "[Champion]";
-		mes "Você deseja";
-		mes "tornar-se um Champion?";
+		mes "[Mestre]";
+		mes "você gostaria de";
+		mes "transforma-se em um Mestre?";
 		next;
 		if (select("Não.:Sim.") == 1) {
-			mes "[Champion]";
-			mes "Quando estiver pronto, volte a falar comigo.";
+			mes "[Mestre]";
+			mes "Quando você estiver pronto,";
+			mes "sinta-se livre para voltar.";
 			mes "Honra aos guerreiros!";
 			close;
 		}
 		if (SkillPoint) {
-			mes "[Champion]";
-			mes "Você ainda tem pontos de habilidades disponíveis.";
-			mes "Por favor, utilize todos, e torne a falar comigo.";
+			mes "[Mestre]";
+			mes "você ainda tem pontos de habilidades. Por favor,";
+			mes "use todos os seus pontos de habilidade restantes, e depois volte aqui.";
 			close;
 		}
 		jobchange Job_Champion;
 		set ADVJOB,0;
-		mes "[Champion]";
-		mes "Parabéns!!";
-		mes "Viva como um Champion.";
-		mes "E traga luz para o mundo através da força de seus punhos.";
+		mes "[Mestre]";
+		mes "Parabéns!";
+		mes "Viva como um campeão,";
+		mes "e traga a luz ao";
+		mes "mundo com a força";
+		mes "de seus punhos.";
 		close;
 	}
-	mes "[Champion]";
-	mes "Bem vindo";
-	mes "Ao salão de Honra de Valhalla.";
+	mes "[Mestre]";
+	mes "Bem-vindo";
+	mes "a Valhalla,";
+	mes "o Salão da Honra.";
 	next;
-	mes "[Champion]";
-	mes "Por favor, sinta-se a vontade enquanto estiver por aqui.";
-	mes "Honra aos Guerreiros!";
+	mes "[Mestre]";
+	mes "Por favor";
+	mes "sinta-se confortável";
+	mes "enquanto estiver aqui.";
+	mes "Honra aos guerreiros!";
 	close;
 }

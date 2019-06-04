@@ -15,52 +15,51 @@
 //===================== Tradução PT-BR ==========
 // HanzoBR - Disponibilizado para Projeto SOCERO
 //===============================================
+// revisado por Haikenz
+
 prt_church,184,41,4	script	Cleric#aco	60,{
 	if (Upper == 1) {
 		if (ADVJOB == Job_High_Priest || ADVJOB == Job_Champion) {
 			if (Class == Job_Novice_High) {
 				mes "[Padre Mareusis]";
 				mes "Ohh, consigo ver que você suportou";
-				mes "muita coisa da vida passada. Deve ter aprendido";
-				mes "inúmeras coisas antes de chegar em Valhalla.";
+				mes "muita coisa da vida passada. Deve ter aprendido inúmeras coisas antes de chegar em Valhalla.";
 				next;
 				if (!callfunc("F_CanChangeJob")) {
 					mes "[Padre Mareusis]";
-					mes "Infelizmente você ainda não está pronto para se tornar Acolyte, aprenda as habilidades básicas primeiro e retorne.";
-					mes "Que Deus esteja com você.";
+					mes "Infelizmente você ainda não está pronto para se tornar Noviço, aprenda as habilidades básicas primeiro e retorne.";
 					next;
 					mes "[Padre Mareusis]";
-					mes "Enquanto isso irei rezar até que você esteja pronto.";
+					mes "Enquanto isso irei";
+					mes "rezar até que você";
+					mes "esteja pronto.";
+					mes "Que Deus esteja";
+					mes "esteja com você.";
 					close;
 				}
 				mes "[Padre Mareusis]";
-				mes "Lhe recebo de Valhalla e";
-				mes "desejo sorte em sua nova jornada.";
+				mes "Bem, eu te recebo";
+				mes "de volta de Valhalla e";
+				mes "desejo sorte em";
+				mes "sua nova jornada.";
 				next;
 				skill "NV_TRICKDEAD",0,SKILL_PERM;
 				jobchange Job_Acolyte_High;
 				skill "AL_HOLYLIGHT",1,SKILL_PERM;
 				mes "[Padre Mareusis]";
-				mes "Agora vá!";
-				mes "Busque aqueles que precisam de sua ajuda";
-				mes "Que Deus esteja com você.";
+				mes "Agora, busque aqueles que precisam de sua ajuda. Que Deus esteja com você.";
 				close;
 			}else{
 				mes "[Padre Mareusis]";
-				mes "Agora vá!";
-				mes "Busque aqueles que precisam de sua ajuda";
-				mes "Que Deus esteja com você.";
+				mes "Agora busque aqueles que precisam de sua ajuda. Que Deus esteja com você.";
 				close;
 			}
 		}else{
 			mes "[Padre Mareusis]";
-			mes "Ohh, consigo ver que você suportou";
-				mes "muita coisa da vida passada. Deve ter aprendido";
-				mes "inúmeras coisas antes de chegar em Valhalla.";
+			mes "Ohh, consigo ver que você suportou muita coisa da vida passada. Deve ter aprendido inúmeras coisas antes de chegar em Valhalla.";
 			next;
 			mes "[Padre Mareusis]";
-			mes "Mas, por hora, você não está qualificado para ser um noviço.";
-			mes "Lembre-se quem você foi na vida passada antes de encontrar seu caminho.";
+			mes "Mas, por hora, você não está qualificado para ser um noviço. Lembre-se quem você foi na vida passada antes de encontrar seu caminho.";
 			close;
 		}
 	}
@@ -72,21 +71,21 @@ prt_church,184,41,4	script	Cleric#aco	60,{
 		mes "[Padre Mareusis]";
 		if(BaseJob != Job_Novice) {
 			if(BaseJob == Job_Acolyte)
-				mes "Como você está hoje? Vejo que já é um noviço, está brincando né ?";
+				mes "Como você está hoje? Vejo que já é um noviço, está brincando né?";
 			else
 				mes "Me desculpe, mas você não é um noviço";
 			close;
 		}else{
 			mes "Você realmente quer virar um servo de Deus?";
-			mes "Veremos se você está preparado para isso...";
+			mes "Veremos se você está preparado para isso... Hmm...";
 			next;
 			if (!callfunc("F_CanChangeJob")) {
 				mes "[Padre Mareusis]";
-				mes "Mas o que é isto!? Você não completou nem as habilidades básicas, vá já upar este Job preguiçoso.";
+				mes "Mas o que é isto!? Você não completou nem as habilidades básicas, vá já upar este classe preguiçoso.";
 				close;
 			}
 			mes "[Padre Mareusis]";
-			mes "Bom, requisitos cumpridos.";
+			mes "Bom, requisitos cumpridos...";
 			mes "Agora irei qualifica-lo para tornar-se um Noviço";
 			next;
 			mes "[Padre Mareusis]";
@@ -104,12 +103,11 @@ prt_church,184,41,4	script	Cleric#aco	60,{
 		mes "Então deverá seguir as exigências de Deus para isto.";
 		next;
 		mes "[Padre Mareusis]";
-		mes "Primeiro deverá ser Aprendiz, ter pelomenos nível 9 de Job e aprender todas habilidades básicas.";
+		mes "Primeiro deverá ser Aprendiz, ter pelo menos nível 9 de classe e aprender todas habilidades básicas.";
 		mes "Isto é o básico.";
 		next;
 		mes "[Padre Mareusis]";
-		mes "Quando conseguir os requisitos, volte aqui que irei torná-lo noviço.";
-		mes "E poderá para sempre espalhar a vontade de Deus.";
+		mes "Quando conseguir os requisitos, volte aqui que irei torná-lo noviço. E poderá para sempre espalhar a vontade de Deus.";
 		close;
 	case 3:
 		close;
@@ -120,7 +118,7 @@ prt_fild03,365,255,2	script	Ascetic#aco	89,{
 	mes "[Padre Rubalkabara]";
 	if (BaseJob == Job_Novice) {
 		if (job_acolyte_q == 6) {
-			mes "Por favor tome cuidado, já devem saber que nos conheçemos no Santuário de Prontera";
+			mes "Por favor tome cuidado, já devem saber que nos conhecemos no Santuário de Prontera";
 			next;
 			mes "[Padre Rubalkabara]";
 			mes "Enviei um pombo correio, espero que a mensagem chegue com segurança.";
@@ -128,12 +126,10 @@ prt_fild03,365,255,2	script	Ascetic#aco	89,{
 		}
 		if (job_acolyte_q != 0) {
 			if (job_acolyte_q == 2) {
-				mes "Ahhh... é você.";
-				mes "Aquele aspirante à noviço que me falaram...";
+				mes "Oh...? é você aquele aspirante à noviço que me falaram... Eu recebi notícias do Santuário de que você estaria vindo.";
 				next;
 				mes "[Padre Rubalkabara]";
-				mes "Se me lembro bem eu nome era " + strcharinfo(0) + ", certo?";
-				mes "Ótimo, obrigado por me procurar.";
+				mes "Se me lembro bem eu nome era " + strcharinfo(0) + ", certo? Ótimo, obrigado por me procurar.";
 				next;
 				mes "[Padre Rubalkabara]";
 				mes "Acredito que deve ter ouvido falar dos Noviços de Friar Mareusis. Tem muitas pessoas úteis no Santuário de Prontera.";
@@ -142,12 +138,10 @@ prt_fild03,365,255,2	script	Ascetic#aco	89,{
 				mes "Realmente acho que não preciso te ensinar muito. Além de que, tenho certeza que algum jovem da sua idade terá problemas de ouvir um velho como eu.";
 				next;
 				mes "[Padre Rubalkabara]";
-				mes "Ainda assim, as lições vem de onde menos esperamos. Deus ama ensinar seus filhos de maneiras estranhas.";
-				mes "Você verá!";
+				mes "Ainda assim, as lições vem de onde menos esperamos. Deus ama ensinar seus filhos de maneiras estranhas. Você verá!";
 				next;
 				mes "[Padre Rubalkabara]";
-				mes "Irei informar que recebi sua visita.";
-				mes "Agora pode retornar ao Santuário de Prontera.";
+				mes "Irei informar que recebi sua visita. Agora pode retornar ao Santuário de Prontera.";
 				next;
 				mes "[Padre Rubalkabara]";
 				mes "Até.";
@@ -165,11 +159,10 @@ prt_fild03,365,255,2	script	Ascetic#aco	89,{
 				mes "[Padre Rubalkabara]";
 				mes "Você é o " + strcharinfo(0) + "?";
 				mes "Eu acho que seu nome não está";
-				mes "em minha lista...";
+				mes "em minha lista. Hmmm...";
 				next;
 				mes "[Padre Rubalkabara]";
-				mes "Volte ao Santuário de Prontera e verifique novamente";
-				mes "Ok?";
+				mes "Volte ao Santuário de Prontera e verifique novamente ok?";
 				close;
 			}
 		}
@@ -184,8 +177,7 @@ prt_fild03,365,255,2	script	Ascetic#aco	89,{
 			mes "Saudações.";
 			next;
 			mes "[Padre Rubalkabara]";
-			mes "Bem vindo ao Abismo, fique a vontade para contemplar a mensagem de Deus comigo, este lugar é lindo";
-			mes "Mesmo que o perigo acompanhe seu senso de serenidade.";
+			mes "Bem vindo ao Abismo, fique a vontade para contemplar a mensagem de Deus comigo, este lugar é lindo. Mesmo que o perigo acompanhe seu senso de serenidade.";
 			close;
 		}
 		else {
@@ -211,18 +203,13 @@ moc_fild07,41,355,4	script	Ascetic#2aco	95,{
 		}
 		if (job_acolyte_q != 0) {
 			if (job_acolyte_q == 3) {
-				mes "Ah, você é um dos canditatos a noviço";
-				mes "Seja bem vindo.";
+				mes "Ah, você é um dos candidatos a noviço. Seja bem vindo.";
 				next;
 				mes "[Madre Mathilda]";
-				mes "Qual seu nome?";
-                mes " - " + strcharinfo(0) + "";
-                mes "Deixe-me ver...";
-				next;
-				mes "Ah sim, está aqui na minha lista !";
+				mes "Qual seu nome? " + strcharinfo(0) + "? Deixe-me ver... Ah sim, está aqui na minha lista !";
 				next;
 				mes "[Madre Mathilda]";
-				mes "Vou mandar uma mensagem ao Santuário informando que " + strcharinfo(0) + " me visitou e completou sua penitência.";
+				mes "Vou mandar uma mensagem ao Santuário informando que você, " + strcharinfo(0) + " me visitou e completou sua penitência.";
 				next;
 				mes "[Madre Mathilda]";
 				mes "Por favor, retorne ao Santuário de Prontera e fale com o Padre responsável.";
@@ -233,18 +220,18 @@ moc_fild07,41,355,4	script	Ascetic#2aco	95,{
 			}
 			else {
 				mes "Ah...!";
-				mes "Você deve ser um dos canditatos a se tornar Noviço.";
+				mes "Você deve ser um dos";
+				mes "candidatos a se tornar Noviço.";
 				mes "Seja bem vindo.";
 				next;
 				mes "[Madre Mathilda]";
 				mes "Qual o seu nome?";
-				mes " - " + strcharinfo(0) + "";
-                mes "Deixe-me ver...";
+				mes "" + strcharinfo(0) + "? Deixe-me ver...";
 				next;
 				mes "[Madre Mathilda]";
 				mes "Hmm...";
-				next;
-				mes "Parece que seu nome não está em minha lista.";
+				mes "Parece que seu nome";
+				mes "não está em minha lista.";
 				next;
 				mes "[Madre Mathilda]";
 				mes "Você deve voltar ao Santuário de Prontera e verificar sua penitência novamente.";
@@ -266,7 +253,8 @@ moc_fild07,41,355,4	script	Ascetic#2aco	95,{
 			close;
 		}
 		else {
-			mes "Que Deus esteja sempre com você.";
+			mes "Que Deus";
+			mes "esteja sempre com você.";
 			close;
 		}
 	}
@@ -279,18 +267,19 @@ prt_fild00,208,218,6	script	Ascetic#3aco	98,{
 			mes "O que?";
 			next;
 			mes "[Padre Yosuke]";
-			mes "Você tem mais negócios comigo? Claro que não!!";
-			mes "Volte para o Santuário agora mesmo!";
+			mes "Você tem mais negócios comigo? Claro que não?! Volte para o Santuário agora mesmo!";
 			close;
 		}
 		if (job_acolyte_q != 0) {
 			if (job_acolyte_q == 4) {
-				mes "Hey.";
-				mes "Parece que você é um candidato à Noviço.";
+				mes "Ei.";
+				mes "Parece que você";
+				mes "é um candidato";
+				mes "à Noviço.";
 				mes "Certo?";
 				next;
 				mes "[Padre Yosuke]";
-				mes "Nada mal, resistiu muito bem ao julgamenteo da penitência.";
+				mes "Nada mal, resistiu muito bem ao julgamento da penitência.";
 				mes "Qual o seu nome meu jovem?";
 				next;
 				mes "[Padre Yosuke]";
@@ -311,24 +300,21 @@ prt_fild00,208,218,6	script	Ascetic#3aco	98,{
 				mes "Você parece ser um candidato à Noviço.";
 				next;
 				mes "[Padre Yosuke]";
-				mes "Nada mal, chegou até aqui vindo de Prontera.";
-				mes "Qual o seu nome meu jovem?";
+				mes "Nada mal, chegou até aqui vindo de Prontera. Qual o seu nome meu jovem?";
 				next;
 				mes "[Padre Yosuke]";
-				mes " - " + strcharinfo(0) + "";
+				mes "" + strcharinfo(0) + " AAHN? Por que seu nome não está na minha lista?";
 				next;
 				mes "[Padre Yosuke]";
-				mes "AAHN ?";
-				mes "Por que seu nome não está na minha lista?";
-				next;
-				mes "[Padre Yosuke]";
-				mes "Você provávelmente cometeu um erro.";
-				mes "Volte ao Santuário e cheque com o Bispo.";
+				mes "Você provávelmente cometeu um erro. Volte ao Santuário e cheque com o Bispo.";
 				close;
 			}
 		}
 		else {
-			mes "Você novato, tem algo para me contar?";
+			mes "Você...";
+			mes "Novato,";
+			mes "tem algo";
+			mes "para me contar?";
 			close;
 		}
 	}
@@ -338,8 +324,7 @@ prt_fild00,208,218,6	script	Ascetic#3aco	98,{
 			mes "Hey...";
 			next;
 			mes "[Padre Yosuke]";
-			mes "Se você gosta, venha aqui comigo meditar as grandes verdades.";
-			mes "A grandiosidade de Deus é inspiradora.";
+			mes "Se você gosta, venha aqui comigo meditar as grandes verdades. A grandiosidade de Deus é inspiradora.";
 			close;
 		}
 		else {
